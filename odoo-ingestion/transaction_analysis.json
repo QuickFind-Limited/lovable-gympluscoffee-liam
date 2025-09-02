@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "generated_date": "2025-08-10T02:59:00.057916",
+    "generator_version": "1.0.0",
+    "total_transactions": 65000,
+    "generator_agent": "transaction_generator",
+    "coordination_session": "gym_coffee_retail_data"
+  },
+  "summary_statistics": {
+    "total_orders": 65000,
+    "total_revenue": 3742632512.89,
+    "average_order_value": 57578.96,
+    "channel_breakdown": {
+      "online": {
+        "count": 38948,
+        "revenue": 178608186.00310296,
+        "percentage": 59.919999999999995
+      },
+      "b2b": {
+        "count": 13053,
+        "revenue": 3503207067.54181,
+        "percentage": 20.08153846153846
+      },
+      "retail": {
+        "count": 12999,
+        "revenue": 60817259.34232095,
+        "percentage": 19.998461538461537
+      }
+    },
+    "aov_by_channel": {
+      "online": 4585.811492325741,
+      "b2b": 268383.2887107799,
+      "retail": 4678.610611764055
+    },
+    "return_analysis": {
+      "total_returns": 10233,
+      "return_rate_percent": 15.74,
+      "return_value": 67231746.2
+    }
+  },
+  "total_transactions": 65000,
+  "sample_transaction": {
+    "order_id": "GC25081014763",
+    "order_date": "2024-11-24",
+    "order_time": "17:02:59",
+    "channel": "online",
+    "customer_id": 10,
+    "customer_name": "Website Test Company",
+    "customer_email": "contact@websitetest.com",
+    "customer_type": "company",
+    "billing_address": {
+      "name": "Website Test Company",
+      "street": "123 Main Street",
+      "city": "Dublin",
+      "zip": "D02 XY00",
+      "country": "Ireland",
+      "phone": "+353 1 234 5678"
+    },
+    "shipping_address": {
+      "name": "Website Test Company",
+      "street": "123 Main Street",
+      "city": "Dublin",
+      "zip": "D02 XY00",
+      "country": "Ireland",
+      "phone": "+353 1 234 5678"
+    },
+    "order_lines": [
+      {
+        "sku": "GC10012-BLK-S",
+        "product_name": "Missing Cost Product",
+        "quantity": 1,
+        "unit_price": 30.0,
+        "line_total": 30.0,
+        "discount_percent": 0.0,
+        "discount_amount": 0.0,
+        "category": "t-shirts"
+      }
+    ],
+    "subtotal": 30.0,
+    "tax_rate": 0.23,
+    "tax_amount": 6.9,
+    "shipping_cost": 9.95,
+    "total_amount": 46.849999999999994,
+    "payment": {
+      "method": "credit_card",
+      "last_four": "6481",
+      "processor": "Stripe",
+      "transaction_fee": 1.65865
+    },
+    "shipping": {
+      "method": "standard_shipping",
+      "cost": 9.95,
+      "carrier": "DHL",
+      "tracking_number": "GC985589661",
+      "estimated_delivery": "2025-08-15"
+    },
+    "status": "delivered",
+    "fulfillment_status": "completed",
+    "store_location": "",
+    "sales_rep": "",
+    "return_info": null,
+    "created_by": "system",
+    "source": "transaction_generator"
+  },
+  "channels": {
+    "online": 589,
+    "b2b": 216,
+    "retail": 195
+  },
+  "date_range": {
+    "earliest": "2024-01-01",
+    "latest": "2024-12-31"
+  }
+}

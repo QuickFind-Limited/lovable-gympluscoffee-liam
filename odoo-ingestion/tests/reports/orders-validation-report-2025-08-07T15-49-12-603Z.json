@@ -1,0 +1,324 @@
+{
+  "stats": {
+    "totalRecords": 8,
+    "validRecords": 2,
+    "invalidRecords": 6,
+    "errorCount": 32,
+    "warningCount": 8,
+    "successRate": 25,
+    "duration": 6
+  },
+  "errors": [
+    {
+      "type": "error",
+      "field": "notes",
+      "message": "Field is required",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_total",
+      "message": "Amount total inconsistency. Untaxed: 600, Tax: 60, Total: 700",
+      "value": 700,
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "notes",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "state",
+      "message": "Field must be one of: draft, sent, to approve, purchase, done, cancel",
+      "value": "invalid_state",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_total",
+      "message": "Field must be at least 0",
+      "value": -125,
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "/state",
+      "message": "must be equal to one of the allowed values",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "/order_line/0/product_qty",
+      "message": "must be >= 0",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "state",
+      "message": "Invalid selection value. Allowed: draft, sent, to approve, purchase, done, cancel",
+      "value": "invalid_state",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "order_line[0].product_qty",
+      "message": "Order line 1 has invalid quantity",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "state",
+      "message": "Invalid order state. Must be one of: draft, sent, to approve, purchase, done, cancel",
+      "value": "invalid_state",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "order_line[0].product_qty",
+      "message": "Field must be positive",
+      "value": -5,
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "partner_id",
+      "message": "Partner ID must be in [id, name] format",
+      "value": "invalid-format",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "date_order",
+      "message": "Invalid date format",
+      "value": "invalid-date",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "notes",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "order_line",
+      "message": "Array must have at least 1 items",
+      "value": [],
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "/partner_id",
+      "message": "must be array",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "/date_order",
+      "message": "must match format \"date-time\"",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "order_line",
+      "message": "Purchase order must have at least one order line",
+      "value": [],
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "order_line",
+      "message": "Order must have at least one order line",
+      "value": [],
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "notes",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "error",
+      "field": "notes",
+      "message": "Field is required",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "error",
+      "field": "notes",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "error",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "warning",
+      "field": "amount_total",
+      "message": "Suspiciously round total amount",
+      "value": 700,
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "warning",
+      "field": "date_planned",
+      "message": "Planned date cannot be before order date",
+      "value": "2024-01-01T10:00:00Z",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "warning",
+      "field": "amount_total",
+      "message": "Order total is very low - may not meet minimum requirements",
+      "value": -125,
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.599Z"
+    },
+    {
+      "type": "warning",
+      "field": "amount_total",
+      "message": "Suspiciously round total amount",
+      "value": 75000,
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "warning",
+      "field": "order_line[0].price_unit",
+      "message": "Single very expensive item - please verify",
+      "value": 75000,
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "warning",
+      "field": "order_line[1].product_id",
+      "message": "Duplicate product in order lines",
+      "value": [
+        1,
+        "Test Product"
+      ],
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "warning",
+      "field": "order_line[0].product_qty",
+      "message": "Order line 1 has suspicious fractional quantity: 0.1",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    },
+    {
+      "type": "warning",
+      "field": "amount_total",
+      "message": "Suspiciously round total amount",
+      "value": 1100,
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    }
+  ],
+  "infos": [
+    {
+      "type": "info",
+      "message": "Starting batch validation of 8 records",
+      "context": null,
+      "timestamp": "2025-08-07T15:49:12.598Z"
+    }
+  ]
+}

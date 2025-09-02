@@ -1,0 +1,227 @@
+{
+  "dataset_name": "Test Order Dataset",
+  "version": "1.0.0-test",
+  "generated_date": "2025-08-07T15:49:12.544Z",
+  "total_orders": 8,
+  "orders": [
+    {
+      "id": 1,
+      "name": "PO00001",
+      "partner_id": [
+        1,
+        "Test Company Ltd."
+      ],
+      "date_order": "2024-01-15T10:00:00Z",
+      "date_planned": "2024-01-25T10:00:00Z",
+      "state": "draft",
+      "currency_id": [
+        1,
+        "USD"
+      ],
+      "company_id": [
+        1,
+        "Test Company"
+      ],
+      "order_line": [
+        {
+          "product_id": [
+            1,
+            "Test Product 1"
+          ],
+          "name": "Test Product 1 - Large",
+          "product_qty": 10,
+          "product_uom": [
+            1,
+            "Units"
+          ],
+          "price_unit": 25,
+          "date_planned": "2024-01-25T10:00:00Z"
+        },
+        {
+          "product_id": [
+            2,
+            "Test Product 2"
+          ],
+          "name": "Test Product 2 - Medium",
+          "product_qty": 5,
+          "product_uom": [
+            1,
+            "Units"
+          ],
+          "price_unit": 50,
+          "date_planned": "2024-01-25T10:00:00Z"
+        }
+      ],
+      "amount_untaxed": 500,
+      "amount_tax": 50,
+      "amount_total": 550,
+      "notes": "Standard test order with valid data"
+    },
+    {
+      "id": 2,
+      "name": "PO00002",
+      "partner_id": [
+        2,
+        "Test Supplier"
+      ],
+      "date_order": "2024-01-20T10:00:00Z",
+      "state": "purchase",
+      "order_line": [
+        {
+          "product_id": [
+            1,
+            "Test Product 1"
+          ],
+          "name": "Test Product 1",
+          "product_qty": 20,
+          "price_unit": 30
+        }
+      ],
+      "amount_untaxed": 600,
+      "amount_tax": 60,
+      "amount_total": 700
+    },
+    {
+      "id": 3,
+      "name": "PO00003",
+      "partner_id": [
+        3,
+        "Future Supplier"
+      ],
+      "date_order": "2025-06-01T10:00:00Z",
+      "date_planned": "2024-01-01T10:00:00Z",
+      "state": "invalid_state",
+      "order_line": [
+        {
+          "product_id": [
+            1,
+            "Test Product"
+          ],
+          "name": "Test Product",
+          "product_qty": -5,
+          "price_unit": 25
+        }
+      ],
+      "amount_total": -125
+    },
+    {
+      "id": 4,
+      "name": "PO00004",
+      "partner_id": "invalid-format",
+      "date_order": "invalid-date",
+      "state": "draft",
+      "order_line": [],
+      "amount_total": 0
+    },
+    {
+      "id": 5,
+      "name": "PO00005",
+      "partner_id": [
+        4,
+        "High Value Supplier"
+      ],
+      "date_order": "2024-01-10T10:00:00Z",
+      "state": "purchase",
+      "order_line": [
+        {
+          "product_id": [
+            10,
+            "Expensive Product"
+          ],
+          "name": "Very Expensive Product",
+          "product_qty": 1,
+          "price_unit": 75000
+        }
+      ],
+      "amount_total": 75000
+    },
+    {
+      "id": 6,
+      "name": "PO00006",
+      "partner_id": [
+        5,
+        "Duplicate Product Supplier"
+      ],
+      "date_order": "2024-01-12T10:00:00Z",
+      "state": "draft",
+      "order_line": [
+        {
+          "product_id": [
+            1,
+            "Test Product"
+          ],
+          "name": "Test Product",
+          "product_qty": 5,
+          "price_unit": 20
+        },
+        {
+          "product_id": [
+            1,
+            "Test Product"
+          ],
+          "name": "Test Product - Different Description",
+          "product_qty": 3,
+          "price_unit": 25
+        }
+      ],
+      "amount_total": 175
+    },
+    {
+      "id": 7,
+      "name": "PO00007",
+      "partner_id": [
+        6,
+        "Quantity Issue Supplier"
+      ],
+      "date_order": "2024-01-14T10:00:00Z",
+      "state": "done",
+      "date_planned": "2024-02-01T10:00:00Z",
+      "order_line": [
+        {
+          "product_id": [
+            5,
+            "Fractional Product"
+          ],
+          "name": "Product with fractional quantity",
+          "product_qty": 0.1,
+          "price_unit": 100
+        },
+        {
+          "product_id": [
+            6,
+            "High Quantity Product"
+          ],
+          "name": "Product with high quantity",
+          "product_qty": 50000,
+          "price_unit": 1
+        }
+      ],
+      "amount_total": 50010
+    },
+    {
+      "id": 8,
+      "name": "PO00008",
+      "partner_id": [
+        7,
+        "Round Numbers Supplier"
+      ],
+      "date_order": "2024-01-16T10:00:00Z",
+      "state": "purchase",
+      "order_line": [
+        {
+          "product_id": [
+            7,
+            "Round Number Product"
+          ],
+          "name": "Product with round numbers",
+          "product_qty": 10,
+          "price_unit": 100
+        }
+      ],
+      "amount_untaxed": 1000,
+      "amount_tax": 100,
+      "amount_total": 1100,
+      "notes": "Order with suspiciously round numbers throughout"
+    }
+  ]
+}

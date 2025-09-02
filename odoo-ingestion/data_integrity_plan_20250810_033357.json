@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-08-10T03:33:57.970296",
+  "duration": "0:00:00.004400",
+  "status": "Template executed successfully",
+  "note": "This is a template script. Actual checks would be performed using MCP tools in Claude Code environment.",
+  "planned_checks": [
+    "Customer duplicate detection and merging",
+    "Order-customer relationship validation",
+    "Product pricing validation and fixes",
+    "Order line orphan detection and cleanup",
+    "Inventory negative value corrections",
+    "Return order linkage validation",
+    "Date range validation and correction",
+    "Referential integrity verification"
+  ],
+  "automated_fixes": [
+    "Create default customer for orphaned orders",
+    "Set reasonable default prices for invalid products",
+    "Remove orphaned order lines",
+    "Correct negative inventory levels",
+    "Merge duplicate customers",
+    "Fix invalid order dates",
+    "Update missing product references"
+  ]
+}

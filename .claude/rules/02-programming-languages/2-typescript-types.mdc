@@ -1,0 +1,36 @@
+---
+
+description: TypeScript development rules including type safety, validation patterns, and file organization for frontend applications
+globs: ["frontend/**/*.{ts,tsx}"]
+alwaysApply: true
+
+---
+
+Type Safety:
+
+- Type everything, never use any
+- "@ts-expect-error" instead of "@ts-ignore" ok if already used
+- Never generate `any`, `@ts-expect-error`, `@ts-ignore`
+- Missing type definition? Ask user
+
+Validation:
+
+- Use Zod only for validation
+- Create types with `z.infer<typeof schema>`
+- Export types using Zod infer
+
+File Organization:
+
+- Put types in `<feature>/types/` folder
+- Example: @frontend/src/features/users/types/user.types.ts
+
+```typescript
+// users/types/user.types.ts
+export const UserSchema = z.object({
+  id: z.string(),
+  email: z.string().email(),
+  name: z.string()
+});
+
+export type User = z.infer<typeof UserSchema>;
+```

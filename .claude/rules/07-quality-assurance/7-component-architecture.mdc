@@ -1,0 +1,14 @@
+---
+
+description: Component architecture principles emphasizing separation of concerns between UI rendering and business logic through proper hook usage
+globs: ["frontend/**/*.{ts,tsx}"]
+alwaysApply: false
+
+---
+
+Component Architecture:
+
+- Components are dumb, only render UI
+- Logic in hooks for state
+- Extract all top-level variables from component
+- Variables only for rendering, view, UI, URLs

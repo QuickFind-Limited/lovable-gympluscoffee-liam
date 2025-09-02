@@ -1,0 +1,30 @@
+---
+
+description: Next.js Server Actions patterns for data mutations and form handling with proper validation and domain organization
+globs: ["frontend/**/*.{ts,tsx}"]
+alwaysApply: false
+
+---
+
+Server Actions:
+
+- Use `'use server'` in domain files
+- Validate form submission data correctly
+- Use `next/form` with `useActionState` and Radix Themes
+
+```typescript
+'use server';
+
+export async function createUser(formData: FormData) {
+  const validatedFields = UserSchema.safeParse({
+    name: formData.get('name'),
+    email: formData.get('email'),
+  });
+
+  if (!validatedFields.success) {
+    return { error: 'Invalid fields' };
+  }
+
+  // API call logic here
+}
+```

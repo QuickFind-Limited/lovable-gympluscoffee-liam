@@ -1,0 +1,295 @@
+{
+  "validation_date": "2025-08-10T03:38:10.997990",
+  "validation_results": {},
+  "fixes_applied": [
+    "Assigned channels to 3 orders",
+    "Assigned countries to 3 customers",
+    "Created minimal sales for 1 products"
+  ],
+  "manual_interventions": [],
+  "compliance_summary": {
+    "total_checks": 5,
+    "passed_checks": 0,
+    "compliance_percentage": 0.0
+  },
+  "initial_validation": {
+    "channel_distribution": {
+      "status": "fail",
+      "compliant": false,
+      "current_distribution": {
+        "D2C": 12.611198325484041,
+        "Retail": 8.895866038723181,
+        "B2B": 78.49293563579278
+      },
+      "issues": [
+        {
+          "channel": "D2C",
+          "actual": 12.611198325484041,
+          "expected": 60,
+          "variance": 47.38880167451596,
+          "status": "FAIL"
+        },
+        {
+          "channel": "Retail",
+          "actual": 8.895866038723181,
+          "expected": 20,
+          "variance": 11.104133961276819,
+          "status": "FAIL"
+        },
+        {
+          "channel": "B2B",
+          "actual": 78.49293563579278,
+          "expected": 20,
+          "variance": 58.492935635792776,
+          "status": "FAIL"
+        }
+      ],
+      "total_orders": 3,
+      "total_revenue": 955.5
+    },
+    "geographic_distribution": {
+      "status": "fail",
+      "compliant": false,
+      "current_distribution": {
+        "GB": 33.33333333333333,
+        "US": 33.33333333333333,
+        "AU": 33.33333333333333
+      },
+      "issues": [
+        {
+          "country": "GB",
+          "actual": 33.33333333333333,
+          "expected": 50,
+          "variance": 16.66666666666667,
+          "status": "FAIL"
+        },
+        {
+          "country": "US",
+          "actual": 33.33333333333333,
+          "expected": 20,
+          "variance": 13.333333333333329,
+          "status": "FAIL"
+        },
+        {
+          "country": "AU",
+          "actual": 33.33333333333333,
+          "expected": 20,
+          "variance": 13.333333333333329,
+          "status": "FAIL"
+        },
+        {
+          "country": "IE",
+          "actual": 0,
+          "expected": 10,
+          "variance": 10,
+          "status": "FAIL"
+        }
+      ],
+      "total_customers": 3
+    },
+    "product_coverage": {
+      "status": "fail",
+      "compliant": false,
+      "coverage_percentage": 66.66666666666666,
+      "total_products": 3,
+      "products_with_sales": 2,
+      "products_without_sales": 1,
+      "products_without_sales_list": [
+        {
+          "id": 3,
+          "name": "Product C",
+          "default_code": "PROD003",
+          "list_price": 60.0,
+          "active": true,
+          "sale_ok": true
+        }
+      ]
+    },
+    "revenue_distribution": {
+      "status": "fail",
+      "compliant": false,
+      "top_20_percentage": 77.46478873239437,
+      "target_min": 60,
+      "target_max": 75,
+      "total_products": 2,
+      "top_20_count": 1,
+      "total_revenue": 355.0
+    },
+    "aov_ranges": {
+      "status": "fail",
+      "compliant": false,
+      "channel_aov": {
+        "D2C": 120.5,
+        "Retail": 85.0,
+        "B2B": 750.0
+      },
+      "issues": [
+        {
+          "channel": "D2C",
+          "actual_aov": 120.5,
+          "target_min": 90,
+          "target_max": 120,
+          "status": "FAIL",
+          "order_count": 1
+        },
+        {
+          "channel": "Retail",
+          "actual_aov": 85.0,
+          "target_min": 70,
+          "target_max": 100,
+          "status": "PASS",
+          "order_count": 1
+        },
+        {
+          "channel": "B2B",
+          "actual_aov": 750.0,
+          "target_min": 500,
+          "target_max": 2500,
+          "status": "PASS",
+          "order_count": 1
+        }
+      ],
+      "total_orders": 3
+    }
+  },
+  "final_validation": {
+    "channel_distribution": {
+      "status": "fail",
+      "compliant": false,
+      "current_distribution": {
+        "D2C": 12.611198325484041,
+        "Retail": 8.895866038723181,
+        "B2B": 78.49293563579278
+      },
+      "issues": [
+        {
+          "channel": "D2C",
+          "actual": 12.611198325484041,
+          "expected": 60,
+          "variance": 47.38880167451596,
+          "status": "FAIL"
+        },
+        {
+          "channel": "Retail",
+          "actual": 8.895866038723181,
+          "expected": 20,
+          "variance": 11.104133961276819,
+          "status": "FAIL"
+        },
+        {
+          "channel": "B2B",
+          "actual": 78.49293563579278,
+          "expected": 20,
+          "variance": 58.492935635792776,
+          "status": "FAIL"
+        }
+      ],
+      "total_orders": 3,
+      "total_revenue": 955.5
+    },
+    "geographic_distribution": {
+      "status": "fail",
+      "compliant": false,
+      "current_distribution": {
+        "GB": 33.33333333333333,
+        "US": 33.33333333333333,
+        "AU": 33.33333333333333
+      },
+      "issues": [
+        {
+          "country": "GB",
+          "actual": 33.33333333333333,
+          "expected": 50,
+          "variance": 16.66666666666667,
+          "status": "FAIL"
+        },
+        {
+          "country": "US",
+          "actual": 33.33333333333333,
+          "expected": 20,
+          "variance": 13.333333333333329,
+          "status": "FAIL"
+        },
+        {
+          "country": "AU",
+          "actual": 33.33333333333333,
+          "expected": 20,
+          "variance": 13.333333333333329,
+          "status": "FAIL"
+        },
+        {
+          "country": "IE",
+          "actual": 0,
+          "expected": 10,
+          "variance": 10,
+          "status": "FAIL"
+        }
+      ],
+      "total_customers": 3
+    },
+    "product_coverage": {
+      "status": "fail",
+      "compliant": false,
+      "coverage_percentage": 66.66666666666666,
+      "total_products": 3,
+      "products_with_sales": 2,
+      "products_without_sales": 1,
+      "products_without_sales_list": [
+        {
+          "id": 3,
+          "name": "Product C",
+          "default_code": "PROD003",
+          "list_price": 60.0,
+          "active": true,
+          "sale_ok": true
+        }
+      ]
+    },
+    "revenue_distribution": {
+      "status": "fail",
+      "compliant": false,
+      "top_20_percentage": 77.46478873239437,
+      "target_min": 60,
+      "target_max": 75,
+      "total_products": 2,
+      "top_20_count": 1,
+      "total_revenue": 355.0
+    },
+    "aov_ranges": {
+      "status": "fail",
+      "compliant": false,
+      "channel_aov": {
+        "D2C": 120.5,
+        "Retail": 85.0,
+        "B2B": 750.0
+      },
+      "issues": [
+        {
+          "channel": "D2C",
+          "actual_aov": 120.5,
+          "target_min": 90,
+          "target_max": 120,
+          "status": "FAIL",
+          "order_count": 1
+        },
+        {
+          "channel": "Retail",
+          "actual_aov": 85.0,
+          "target_min": 70,
+          "target_max": 100,
+          "status": "PASS",
+          "order_count": 1
+        },
+        {
+          "channel": "B2B",
+          "actual_aov": 750.0,
+          "target_min": 500,
+          "target_max": 2500,
+          "status": "PASS",
+          "order_count": 1
+        }
+      ],
+      "total_orders": 3
+    }
+  }
+}

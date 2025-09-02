@@ -1,0 +1,24 @@
+---
+
+description: State management patterns and best practices for React hooks including proper encapsulation and functional method exports
+globs: ["frontend/**/*.{ts,tsx}"]
+alwaysApply: false
+
+---
+
+State Management:
+
+- `useState` must be in hooks
+- Export functional methods, not setters
+- `useState` only for UI state, not data/business logic
+
+```typescript
+export function useDialog() {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const open = () => setIsOpen(true);
+  const close = () => setIsOpen(false);
+  
+  return { isOpen, open, close };
+}
+```

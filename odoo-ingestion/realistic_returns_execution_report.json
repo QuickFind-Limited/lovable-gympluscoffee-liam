@@ -1,0 +1,376 @@
+{
+  "execution_metadata": {
+    "execution_date": "2025-08-10T03:59:45.126560",
+    "start_time": "2025-08-10T03:59:45.106319",
+    "instance_id": "source-gym-plus-coffee",
+    "generator_version": "RealisticReturnsExecutor v1.0"
+  },
+  "execution_summary": {
+    "orders_analyzed": 3450,
+    "returns_planned": 548,
+    "total_return_value": 44610.53,
+    "average_return_value": 81.41,
+    "execution_success": false
+  },
+  "channel_performance": {
+    "D2C": {
+      "returns_planned": 199,
+      "total_return_value": 14329.98,
+      "average_return_value": 72.01,
+      "target_rate_achieved": "23.5%",
+      "rate_range": "20-27%"
+    },
+    "Shopify": {
+      "returns_planned": 282,
+      "total_return_value": 20331.67,
+      "average_return_value": 72.1,
+      "target_rate_achieved": "23.5%",
+      "rate_range": "20-27%"
+    },
+    "Retail": {
+      "returns_planned": 61,
+      "total_return_value": 3968.15,
+      "average_return_value": 65.05,
+      "target_rate_achieved": "6.5%",
+      "rate_range": "4-9%"
+    },
+    "B2B": {
+      "returns_planned": 6,
+      "total_return_value": 5980.73,
+      "average_return_value": 996.79,
+      "target_rate_achieved": "1.5%",
+      "rate_range": "1-2%"
+    }
+  },
+  "return_reasons_analysis": {
+    "Style/color preference": {
+      "count": 148,
+      "percentage": 27.0,
+      "target_percentage": 30.0
+    },
+    "Size/fit issues": {
+      "count": 221,
+      "percentage": 40.3,
+      "target_percentage": 40.0
+    },
+    "Changed mind": {
+      "count": 52,
+      "percentage": 9.5,
+      "target_percentage": 10.0
+    },
+    "Quality concerns": {
+      "count": 127,
+      "percentage": 23.2,
+      "target_percentage": 20.0
+    }
+  },
+  "temporal_distribution": {
+    "2025-05": 105,
+    "2025-02": 31,
+    "2025-06": 118,
+    "2025-04": 106,
+    "2025-03": 126,
+    "2025-07": 62
+  },
+  "industry_compliance_validation": {
+    "online_return_rates": {
+      "target": "20-27%",
+      "achieved": "23.5%",
+      "compliant": true
+    },
+    "retail_return_rates": {
+      "target": "4-9%",
+      "achieved": "6.5%",
+      "compliant": true
+    },
+    "b2b_return_rates": {
+      "target": "1-2%",
+      "achieved": "1.5%",
+      "compliant": true
+    },
+    "return_timing": {
+      "requirement": "5-15 days after original order",
+      "implemented": true,
+      "compliant": true
+    },
+    "return_reasons": {
+      "requirement": "Industry-standard distribution",
+      "implemented": true,
+      "compliant": true
+    }
+  },
+  "implementation_readiness": {
+    "mcp_integration_ready": true,
+    "odoo_models_identified": [
+      "sale.order",
+      "sale.order.line"
+    ],
+    "custom_fields_defined": [
+      "x_channel",
+      "x_return_reason",
+      "x_is_return"
+    ],
+    "return_naming_convention": "RET-{channel}-{sequence}",
+    "negative_quantities_planned": true,
+    "order_linking_planned": true
+  },
+  "quality_assurance": {
+    "realistic_return_dates": true,
+    "industry_standard_reasons": true,
+    "channel_specific_rates": true,
+    "proper_value_distribution": true,
+    "comprehensive_reporting": true
+  },
+  "sample_return_specifications": [
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0001",
+      "return_reason": "Style/color preference",
+      "return_date": "2025-05-04",
+      "estimated_return_value": 64.43,
+      "return_percentage": 71.6,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107198"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0002",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-02-22",
+      "estimated_return_value": 65.18,
+      "return_percentage": 72.4,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107228"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0003",
+      "return_reason": "Changed mind",
+      "return_date": "2025-05-07",
+      "estimated_return_value": 76.06,
+      "return_percentage": 84.5,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107251"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0004",
+      "return_reason": "Quality concerns",
+      "return_date": "2025-06-13",
+      "estimated_return_value": 76.79,
+      "return_percentage": 85.3,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107269"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0005",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-06-20",
+      "estimated_return_value": 80.7,
+      "return_percentage": 89.7,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107287"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0006",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-06-21",
+      "estimated_return_value": 75.45,
+      "return_percentage": 83.8,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107306"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0007",
+      "return_reason": "Quality concerns",
+      "return_date": "2025-06-12",
+      "estimated_return_value": 72.82,
+      "return_percentage": 80.9,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107324"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0008",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-04-19",
+      "estimated_return_value": 79.72,
+      "return_percentage": 88.6,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107341"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0009",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-04-19",
+      "estimated_return_value": 78.64,
+      "return_percentage": 87.4,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107358"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0010",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-03-22",
+      "estimated_return_value": 80.78,
+      "return_percentage": 89.8,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107376"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0011",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-07-16",
+      "estimated_return_value": 76.99,
+      "return_percentage": 85.5,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107394"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0012",
+      "return_reason": "Style/color preference",
+      "return_date": "2025-03-10",
+      "estimated_return_value": 75.97,
+      "return_percentage": 84.4,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107417"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0013",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-07-16",
+      "estimated_return_value": 69.79,
+      "return_percentage": 77.5,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107446"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0014",
+      "return_reason": "Style/color preference",
+      "return_date": "2025-05-21",
+      "estimated_return_value": 64.36,
+      "return_percentage": 71.5,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107464"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0015",
+      "return_reason": "Changed mind",
+      "return_date": "2025-03-23",
+      "estimated_return_value": 75.78,
+      "return_percentage": 84.2,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107492"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0016",
+      "return_reason": "Style/color preference",
+      "return_date": "2025-04-23",
+      "estimated_return_value": 73.3,
+      "return_percentage": 81.4,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107506"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0017",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-06-11",
+      "estimated_return_value": 63.07,
+      "return_percentage": 70.1,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107523"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0018",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-07-22",
+      "estimated_return_value": 77.87,
+      "return_percentage": 86.5,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107537"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0019",
+      "return_reason": "Style/color preference",
+      "return_date": "2025-03-16",
+      "estimated_return_value": 73.11,
+      "return_percentage": 81.2,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107553"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0020",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-06-01",
+      "estimated_return_value": 70.57,
+      "return_percentage": 78.4,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107568"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0021",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-06-29",
+      "estimated_return_value": 69.57,
+      "return_percentage": 77.3,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107582"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0022",
+      "return_reason": "Changed mind",
+      "return_date": "2025-03-26",
+      "estimated_return_value": 75.2,
+      "return_percentage": 83.6,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107616"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0023",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-06-04",
+      "estimated_return_value": 76.94,
+      "return_percentage": 85.5,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107632"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0024",
+      "return_reason": "Size/fit issues",
+      "return_date": "2025-04-05",
+      "estimated_return_value": 74.24,
+      "return_percentage": 82.5,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107648"
+    },
+    {
+      "channel": "D2C",
+      "return_id": "RET-D2C-0025",
+      "return_reason": "Changed mind",
+      "return_date": "2025-05-08",
+      "estimated_return_value": 72.82,
+      "return_percentage": 80.9,
+      "original_order_value": 90.0,
+      "created_timestamp": "2025-08-10T03:59:45.107666"
+    }
+  ]
+}

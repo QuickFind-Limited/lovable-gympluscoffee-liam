@@ -1,0 +1,22 @@
+{
+  "GC10000-BLA-L": 5,
+  "GC10000-BLA-M": 4,
+  "GC10000-BLA-S": 3,
+  "GC10000-BLA-XL": 6,
+  "GC10000-BLA-XS": 2,
+  "GC10000-BLA-XXL": 7,
+  "GC10000-BLU-L": 25,
+  "GC10000-BLU-M": 24,
+  "GC10001-BLA-M": 5,
+  "GC10011-YEL-L": 4,
+  "GC10008-BLA-XXXL": 3,
+  "GC10010-BLU-M": 6,
+  "GC10013-PUR-M": 2,
+  "GC10007-RED-S": 7,
+  "invalid-sku-format": 25,
+  "GC10007-BLA-XS": 24,
+  "GC10012-BLK-S": 23,
+  "GC10002-RED-L": 26,
+  "GC10006-WHT-M": 22,
+  "GC10009-PNK-ONE": 27
+}

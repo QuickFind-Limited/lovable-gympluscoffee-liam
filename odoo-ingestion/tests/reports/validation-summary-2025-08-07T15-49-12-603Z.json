@@ -1,0 +1,1835 @@
+{
+  "generated_at": "2025-08-07T15:49:12.602Z",
+  "pipeline_version": "1.0.0",
+  "test_environment": "integration",
+  "overall_results": {
+    "total_records_processed": 47,
+    "total_errors": 268,
+    "total_warnings": 56,
+    "success_rate": 8.51063829787234
+  },
+  "validator_results": {
+    "products": {
+      "total_records": 15,
+      "valid_records": 2,
+      "invalid_records": 13,
+      "error_count": 85,
+      "warning_count": 20,
+      "success_rate": 13.333333333333334,
+      "duration_ms": 12
+    },
+    "customers": {
+      "total_records": 12,
+      "valid_records": 0,
+      "invalid_records": 12,
+      "error_count": 111,
+      "warning_count": 23,
+      "success_rate": 0,
+      "duration_ms": 8
+    },
+    "orders": {
+      "total_records": 8,
+      "valid_records": 2,
+      "invalid_records": 6,
+      "error_count": 32,
+      "warning_count": 8,
+      "success_rate": 25,
+      "duration_ms": 4
+    },
+    "inventory": {
+      "total_records": 12,
+      "valid_records": 0,
+      "invalid_records": 12,
+      "error_count": 40,
+      "warning_count": 5,
+      "success_rate": 0,
+      "duration_ms": 2
+    }
+  },
+  "critical_issues": [
+    {
+      "validator": "products",
+      "field": "sku",
+      "message": "Field does not match required pattern",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "description",
+      "message": "Field must be at least 10 characters",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field must be at least 0",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "sku",
+      "message": "SKU should follow format: PREFIX-IDENTIFIER (e.g., GC10000-BLA-XS)",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Inventory levels must be non-negative",
+      "record_id": "invalid-sku-format"
+    },
+    {
+      "validator": "products",
+      "field": "name",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "name",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "list_price",
+      "message": "Field must be positive",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "standard_cost",
+      "message": "Field must be positive",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "/name",
+      "message": "must NOT have fewer than 1 characters",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "category",
+      "message": "Category must be one of: sports-bras, joggers, t-shirts, accessories, shorts, hoodies, jackets, tops, beanies, leggings",
+      "record_id": "GC10004-BLU-XS"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "list_price",
+      "message": "Field must be a number",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field must be a number",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "/list_price",
+      "message": "must be number",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Inventory levels must be non-negative",
+      "record_id": "GC10005-GRN-S"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10006-WHT-M"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10006-WHT-M"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10006-WHT-M"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10006-WHT-M"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10001-BLA-M"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10001-BLA-M"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10001-BLA-M"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10001-BLA-M"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10001-BLA-M"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10001-BLA-M"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10007-BLA-XS"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10007-BLA-XS"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10007-BLA-XS"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10007-BLA-XS"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10007-BLA-XS"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10007-BLA-XS"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10007-RED-S"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10007-RED-S"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10007-RED-S"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10007-RED-S"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10007-RED-S"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10007-RED-S"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10008-BLA-XXXL"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10008-BLA-XXXL"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10008-BLA-XXXL"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10008-BLA-XXXL"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10009-PNK-ONE"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10009-PNK-ONE"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10009-PNK-ONE"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10009-PNK-ONE"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10009-PNK-ONE"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10010-BLU-M"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10010-BLU-M"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10010-BLU-M"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10010-BLU-M"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10010-BLU-M"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10010-BLU-M"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10011-YEL-L"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10011-YEL-L"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10011-YEL-L"
+    },
+    {
+      "validator": "products",
+      "field": "description",
+      "message": "Field must be no more than 2000 characters",
+      "record_id": "GC10011-YEL-L"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10011-YEL-L"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10011-YEL-L"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10011-YEL-L"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10012-BLK-S"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10012-BLK-S"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10012-BLK-S"
+    },
+    {
+      "validator": "products",
+      "field": "standard_cost",
+      "message": "Field is required",
+      "record_id": "GC10012-BLK-S"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10012-BLK-S"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10012-BLK-S"
+    },
+    {
+      "validator": "products",
+      "field": "subcategory",
+      "message": "Field is required",
+      "record_id": "GC10013-PUR-M"
+    },
+    {
+      "validator": "products",
+      "field": "color",
+      "message": "Field is required",
+      "record_id": "GC10013-PUR-M"
+    },
+    {
+      "validator": "products",
+      "field": "size",
+      "message": "Field is required",
+      "record_id": "GC10013-PUR-M"
+    },
+    {
+      "validator": "products",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "record_id": "GC10013-PUR-M"
+    },
+    {
+      "validator": "products",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "record_id": "GC10013-PUR-M"
+    },
+    {
+      "validator": "products",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "record_id": "GC10013-PUR-M"
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 1
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 1
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 1
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 1
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 2
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 2
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 2
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 2
+    },
+    {
+      "validator": "customers",
+      "field": "email",
+      "message": "Invalid email format",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "/email",
+      "message": "must match format \"email\"",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "email",
+      "message": "Invalid email format",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "customer_rank",
+      "message": "Partner must be either a customer or supplier (or both)",
+      "record_id": 3
+    },
+    {
+      "validator": "customers",
+      "field": "name",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "name",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "phone",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "/name",
+      "message": "must NOT have fewer than 1 characters",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 4
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 5
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 6
+    },
+    {
+      "validator": "customers",
+      "field": "phone",
+      "message": "Field is required",
+      "record_id": 6
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 6
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 6
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 6
+    },
+    {
+      "validator": "customers",
+      "field": "email",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "email",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "phone",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "/email",
+      "message": "must match format \"email\"",
+      "record_id": 7
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "phone",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 8
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "phone",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "customer_rank",
+      "message": "Field must be at least 0",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "/customer_rank",
+      "message": "must be >= 0",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "customer_rank",
+      "message": "Customer and supplier ranks must be non-negative",
+      "record_id": 9
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "phone",
+      "message": "Field is required",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Invalid URL format",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "/website",
+      "message": "must match format \"uri\"",
+      "record_id": 10
+    },
+    {
+      "validator": "customers",
+      "field": "street",
+      "message": "Field is required",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 11
+    },
+    {
+      "validator": "customers",
+      "field": "street2",
+      "message": "Field is required",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "city",
+      "message": "Field is required",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "zip",
+      "message": "Field is required",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "phone",
+      "message": "Field is required",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "mobile",
+      "message": "Field is required",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "website",
+      "message": "Field is required",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "vat",
+      "message": "Field is required",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "/state_id",
+      "message": "must be array",
+      "record_id": 12
+    },
+    {
+      "validator": "customers",
+      "field": "/country_id",
+      "message": "must be array",
+      "record_id": 12
+    },
+    {
+      "validator": "orders",
+      "field": "notes",
+      "message": "Field is required",
+      "record_id": 2
+    },
+    {
+      "validator": "orders",
+      "field": "amount_total",
+      "message": "Amount total inconsistency. Untaxed: 600, Tax: 60, Total: 700",
+      "record_id": 2
+    },
+    {
+      "validator": "orders",
+      "field": "notes",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "state",
+      "message": "Field must be one of: draft, sent, to approve, purchase, done, cancel",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "amount_total",
+      "message": "Field must be at least 0",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "/state",
+      "message": "must be equal to one of the allowed values",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "/order_line/0/product_qty",
+      "message": "must be >= 0",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "state",
+      "message": "Invalid selection value. Allowed: draft, sent, to approve, purchase, done, cancel",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "order_line[0].product_qty",
+      "message": "Order line 1 has invalid quantity",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "state",
+      "message": "Invalid order state. Must be one of: draft, sent, to approve, purchase, done, cancel",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "order_line[0].product_qty",
+      "message": "Field must be positive",
+      "record_id": 3
+    },
+    {
+      "validator": "orders",
+      "field": "partner_id",
+      "message": "Partner ID must be in [id, name] format",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "date_order",
+      "message": "Invalid date format",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "notes",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "order_line",
+      "message": "Array must have at least 1 items",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "/partner_id",
+      "message": "must be array",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "/date_order",
+      "message": "must match format \"date-time\"",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "order_line",
+      "message": "Purchase order must have at least one order line",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "order_line",
+      "message": "Order must have at least one order line",
+      "record_id": 4
+    },
+    {
+      "validator": "orders",
+      "field": "notes",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "orders",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "orders",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "record_id": 5
+    },
+    {
+      "validator": "orders",
+      "field": "notes",
+      "message": "Field is required",
+      "record_id": 6
+    },
+    {
+      "validator": "orders",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "record_id": 6
+    },
+    {
+      "validator": "orders",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "record_id": 6
+    },
+    {
+      "validator": "orders",
+      "field": "notes",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "orders",
+      "field": "amount_untaxed",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "orders",
+      "field": "amount_tax",
+      "message": "Field is required",
+      "record_id": 7
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 1
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 1
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 1
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 2
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 2
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 3
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 3
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 3
+    },
+    {
+      "validator": "inventory",
+      "field": "quantity",
+      "message": "Negative stock quantity detected",
+      "record_id": 3
+    },
+    {
+      "validator": "inventory",
+      "field": "reserved_quantity",
+      "message": "Reserved quantity (0) exceeds total quantity (-25)",
+      "record_id": 3
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 4
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 4
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 4
+    },
+    {
+      "validator": "inventory",
+      "field": "available_quantity",
+      "message": "Quantity mismatch. Available: 90, Expected: 80",
+      "record_id": 4
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 5
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 5
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 5
+    },
+    {
+      "validator": "inventory",
+      "field": "reserved_quantity",
+      "message": "Reserved quantity (50) exceeds total quantity (30)",
+      "record_id": 5
+    },
+    {
+      "validator": "inventory",
+      "field": "product_id",
+      "message": "Product ID must be in [id, name] format",
+      "record_id": 6
+    },
+    {
+      "validator": "inventory",
+      "field": "/product_id",
+      "message": "must be array",
+      "record_id": 6
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 6
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 6
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 6
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 7
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 7
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 7
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 8
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 8
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 8
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 9
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 9
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 9
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 10
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 10
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 10
+    },
+    {
+      "validator": "inventory",
+      "field": "/lot_id",
+      "message": "must be array",
+      "record_id": 11
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 11
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 11
+    },
+    {
+      "validator": "inventory",
+      "field": "/package_id",
+      "message": "must be array",
+      "record_id": 12
+    },
+    {
+      "validator": "inventory",
+      "field": "/owner_id",
+      "message": "must be array",
+      "record_id": 12
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "category": "data_quality",
+      "message": "Overall success rate is below 70%. Consider improving data quality before import.",
+      "action": "Review and clean source data"
+    },
+    {
+      "priority": "high",
+      "category": "products",
+      "message": "High error rate in products validation (85 errors)",
+      "action": "Address critical products data issues before proceeding"
+    },
+    {
+      "priority": "high",
+      "category": "customers",
+      "message": "High error rate in customers validation (111 errors)",
+      "action": "Address critical customers data issues before proceeding"
+    },
+    {
+      "priority": "high",
+      "category": "orders",
+      "message": "High error rate in orders validation (32 errors)",
+      "action": "Address critical orders data issues before proceeding"
+    },
+    {
+      "priority": "high",
+      "category": "inventory",
+      "message": "High error rate in inventory validation (40 errors)",
+      "action": "Address critical inventory data issues before proceeding"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'subcategory' (13 occurrences)",
+      "action": "Review and fix subcategory data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'color' (13 occurrences)",
+      "action": "Review and fix color data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'size' (12 occurrences)",
+      "action": "Review and fix size data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'inventory_on_hand' (12 occurrences)",
+      "action": "Review and fix inventory_on_hand data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'lead_time_days' (13 occurrences)",
+      "action": "Review and fix lead_time_days data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'reorder_point' (9 occurrences)",
+      "action": "Review and fix reorder_point data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'street2' (12 occurrences)",
+      "action": "Review and fix street2 data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'mobile' (10 occurrences)",
+      "action": "Review and fix mobile data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'website' (12 occurrences)",
+      "action": "Review and fix website data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field '/state_id' (12 occurrences)",
+      "action": "Review and fix /state_id data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'vat' (9 occurrences)",
+      "action": "Review and fix vat data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'street' (8 occurrences)",
+      "action": "Review and fix street data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'city' (9 occurrences)",
+      "action": "Review and fix city data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'zip' (9 occurrences)",
+      "action": "Review and fix zip data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field '/country_id' (9 occurrences)",
+      "action": "Review and fix /country_id data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'phone' (7 occurrences)",
+      "action": "Review and fix phone data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field 'notes' (6 occurrences)",
+      "action": "Review and fix notes data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field '/lot_id' (10 occurrences)",
+      "action": "Review and fix /lot_id data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field '/package_id' (12 occurrences)",
+      "action": "Review and fix /package_id data patterns"
+    },
+    {
+      "priority": "high",
+      "category": "data_correction",
+      "message": "Multiple issues with field '/owner_id' (12 occurrences)",
+      "action": "Review and fix /owner_id data patterns"
+    },
+    {
+      "priority": "medium",
+      "category": "products",
+      "message": "products validation success rate is 13.3%",
+      "action": "Review products data quality and validation rules"
+    },
+    {
+      "priority": "medium",
+      "category": "customers",
+      "message": "customers validation success rate is 0.0%",
+      "action": "Review customers data quality and validation rules"
+    },
+    {
+      "priority": "medium",
+      "category": "orders",
+      "message": "orders validation success rate is 25.0%",
+      "action": "Review orders data quality and validation rules"
+    },
+    {
+      "priority": "medium",
+      "category": "inventory",
+      "message": "inventory validation success rate is 0.0%",
+      "action": "Review inventory data quality and validation rules"
+    }
+  ]
+}

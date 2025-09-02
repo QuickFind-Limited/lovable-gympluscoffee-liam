@@ -1,0 +1,792 @@
+{
+  "stats": {
+    "totalRecords": 15,
+    "validRecords": 2,
+    "invalidRecords": 13,
+    "errorCount": 85,
+    "warningCount": 20,
+    "successRate": 13.333333333333334,
+    "duration": 13
+  },
+  "errors": [
+    {
+      "type": "error",
+      "field": "sku",
+      "message": "Field does not match required pattern",
+      "value": "invalid-sku-format",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "description",
+      "message": "Field must be at least 10 characters",
+      "value": "Short",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field must be at least 0",
+      "value": -5,
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "sku",
+      "message": "SKU should follow format: PREFIX-IDENTIFIER (e.g., GC10000-BLA-XS)",
+      "value": "invalid-sku-format",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Inventory levels must be non-negative",
+      "value": -5,
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "error",
+      "field": "name",
+      "message": "Field is required",
+      "value": "",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "name",
+      "message": "Field is required",
+      "value": "",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "list_price",
+      "message": "Field must be positive",
+      "value": 0,
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "standard_cost",
+      "message": "Field must be positive",
+      "value": 0,
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "/name",
+      "message": "must NOT have fewer than 1 characters",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "category",
+      "message": "Category must be one of: sports-bras, joggers, t-shirts, accessories, shorts, hoodies, jackets, tops, beanies, leggings",
+      "value": "invalid-category",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "list_price",
+      "message": "Field must be a number",
+      "value": "not-a-number",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field must be a number",
+      "value": "fifty",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "/list_price",
+      "message": "must be number",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Inventory levels must be non-negative",
+      "value": "fifty",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10006-WHT-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10006-WHT-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10006-WHT-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10006-WHT-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10001-BLA-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10001-BLA-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10001-BLA-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10001-BLA-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10001-BLA-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10001-BLA-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10007-BLA-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10007-BLA-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10007-BLA-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10007-BLA-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10007-BLA-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10007-BLA-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10007-RED-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10007-RED-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10007-RED-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10007-RED-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10007-RED-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10007-RED-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10008-BLA-XXXL",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10008-BLA-XXXL",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10008-BLA-XXXL",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10008-BLA-XXXL",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10010-BLU-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10010-BLU-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10010-BLU-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10010-BLU-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10010-BLU-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10010-BLU-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "description",
+      "message": "Field must be no more than 2000 characters",
+      "value": "This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. ",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10012-BLK-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10012-BLK-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10012-BLK-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "standard_cost",
+      "message": "Field is required",
+      "recordId": "GC10012-BLK-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10012-BLK-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10012-BLK-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "error",
+      "field": "subcategory",
+      "message": "Field is required",
+      "recordId": "GC10013-PUR-M",
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "color",
+      "message": "Field is required",
+      "recordId": "GC10013-PUR-M",
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "size",
+      "message": "Field is required",
+      "recordId": "GC10013-PUR-M",
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "inventory_on_hand",
+      "message": "Field is required",
+      "recordId": "GC10013-PUR-M",
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "reorder_point",
+      "message": "Field is required",
+      "recordId": "GC10013-PUR-M",
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "lead_time_days",
+      "message": "Field is required",
+      "recordId": "GC10013-PUR-M",
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Essential Hoodie - Black",
+      "recordId": "GC10001-BLA-M",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Basic Tee - Red",
+      "recordId": "GC10002-RED-L",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "warning",
+      "field": "list_price",
+      "message": "List price should be greater than or equal to standard cost",
+      "value": 10,
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "warning",
+      "field": "description",
+      "message": "Description too short (5 chars). Minimum: 10 chars",
+      "value": "Short",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Product With Issues",
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "warning",
+      "field": "list_price",
+      "message": "Low margin detected: -50.0%",
+      "value": -50,
+      "recordId": "invalid-sku-format",
+      "timestamp": "2025-08-07T15:49:12.592Z"
+    },
+    {
+      "type": "warning",
+      "field": "description",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test product with missing required fields",
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "list_price",
+      "message": "Zero price may indicate missing data",
+      "value": 0,
+      "recordId": "GC10004-BLU-XS",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "list_price",
+      "message": "List price should be greater than or equal to standard cost",
+      "value": "not-a-number",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Product Placeholder",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "description",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Lorem ipsum dolor sit amet",
+      "recordId": "GC10005-GRN-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Expensive Item",
+      "recordId": "GC10006-WHT-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "list_price",
+      "message": "Unusually high price detected",
+      "value": 15000,
+      "recordId": "GC10006-WHT-M",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Variation Tee - Red",
+      "recordId": "GC10007-RED-S",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Oversized Item",
+      "recordId": "GC10008-BLA-XXXL",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Accessory Item",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "description",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test accessory with size specification",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "size",
+      "message": "Size specified for category 'accessories' that typically doesn't have sizes",
+      "value": "One Size",
+      "recordId": "GC10009-PNK-ONE",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "description",
+      "message": "Description too long (2760 chars). Maximum: 1000 chars",
+      "value": "This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. This is an extremely long product description that exceeds reasonable limits and should trigger validation warnings about content length. ",
+      "recordId": "GC10011-YEL-L",
+      "timestamp": "2025-08-07T15:49:12.593Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Product with Special Chars! @#$%",
+      "recordId": "GC10013-PUR-M",
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    }
+  ],
+  "infos": [
+    {
+      "type": "info",
+      "message": "Starting batch validation of 15 records",
+      "context": null,
+      "timestamp": "2025-08-07T15:49:12.591Z"
+    }
+  ]
+}

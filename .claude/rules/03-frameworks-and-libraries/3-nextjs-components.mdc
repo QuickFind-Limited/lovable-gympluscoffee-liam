@@ -1,0 +1,30 @@
+---
+
+description: Next.js component development patterns including sub-component organization and inline callback restrictions
+globs: ["frontend/**/*.{ts,tsx}"]
+alwaysApply: false
+
+---
+
+NextJS Guidelines :
+
+- Never use window.location.href, always `useRouter`
+
+Component Structure:
+
+- Over 3 sub-components? Create new file
+- No inline callbacks, create functions instead
+- Extract all top-level variables from component
+- Variables only for rendering, view, UI, URLs
+
+```typescript
+function CourseCard({ course }: Props) {
+  const handleClick = () => router.push(`/courses/${course.id}`);
+  
+  return (
+    <Card onClick={handleClick}>
+      <Text>{course.title}</Text>
+    </Card>
+  );
+}
+```

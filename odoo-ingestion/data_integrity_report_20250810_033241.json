@@ -1,0 +1,73 @@
+{
+  "timestamp": "2025-08-10T03:32:41.229815",
+  "duration": "0:00:00.002070",
+  "statistics": {
+    "customers_checked": 0,
+    "orders_checked": 0,
+    "products_checked": 0,
+    "order_lines_checked": 0,
+    "inventory_checked": 0,
+    "returns_checked": 0,
+    "issues_found": 6,
+    "fixes_applied": 0
+  },
+  "issues_found": [
+    {
+      "timestamp": "2025-08-10T03:32:41.228133",
+      "category": "System Error",
+      "severity": "CRITICAL",
+      "description": "Customer check failed: No module named 'mcp__odoo_mcp__odoo_search_read'",
+      "model": null,
+      "record_id": null
+    },
+    {
+      "timestamp": "2025-08-10T03:32:41.228423",
+      "category": "System Error",
+      "severity": "CRITICAL",
+      "description": "Product check failed: No module named 'mcp__odoo_mcp__odoo_search_read'",
+      "model": null,
+      "record_id": null
+    },
+    {
+      "timestamp": "2025-08-10T03:32:41.228795",
+      "category": "System Error",
+      "severity": "CRITICAL",
+      "description": "Order check failed: No module named 'mcp__odoo_mcp__odoo_search_read'",
+      "model": null,
+      "record_id": null
+    },
+    {
+      "timestamp": "2025-08-10T03:32:41.229115",
+      "category": "System Error",
+      "severity": "CRITICAL",
+      "description": "Order line check failed: No module named 'mcp__odoo_mcp__odoo_search_read'",
+      "model": null,
+      "record_id": null
+    },
+    {
+      "timestamp": "2025-08-10T03:32:41.229408",
+      "category": "System Error",
+      "severity": "CRITICAL",
+      "description": "Inventory check failed: No module named 'mcp__odoo_mcp__odoo_search_read'",
+      "model": null,
+      "record_id": null
+    },
+    {
+      "timestamp": "2025-08-10T03:32:41.229750",
+      "category": "System Error",
+      "severity": "CRITICAL",
+      "description": "Return check failed: No module named 'mcp__odoo_mcp__odoo_search_read'",
+      "model": null,
+      "record_id": null
+    }
+  ],
+  "fixes_applied": [],
+  "summary": {
+    "total_records_checked": 0,
+    "critical_issues": 6,
+    "high_issues": 0,
+    "medium_issues": 0,
+    "low_issues": 0,
+    "success_rate": "0.0%"
+  }
+}

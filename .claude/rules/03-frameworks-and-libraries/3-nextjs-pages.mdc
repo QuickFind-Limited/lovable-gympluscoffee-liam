@@ -1,0 +1,15 @@
+---
+
+description: Next.js page component patterns and best practices for App Router including proper props handling and parameter access
+globs: ["frontend/src/app/**/page.{ts,tsx}"]
+alwaysApply: false
+
+---
+
+Page Components:
+
+- Use `Promise` in PageProps props
+- Provide un-decomposed `params` in page functions use `props`
+- Use `const params = await props.params;` in page functions
+- Prefer `<Link>` from `useRouter`
+- Use `next/image` for images optimization

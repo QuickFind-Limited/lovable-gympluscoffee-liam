@@ -1,0 +1,160 @@
+{
+  "analysis_date": "2025-08-07T17:43:57.718670",
+  "total_products": 442,
+  "stockable_products": 0,
+  "consumable_products": 441,
+  "service_products": 1,
+  "products_with_inventory": 0,
+  "products_without_inventory": 441,
+  "total_inventory_value": 0.0,
+  "categories": {
+    "Unknown": {
+      "total_products": 340,
+      "stockable": 0,
+      "consumable": 340,
+      "service": 0,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_price": 0.0
+    },
+    "Hoodies": {
+      "total_products": 58,
+      "stockable": 0,
+      "consumable": 58,
+      "service": 0,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_price": 0.0
+    },
+    "Leggings": {
+      "total_products": 30,
+      "stockable": 0,
+      "consumable": 30,
+      "service": 0,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_price": 0.0
+    },
+    "T-Shirts": {
+      "total_products": 13,
+      "stockable": 0,
+      "consumable": 13,
+      "service": 0,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_price": 0.0
+    },
+    "Services": {
+      "total_products": 1,
+      "stockable": 0,
+      "consumable": 0,
+      "service": 1,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_price": 0.0
+    }
+  },
+  "product_type_details": {
+    "product": {
+      "count": 0,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_cost": 0.0,
+      "avg_sale_price": 0.0,
+      "categories": "set()"
+    },
+    "consu": {
+      "count": 441,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_cost": 19.378208616780025,
+      "avg_sale_price": 59.6031746031746,
+      "categories": [
+        "Leggings",
+        "T-Shirts",
+        "Unknown",
+        "Hoodies"
+      ]
+    },
+    "service": {
+      "count": 1,
+      "with_inventory": 0,
+      "total_value": 0.0,
+      "avg_cost": 0.0,
+      "avg_sale_price": 0.0,
+      "categories": [
+        "Services"
+      ]
+    }
+  },
+  "low_stock_items": [],
+  "out_of_stock_items": [],
+  "overstocked_items": [],
+  "recommendations": [
+    "PRODUCT MIX: 99.8% of products are consumable. Consider converting high-volume consumables to stockable for better inventory control.",
+    "INVENTORY COVERAGE: Only 0.0% of trackable products have stock. Review purchasing processes and supplier relationships.",
+    "CONSUMABLE OPTIMIZATION: Large number of consumable products detected. Consider implementing automated reordering for high-turnover items."
+  ],
+  "sample_products": [
+    {
+      "name": "Essential Everyday Hoodie - Black",
+      "code": "GC10000-BLA-L",
+      "type": "consu",
+      "category": "Unknown",
+      "cost_price": 26.1,
+      "sale_price": 75.0,
+      "qty_available": 0.0,
+      "active": true
+    },
+    {
+      "name": "Essential Everyday Hoodie - Black",
+      "code": "GC10000-BLA-M",
+      "type": "consu",
+      "category": "Unknown",
+      "cost_price": 23.08,
+      "sale_price": 75.0,
+      "qty_available": 0.0,
+      "active": true
+    },
+    {
+      "name": "Essential Everyday Hoodie - Black",
+      "code": "GC10000-BLA-S",
+      "type": "consu",
+      "category": "Unknown",
+      "cost_price": 22.73,
+      "sale_price": 75.0,
+      "qty_available": 0.0,
+      "active": true
+    },
+    {
+      "name": "Essential Everyday Hoodie - Black",
+      "code": "GC10000-BLA-XL",
+      "type": "consu",
+      "category": "Unknown",
+      "cost_price": 26.0,
+      "sale_price": 80.0,
+      "qty_available": 0.0,
+      "active": true
+    },
+    {
+      "name": "Essential Everyday Hoodie - Black",
+      "code": "GC10000-BLA-XS",
+      "type": "consu",
+      "category": "Unknown",
+      "cost_price": 25.12,
+      "sale_price": 75.0,
+      "qty_available": 0.0,
+      "active": true
+    },
+    {
+      "name": "Booking Fees",
+      "code": "",
+      "type": "service",
+      "category": "Services",
+      "cost_price": 0.0,
+      "sale_price": 50.0,
+      "qty_available": 0.0,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "updated": 15,
+  "errors": 0,
+  "details": [
+    {
+      "sku": "GC10001-BLA-M",
+      "category": "hoodies",
+      "current_stock": 100,
+      "min_stock": 350,
+      "max_stock": 700,
+      "reorder_point": 280,
+      "adjustment_needed": 425,
+      "target_stock": 525
+    },
+    {
+      "sku": "GC10002-RED-L",
+      "category": "t-shirts",
+      "current_stock": 150,
+      "min_stock": 200,
+      "max_stock": 500,
+      "reorder_point": 150,
+      "adjustment_needed": 200,
+      "target_stock": 350
+    },
+    {
+      "sku": "invalid-sku-format",
+      "category": "t-shirts",
+      "current_stock": -5,
+      "min_stock": 200,
+      "max_stock": 500,
+      "reorder_point": 150,
+      "adjustment_needed": 355,
+      "target_stock": 350
+    },
+    {
+      "sku": "GC10004-BLU-XS",
+      "category": "invalid-category",
+      "current_stock": 0,
+      "min_stock": 200,
+      "max_stock": 500,
+      "reorder_point": 150,
+      "adjustment_needed": 350,
+      "target_stock": 350
+    },
+    {
+      "sku": "GC10005-GRN-S",
+      "category": "hoodies",
+      "current_stock": 0,
+      "min_stock": 350,
+      "max_stock": 700,
+      "reorder_point": 280,
+      "adjustment_needed": 525,
+      "target_stock": 525
+    },
+    {
+      "sku": "GC10006-WHT-M",
+      "category": "accessories",
+      "current_stock": 1,
+      "min_stock": 300,
+      "max_stock": 600,
+      "reorder_point": 180,
+      "adjustment_needed": 449,
+      "target_stock": 450
+    },
+    {
+      "sku": "GC10001-BLA-M",
+      "category": "hoodies",
+      "current_stock": 0,
+      "min_stock": 350,
+      "max_stock": 700,
+      "reorder_point": 280,
+      "adjustment_needed": 525,
+      "target_stock": 525
+    },
+    {
+      "sku": "GC10007-BLA-XS",
+      "category": "t-shirts",
+      "current_stock": 0,
+      "min_stock": 200,
+      "max_stock": 500,
+      "reorder_point": 150,
+      "adjustment_needed": 350,
+      "target_stock": 350
+    },
+    {
+      "sku": "GC10007-RED-S",
+      "category": "t-shirts",
+      "current_stock": 0,
+      "min_stock": 200,
+      "max_stock": 500,
+      "reorder_point": 150,
+      "adjustment_needed": 350,
+      "target_stock": 350
+    },
+    {
+      "sku": "GC10008-BLA-XXXL",
+      "category": "hoodies",
+      "current_stock": 5,
+      "min_stock": 350,
+      "max_stock": 700,
+      "reorder_point": 280,
+      "adjustment_needed": 520,
+      "target_stock": 525
+    },
+    {
+      "sku": "GC10009-PNK-ONE",
+      "category": "accessories",
+      "current_stock": 0,
+      "min_stock": 300,
+      "max_stock": 600,
+      "reorder_point": 180,
+      "adjustment_needed": 450,
+      "target_stock": 450
+    },
+    {
+      "sku": "GC10010-BLU-M",
+      "category": "hoodies",
+      "current_stock": 0,
+      "min_stock": 350,
+      "max_stock": 700,
+      "reorder_point": 280,
+      "adjustment_needed": 525,
+      "target_stock": 525
+    },
+    {
+      "sku": "GC10011-YEL-L",
+      "category": "t-shirts",
+      "current_stock": 0,
+      "min_stock": 200,
+      "max_stock": 500,
+      "reorder_point": 150,
+      "adjustment_needed": 350,
+      "target_stock": 350
+    },
+    {
+      "sku": "GC10012-BLK-S",
+      "category": "t-shirts",
+      "current_stock": 50,
+      "min_stock": 200,
+      "max_stock": 500,
+      "reorder_point": 150,
+      "adjustment_needed": 300,
+      "target_stock": 350
+    },
+    {
+      "sku": "GC10013-PUR-M",
+      "category": "hoodies",
+      "current_stock": 0,
+      "min_stock": 350,
+      "max_stock": 700,
+      "reorder_point": 280,
+      "adjustment_needed": 525,
+      "target_stock": 525
+    }
+  ],
+  "summary": {
+    "hoodies": {
+      "count": 6,
+      "total_target_stock": 4200,
+      "total_current_stock": 105
+    },
+    "t-shirts": {
+      "count": 6,
+      "total_target_stock": 3000,
+      "total_current_stock": 195
+    },
+    "invalid-category": {
+      "count": 1,
+      "total_target_stock": 500,
+      "total_current_stock": 0
+    },
+    "accessories": {
+      "count": 2,
+      "total_target_stock": 1200,
+      "total_current_stock": 1
+    }
+  },
+  "stock_movements": {
+    "movements_created": 45,
+    "total_units_moved": 306,
+    "categories_affected": "{'t-shirts', 'hoodies', 'accessories'}",
+    "reorder_alerts": [
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 95,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 139,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10006-WHT-M",
+        "category": "accessories",
+        "current_stock": 0,
+        "reorder_point": 180,
+        "suggested_order": 360
+      },
+      {
+        "sku": "GC10008-BLA-XXXL",
+        "category": "hoodies",
+        "current_stock": 0,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10012-BLK-S",
+        "category": "t-shirts",
+        "current_stock": 40,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 91,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 130,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10012-BLK-S",
+        "category": "t-shirts",
+        "current_stock": 30,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 86,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 120,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10012-BLK-S",
+        "category": "t-shirts",
+        "current_stock": 21,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 83,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 110,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10012-BLK-S",
+        "category": "t-shirts",
+        "current_stock": 7,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 79,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 95,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10012-BLK-S",
+        "category": "t-shirts",
+        "current_stock": 0,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 75,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 82,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 71,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 69,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 66,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 57,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 62,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 41,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 58,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 27,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 54,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 15,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 51,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10002-RED-L",
+        "category": "t-shirts",
+        "current_stock": 0,
+        "reorder_point": 150,
+        "suggested_order": 300
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 48,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 45,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 42,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 38,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 35,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 32,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 27,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 23,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 20,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 16,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 11,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 6,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 1,
+        "reorder_point": 280,
+        "suggested_order": 560
+      },
+      {
+        "sku": "GC10001-BLA-M",
+        "category": "hoodies",
+        "current_stock": 0,
+        "reorder_point": 280,
+        "suggested_order": 560
+      }
+    ]
+  }
+}

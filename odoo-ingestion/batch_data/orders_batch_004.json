@@ -1,0 +1,364 @@
+[
+  {
+    "external_order_ref": "ORD-2024-000151",
+    "customer_email": "customer43@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000152",
+    "customer_email": "customer8@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel",
+    "delivery_date": "2024-08-29T13:31:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000153",
+    "customer_email": "customer68@example.com",
+    "channel": "online",
+    "date_preference": "historical",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000154",
+    "customer_email": "customer22@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000155",
+    "customer_email": "customer8@example.com",
+    "channel": "online",
+    "date_preference": "recent",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000156",
+    "customer_email": "customer67@example.com",
+    "channel": "retail",
+    "date_preference": "historical",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000157",
+    "customer_email": "customer67@example.com",
+    "channel": "online",
+    "date_preference": "historical",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000158",
+    "customer_email": "customer63@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000159",
+    "customer_email": "customer7@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000160",
+    "customer_email": "customer33@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000161",
+    "customer_email": "customer14@example.com",
+    "channel": "retail",
+    "date_preference": "historical",
+    "notes": "Order from retail channel",
+    "delivery_date": "2023-04-11T21:23:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000162",
+    "customer_email": "customer14@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000163",
+    "customer_email": "customer23@example.com",
+    "channel": "retail",
+    "date_preference": "historical",
+    "notes": "Order from retail channel",
+    "delivery_date": "2023-03-25T16:41:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000164",
+    "customer_email": "customer7@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel",
+    "delivery_date": "2024-08-27T04:28:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000165",
+    "customer_email": "customer52@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000166",
+    "customer_email": "customer92@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel",
+    "delivery_date": "2024-07-19T15:58:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000167",
+    "customer_email": "customer44@example.com",
+    "channel": "online",
+    "date_preference": "recent",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000168",
+    "customer_email": "customer86@example.com",
+    "channel": "retail",
+    "date_preference": "historical",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000169",
+    "customer_email": "customer15@example.com",
+    "channel": "b2b",
+    "date_preference": "historical",
+    "notes": "Order from b2b channel",
+    "delivery_date": "2023-05-09T22:49:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000170",
+    "customer_email": "customer68@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000171",
+    "customer_email": "customer51@example.com",
+    "channel": "online",
+    "date_preference": "historical",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000172",
+    "customer_email": "customer21@example.com",
+    "channel": "b2b",
+    "date_preference": "historical",
+    "notes": "Order from b2b channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000173",
+    "customer_email": "customer56@example.com",
+    "channel": "b2b",
+    "date_preference": "main",
+    "notes": "Order from b2b channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000174",
+    "customer_email": "customer39@example.com",
+    "channel": "retail",
+    "date_preference": "historical",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000175",
+    "customer_email": "customer11@example.com",
+    "channel": "b2b",
+    "date_preference": "historical",
+    "notes": "Order from b2b channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000176",
+    "customer_email": "customer76@example.com",
+    "channel": "online",
+    "date_preference": "historical",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000177",
+    "customer_email": "customer92@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000178",
+    "customer_email": "customer61@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000179",
+    "customer_email": "customer24@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000180",
+    "customer_email": "customer2@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000181",
+    "customer_email": "customer3@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel",
+    "delivery_date": "2024-07-15T01:28:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000182",
+    "customer_email": "customer26@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000183",
+    "customer_email": "customer82@example.com",
+    "channel": "online",
+    "date_preference": "recent",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000184",
+    "customer_email": "customer84@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000185",
+    "customer_email": "customer3@example.com",
+    "channel": "online",
+    "date_preference": "historical",
+    "notes": "Order from online channel",
+    "delivery_date": "2023-09-05T05:25:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000186",
+    "customer_email": "customer60@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel",
+    "delivery_date": "2024-08-06T04:05:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000187",
+    "customer_email": "customer5@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel",
+    "delivery_date": "2024-09-27T06:20:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000188",
+    "customer_email": "customer43@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000189",
+    "customer_email": "customer75@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000190",
+    "customer_email": "customer33@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000191",
+    "customer_email": "customer95@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000192",
+    "customer_email": "customer93@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000193",
+    "customer_email": "customer7@example.com",
+    "channel": "retail",
+    "date_preference": "recent",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000194",
+    "customer_email": "customer95@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000195",
+    "customer_email": "customer60@example.com",
+    "channel": "retail",
+    "date_preference": "recent",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000196",
+    "customer_email": "customer71@example.com",
+    "channel": "online",
+    "date_preference": "recent",
+    "notes": "Order from online channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000197",
+    "customer_email": "customer64@example.com",
+    "channel": "retail",
+    "date_preference": "main",
+    "notes": "Order from retail channel"
+  },
+  {
+    "external_order_ref": "ORD-2024-000198",
+    "customer_email": "customer20@example.com",
+    "channel": "online",
+    "date_preference": "main",
+    "notes": "Order from online channel",
+    "delivery_date": "2024-07-12T05:19:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000199",
+    "customer_email": "customer65@example.com",
+    "channel": "online",
+    "date_preference": "historical",
+    "notes": "Order from online channel",
+    "delivery_date": "2024-01-03T06:32:00"
+  },
+  {
+    "external_order_ref": "ORD-2024-000200",
+    "customer_email": "customer87@example.com",
+    "channel": "online",
+    "date_preference": "historical",
+    "notes": "Order from online channel"
+  }
+]

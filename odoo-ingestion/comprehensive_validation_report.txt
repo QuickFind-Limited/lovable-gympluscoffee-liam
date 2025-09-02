@@ -1,0 +1,52 @@
+
+ODOO DATA VALIDATION REPORT
+==========================
+
+Validation Date: 2025-08-10T03:38:10.997990
+
+EXECUTIVE SUMMARY
+----------------
+Overall Compliance: 0.0%
+Checks Passed: 0/5
+Fixes Applied: 3
+
+DETAILED VALIDATION RESULTS
+---------------------------
+
+Channel Distribution: ❌ FAIL
+  • D2C: 12.6% (target: 60%)
+  • Retail: 8.9% (target: 20%)
+  • B2B: 78.5% (target: 20%)
+
+Geographic Distribution: ❌ FAIL
+  • GB: 33.3% (target: 50%)
+  • US: 33.3% (target: 20%)
+  • AU: 33.3% (target: 20%)
+  • IE: 0.0% (target: 10%)
+
+Product Coverage: ❌ FAIL
+  • Coverage: 66.7%
+  • Products with sales: 2/3
+
+Revenue Distribution: ❌ FAIL
+  • Top 20% products generate: 77.5% of revenue
+  • Target range: 60-75%
+
+Aov Ranges: ❌ FAIL
+  • D2C: €120.50 (target: €90-120)
+  • Retail: €85.00 (target: €70-100)
+  • B2B: €750.00 (target: €500-2500)
+
+FIXES APPLIED
+-------------
+• Assigned channels to 3 orders
+• Assigned countries to 3 customers
+• Created minimal sales for 1 products
+
+RECOMMENDations
+---------------
+• Review channel assignment logic for better distribution
+• Consider targeted marketing campaigns in underrepresented regions
+• Create marketing campaigns for products without sales
+• Analyze product portfolio for better revenue balance
+• Review pricing strategy and upselling opportunities

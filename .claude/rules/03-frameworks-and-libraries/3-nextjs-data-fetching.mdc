@@ -1,0 +1,38 @@
+---
+
+description: Next.js data fetching patterns using fetchApi utility and proper API route management with validation
+globs: ["frontend/**/*.{ts,tsx}"]
+alwaysApply: false
+
+---
+
+Data Fetching:
+
+- Always use `fetchApi`, never `fetch` directly
+- Separate concerns: @frontend/src/features/users/fetch/getUsers.ts
+- Use `withFetchValidation` with `fetchApi`
+- Use `API_ROUTES` from @frontend/src/shared/api/routes.constant.ts
+- JSON headers not needed with `fetchApi`
+- Use Next's SSR with Server Actions and RSC
+- Fetch from server, not client (unless asked)
+
+```typescript
+// users/fetch/getUsers.ts
+export const getUsers = withFetchValidation<User[]>(
+  UserSchema.array(),
+  () => fetchApi(API_ROUTES.users.list)
+);
+```
+
+Mocked Data:
+
+- Never access directly
+- Use NextJS `app/api` endpoints
+- Use NextJS API to mock data fetching calls
+- Retrieve data from `shared/mock/*`
+
+```typescript
+export async function GET() {
+  return NextResponse.json(withValidation(UserSchema.array(), mockUsers));
+}
+```

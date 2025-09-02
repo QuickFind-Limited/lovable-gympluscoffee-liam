@@ -1,0 +1,11 @@
+---
+
+description: Radix Themes UI framework usage rules excluding Tailwind CSS for consistent styling across the application
+globs: ["frontend/**/*.{ts,tsx}"]
+alwaysApply: false
+
+---
+
+UI Framework:
+
+- Use Radix Themes, NO Tailwind CSS

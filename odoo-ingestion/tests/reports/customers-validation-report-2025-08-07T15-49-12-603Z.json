@@ -1,0 +1,1007 @@
+{
+  "stats": {
+    "totalRecords": 12,
+    "validRecords": 0,
+    "invalidRecords": 12,
+    "errorCount": 111,
+    "warningCount": 23,
+    "successRate": 0,
+    "duration": 10
+  },
+  "errors": [
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.595Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "email",
+      "message": "Invalid email format",
+      "value": "invalid-email-format",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/email",
+      "message": "must match format \"email\"",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "email",
+      "message": "Invalid email format",
+      "value": "invalid-email-format",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "customer_rank",
+      "message": "Partner must be either a customer or supplier (or both)",
+      "value": 0,
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "name",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "name",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "phone",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/name",
+      "message": "must NOT have fewer than 1 characters",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "phone",
+      "message": "Field is required",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "email",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "email",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "phone",
+      "message": "Field is required",
+      "value": "",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/email",
+      "message": "must match format \"email\"",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "phone",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "phone",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "customer_rank",
+      "message": "Field must be at least 0",
+      "value": -1,
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/customer_rank",
+      "message": "must be >= 0",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "customer_rank",
+      "message": "Customer and supplier ranks must be non-negative",
+      "value": -1,
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "phone",
+      "message": "Field is required",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Invalid URL format",
+      "value": "not-a-valid-url",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/website",
+      "message": "must match format \"uri\"",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "street",
+      "message": "Field is required",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "street2",
+      "message": "Field is required",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "city",
+      "message": "Field is required",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "zip",
+      "message": "Field is required",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "phone",
+      "message": "Field is required",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "mobile",
+      "message": "Field is required",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "website",
+      "message": "Field is required",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "vat",
+      "message": "Field is required",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/state_id",
+      "message": "must be array",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "error",
+      "field": "/country_id",
+      "message": "must be array",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Company Ltd.",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.595Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "John Smith",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "phone",
+      "message": "Invalid phone number format",
+      "value": "123",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "name",
+      "message": "Suspicious placeholder-like value detected",
+      "value": "Test Customer",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 42.9%",
+      "value": 42.857142857142854,
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "email",
+      "message": "Suspicious test-like email address",
+      "value": "test@example.com",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 28.6%",
+      "value": 28.57142857142857,
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 42.9%",
+      "value": 42.857142857142854,
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "contact_info",
+      "message": "No contact information provided (email, phone, or address)",
+      "value": null,
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 14.3%",
+      "value": 14.285714285714285,
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 28.6%",
+      "value": 28.57142857142857,
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "warning",
+      "field": "email",
+      "message": "Suspicious test-like email address",
+      "value": "negative@test.com",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 28.6%",
+      "value": 28.57142857142857,
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "vat",
+      "message": "Company customers should typically have VAT numbers",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 28.6%",
+      "value": 28.57142857142857,
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "vat",
+      "message": "Company customer should have VAT number",
+      "value": null,
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "email",
+      "message": "Suspicious test-like email address",
+      "value": "samephone@test.com",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "mobile",
+      "message": "Mobile number is same as phone number",
+      "value": "555-999-8888",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 42.9%",
+      "value": 42.857142857142854,
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "vat",
+      "message": "Company customers should typically have VAT numbers",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "city",
+      "message": "Street provided but city is missing",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "completeness",
+      "message": "Low data completeness: 42.9%",
+      "value": 42.857142857142854,
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    },
+    {
+      "type": "warning",
+      "field": "vat",
+      "message": "Company customer should have VAT number",
+      "value": null,
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    }
+  ],
+  "infos": [
+    {
+      "type": "info",
+      "message": "Starting batch validation of 12 records",
+      "context": null,
+      "timestamp": "2025-08-07T15:49:12.594Z"
+    },
+    {
+      "type": "info",
+      "message": "Website URL would be helpful for supplier companies",
+      "context": null,
+      "timestamp": "2025-08-07T15:49:12.596Z"
+    },
+    {
+      "type": "info",
+      "message": "Website URL would be helpful for supplier companies",
+      "context": null,
+      "timestamp": "2025-08-07T15:49:12.597Z"
+    }
+  ]
+}

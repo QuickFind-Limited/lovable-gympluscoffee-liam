@@ -1,0 +1,122 @@
+{
+  "validation_results": {
+    "record_counts": {
+      "customers": {
+        "actual": 324,
+        "target": 35000,
+        "compliant": false
+      },
+      "orders": {
+        "actual": 3537,
+        "target": 65000,
+        "compliant": false
+      },
+      "order_lines": {
+        "actual": 10960,
+        "target": 100000,
+        "compliant": false
+      },
+      "returns": {
+        "actual": 0,
+        "target": 1000,
+        "compliant": false
+      }
+    },
+    "geographic_distribution": {
+      "distribution": {
+        "IM": 56.12535612535613,
+        "US": 29.914529914529915,
+        "GD": 10.826210826210826,
+        "IE": 0.8547008547008548,
+        "GB": 1.4245014245014245,
+        "AU": 0.8547008547008548
+      },
+      "targets": {
+        "GB": 50,
+        "US": 20,
+        "AU": 20,
+        "IE": 10
+      },
+      "tolerance": 2,
+      "compliant": false,
+      "compliance_details": {
+        "GB": {
+          "actual": 1.4245014245014245,
+          "target": 50,
+          "difference": 48.57549857549858,
+          "compliant": false
+        },
+        "US": {
+          "actual": 29.914529914529915,
+          "target": 20,
+          "difference": 9.914529914529915,
+          "compliant": false
+        },
+        "AU": {
+          "actual": 0.8547008547008548,
+          "target": 20,
+          "difference": 19.145299145299145,
+          "compliant": false
+        },
+        "IE": {
+          "actual": 0.8547008547008548,
+          "target": 10,
+          "difference": 9.145299145299145,
+          "compliant": false
+        }
+      },
+      "total_customers": 351
+    },
+    "product_coverage": {
+      "coverage_percentage": 84.67432950191571,
+      "products_with_sales": 442,
+      "total_products": 522,
+      "target_percentage": 80,
+      "compliant": true
+    },
+    "date_ranges": {
+      "target_period_orders": 799,
+      "total_orders": 3537,
+      "target_percentage": 22.58976533785694,
+      "month_distribution": {
+        "2025-08": 2427,
+        "2025-07": 61,
+        "2025-06": 53,
+        "2025-05": 41,
+        "2025-04": 24,
+        "2025-03": 32,
+        "2025-02": 20,
+        "2024-10": 2,
+        "2024-09": 58,
+        "2024-08": 36,
+        "2024-07": 53,
+        "2024-06": 652,
+        "2024-05": 7,
+        "2024-04": 5,
+        "2024-03": 7,
+        "2024-02": 8,
+        "2024-01": 7,
+        "2023-12": 6,
+        "2023-11": 2,
+        "2023-10": 5,
+        "2023-09": 6,
+        "2023-08": 4,
+        "2023-07": 5,
+        "2023-06": 1,
+        "2023-05": 3,
+        "2023-04": 2,
+        "2023-03": 4,
+        "2023-02": 1,
+        "2023-01": 5
+      },
+      "compliant": false
+    }
+  },
+  "metrics": {
+    "total_checks": 7,
+    "passed_checks": 1,
+    "compliance_percentage": 14.285714285714285,
+    "validation_timestamp": "2025-08-10T03:53:06.105111"
+  },
+  "success": true
+}

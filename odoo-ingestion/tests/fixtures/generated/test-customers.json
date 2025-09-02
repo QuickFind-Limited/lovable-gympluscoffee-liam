@@ -1,0 +1,151 @@
+{
+  "dataset_name": "Test Customer Dataset",
+  "version": "1.0.0-test",
+  "generated_date": "2025-08-07T15:49:12.543Z",
+  "total_customers": 12,
+  "customers": [
+    {
+      "id": 1,
+      "name": "Test Company Ltd.",
+      "email": "contact@testcompany.com",
+      "is_company": true,
+      "phone": "+1-555-123-4567",
+      "street": "123 Business Avenue",
+      "city": "New York",
+      "zip": "10001",
+      "country_id": [
+        233,
+        "United States"
+      ],
+      "vat": "US123456789",
+      "customer_rank": 1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "John Smith",
+      "email": "john.smith@email.com",
+      "is_company": false,
+      "phone": "555-987-6543",
+      "mobile": "555-123-9876",
+      "street": "456 Residential Street",
+      "city": "Los Angeles",
+      "zip": "90210",
+      "country_id": [
+        233,
+        "United States"
+      ],
+      "customer_rank": 1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Test Customer",
+      "email": "invalid-email-format",
+      "is_company": false,
+      "phone": "123",
+      "street": "",
+      "city": "",
+      "customer_rank": 0,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "",
+      "email": "test@example.com",
+      "is_company": true,
+      "vat": "INVALID",
+      "customer_rank": 1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Duplicate Email Customer",
+      "email": "john.smith@email.com",
+      "is_company": false,
+      "phone": "+1-555-123-4567",
+      "customer_rank": 1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Future VAT Company",
+      "email": "info@futurecompany.com",
+      "is_company": true,
+      "street": "789 Corporate Blvd",
+      "city": "Chicago",
+      "zip": "INVALID",
+      "country_id": [
+        233,
+        "United States"
+      ],
+      "vat": "US987654321",
+      "customer_rank": 1,
+      "supplier_rank": 1,
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "No Contact Info Customer",
+      "email": "",
+      "phone": "",
+      "street": "",
+      "customer_rank": 1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "Long Name That Exceeds Reasonable Limits For Customer Names And Should Trigger Validation Warnings",
+      "email": "longname@domain.com",
+      "is_company": false,
+      "customer_rank": 1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 9,
+      "name": "Negative Rank Customer",
+      "email": "negative@test.com",
+      "is_company": false,
+      "customer_rank": -1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 10,
+      "name": "Website Test Company",
+      "email": "contact@websitetest.com",
+      "is_company": true,
+      "website": "not-a-valid-url",
+      "customer_rank": 1,
+      "supplier_rank": 1,
+      "active": true
+    },
+    {
+      "id": 11,
+      "name": "Same Phone Mobile Customer",
+      "email": "samephone@test.com",
+      "phone": "555-999-8888",
+      "mobile": "555-999-8888",
+      "customer_rank": 1,
+      "supplier_rank": 0,
+      "active": true
+    },
+    {
+      "id": 12,
+      "name": "Incomplete Company",
+      "email": "incomplete@company.com",
+      "is_company": true,
+      "street": "100 Incomplete Street",
+      "customer_rank": 1,
+      "supplier_rank": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Full Search Flow</title>
+    <script>
+        const SUPABASE_URL = 'https://rumaiumnoobdyzdxuumt.supabase.co';
+        const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1bWFpdW1ub29iZHl6ZHh1dW10Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1NzU2NTIsImV4cCI6MjA2OTE1MTY1Mn0.QjVlWhix7oY5JFh2BtZIpnOYu1XNZqCUURruHhUJZS8';
+
+        async function testFullFlow(query) {
+            console.log(`\n${'='.repeat(60)}`);
+            console.log(`Testing full flow with query: "${query}"`);
+            console.log('='.repeat(60));
+
+            try {
+                // Step 1: Parse Query
+                console.log('\n1. Parsing query...');
+                const parseResponse = await fetch(`${SUPABASE_URL}/functions/v1/parse-query`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${ANON_KEY}`,
+                    },
+                    body: JSON.stringify({ query })
+                });
+
+                const parseResult = await parseResponse.json();
+                console.log('Parse result:', JSON.stringify(parseResult, null, 2));
+
+                if (!parseResult.success || !parseResult.data || !parseResult.data.products) {
+                    console.error('Parse query failed');
+                    return;
+                }
+
+                // Step 2: Vector search for each product
+                const products = parseResult.data.products;
+                console.log(`\n2. Performing ${products.length} vector searches...`);
+
+                const searchPromises = products.map(async (product, index) => {
+                    console.log(`\n   Searching for: "${product.product_description}" (quantity: ${product.quantity})`);
+                    
+                    const searchResponse = await fetch(`${SUPABASE_URL}/functions/v1/vector-search`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${ANON_KEY}`,
+                        },
+                        body: JSON.stringify({
+                            query: product.product_description,
+                            strategy: 'combined',
+                            max_results: 1
+                        })
+                    });
+
+                    const searchResult = await searchResponse.json();
+                    console.log(`   Search result for "${product.product_description}":`, {
+                        status: searchResponse.status,
+                        total_results: searchResult.total_results,
+                        products_returned: searchResult.products ? searchResult.products.length : 0,
+                        first_product: searchResult.products && searchResult.products[0] ? {
+                            title: searchResult.products[0].title,
+                            vendor: searchResult.products[0].vendor,
+                            price_min: searchResult.products[0].price_min,
+                            similarity_score: searchResult.products[0].similarity_score
+                        } : null
+                    });
+
+                    if (searchResult.products && searchResult.products.length > 0) {
+                        return {
+                            ...searchResult.products[0],
+                            quantity: product.quantity
+                        };
+                    }
+                    return null;
+                });
+
+                const searchResults = await Promise.all(searchPromises);
+                const validResults = searchResults.filter(r => r !== null);
+
+                console.log(`\n3. Final results:`);
+                console.log(`   Total products found: ${validResults.length} out of ${products.length} requested`);
+                validResults.forEach((product, index) => {
+                    console.log(`   ${index + 1}. "${product.title}" - Quantity: ${product.quantity} - Price: $${product.price_min || 'N/A'}`);
+                });
+
+            } catch (error) {
+                console.error('Test failed:', error);
+            }
+        }
+
+        // Run tests when page loads
+        window.onload = async () => {
+            await testFullFlow("I need 3 red rugs");
+            await testFullFlow("I need 3 red rugs and 2 blue mats");
+            await testFullFlow("Get me 5 black rugs, 2 white runners, and 1 grey doormat");
+        };
+    </script>
+</head>
+<body>
+    <h1>Testing Full Search Flow</h1>
+    <p>Check the browser console for results...</p>
+</body>
+</html>

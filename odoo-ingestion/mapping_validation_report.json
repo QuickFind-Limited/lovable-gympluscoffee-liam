@@ -1,0 +1,135 @@
+{
+  "validation_date": "2025-08-10T03:08:33.789939",
+  "coverage": {
+    "total_products_analysis": 522,
+    "total_products_mapping": 522,
+    "missing_in_mapping": [],
+    "extra_in_mapping": [],
+    "coverage_percentage": 100.0
+  },
+  "tier_distribution": {
+    "tier_counts": {
+      "tier_1": 101,
+      "tier_2": 154,
+      "tier_3": 267
+    },
+    "tier_percentages": {
+      "tier_1": 19.34865900383142,
+      "tier_2": 29.50191570881226,
+      "tier_3": 51.14942528735632
+    },
+    "tier_1_within_range": true,
+    "tier_2_within_range": true,
+    "tier_3_within_range": true,
+    "overall_distribution_valid": true
+  },
+  "seasonal_patterns": {
+    "seasonal_distribution": {
+      "autumn_items": 152,
+      "spring_items": 246,
+      "summer_items": 30,
+      "year_round": 94
+    },
+    "category_patterns": {
+      "autumn_items": [
+        "Hoodies",
+        "Jackets"
+      ],
+      "spring_items": [
+        "Leggings",
+        "T-Shirts",
+        "Shorts",
+        "Joggers"
+      ],
+      "summer_items": [
+        "Sports-Bras"
+      ],
+      "year_round": [
+        "Accessories",
+        "Goods",
+        "Services"
+      ]
+    },
+    "pattern_validation": {
+      "Hoodies": false,
+      "Leggings": true,
+      "T-Shirts": false,
+      "Sports-Bras": true,
+      "Shorts": false,
+      "Joggers": true,
+      "Jackets": true,
+      "Accessories": true,
+      "Goods": true,
+      "Services": true
+    },
+    "all_patterns_valid": false
+  },
+  "size_color_distribution": {
+    "size_distribution": {
+      "XL": 85,
+      "XXL": 85,
+      "L": 99,
+      "M": 78,
+      "S": 80,
+      "XS": 85
+    },
+    "color_distribution": {
+      "Pink": 43,
+      "Black": 105,
+      "Blue": 87,
+      "Green": 45,
+      "Grey": 87,
+      "Navy": 105,
+      "Purple": 12,
+      "White": 24
+    },
+    "products_with_size": 512,
+    "products_with_color": 508,
+    "size_coverage": 98.08429118773945,
+    "color_coverage": 97.31800766283524,
+    "available_sizes": [
+      "L",
+      "M",
+      "S",
+      "XL",
+      "XS",
+      "XXL"
+    ],
+    "available_colors": [
+      "Black",
+      "Blue",
+      "Green",
+      "Grey",
+      "Navy",
+      "Pink",
+      "Purple",
+      "Red",
+      "White"
+    ]
+  },
+  "pricing_validation": {
+    "tier_price_stats": {
+      "tier_1": {
+        "count": 0,
+        "avg_price": 0,
+        "min_price": 0,
+        "max_price": 0
+      },
+      "tier_2": {
+        "count": 0,
+        "avg_price": 0,
+        "min_price": 0,
+        "max_price": 0
+      },
+      "tier_3": {
+        "count": 0,
+        "avg_price": 0,
+        "min_price": 0,
+        "max_price": 0
+      }
+    },
+    "price_hierarchy_valid": true,
+    "tier_1_premium": 0
+  },
+  "overall_passed": false
+}

@@ -1,0 +1,14 @@
+---
+
+description: Essential clean code practices for frontend development including elimination of console statements and comments to maintain code clarity and production readiness
+globs: ["frontend/**/*.{ts,tsx,js,jsx}"]
+alwaysApply: true
+
+---
+
+Code Quality:
+
+- Never export root `index.ts`
+- Never use `console.log`
+- NO COMMENTS
+- Never deal with JS files for code

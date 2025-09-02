@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-08-10T04:07:19.055078",
+  "statistics": {
+    "total_customers_processed": 35000,
+    "total_customers_imported": 1907,
+    "total_customers_failed": 32993,
+    "total_customers_skipped": 100,
+    "total_orders_processed": 0,
+    "total_orders_imported": 0,
+    "total_lines_imported": 0,
+    "batches_completed": 467,
+    "import_rate_per_minute": 404.92995746887095,
+    "start_time": "2025-08-10 04:02:36,661",
+    "current_time": "2025-08-10T04:07:19.055078",
+    "estimated_completion": "2025-08-10T04:07:19.228387"
+  },
+  "metrics": {
+    "customer_progress_percent": 100.0,
+    "order_progress_percent": 0.0,
+    "customer_success_rate_percent": 5.45,
+    "import_rate_per_minute": 404.93
+  },
+  "remaining_customers": 0,
+  "remaining_orders": 65000
+}

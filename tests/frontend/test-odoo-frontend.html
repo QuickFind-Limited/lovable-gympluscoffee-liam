@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Odoo Frontend</title>
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+        
+        const supabaseUrl = 'https://vkxoqaansgbyzcppdiii.supabase.co'
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZreG9xYWFuc2dieXpjcHBkaWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5NzE0ODIsImV4cCI6MjA2OTU0NzQ4Mn0.4ZxwCwhjzi9qnSXCQlbFHJqtv2J-RpJHgocR_tB6IAE'
+        
+        const supabase = createClient(supabaseUrl, supabaseAnonKey)
+        
+        async function testCreateOrder() {
+            console.log('Testing order creation...')
+            
+            // Test direct edge function call
+            try {
+                const { data, error } = await supabase.functions.invoke('odoo', {
+                    body: {
+                        method: 'create',
+                        model: 'purchase.order',
+                        data: {
+                            partner_id: 21
+                        }
+                    }
+                })
+                
+                console.log('Response:', { data, error })
+                
+                if (error) {
+                    console.error('Error:', error)
+                } else {
+                    console.log('Success! Order ID:', data?.id)
+                }
+            } catch (err) {
+                console.error('Caught error:', err)
+            }
+        }
+        
+        // Test on page load
+        window.addEventListener('load', testCreateOrder)
+    </script>
+</head>
+<body>
+    <h1>Test Odoo Frontend</h1>
+    <p>Check the browser console for results.</p>
+</body>
+</html>

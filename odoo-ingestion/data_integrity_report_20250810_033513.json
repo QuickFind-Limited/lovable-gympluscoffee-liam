@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-08-10T03:35:13.731703",
+  "duration": "0:00:00.001854",
+  "instance_id": "source-gym-plus-coffee",
+  "statistics": {
+    "customers_checked": 0,
+    "orders_checked": 0,
+    "products_checked": 0,
+    "order_lines_checked": 0,
+    "inventory_checked": 0,
+    "returns_checked": 0,
+    "issues_found": 0,
+    "fixes_applied": 0
+  },
+  "issues_found": [],
+  "fixes_applied": [],
+  "summary": {
+    "total_records_checked": 0,
+    "critical_issues": 0,
+    "high_issues": 0,
+    "medium_issues": 0,
+    "low_issues": 0,
+    "success_rate": "0.0%"
+  }
+}

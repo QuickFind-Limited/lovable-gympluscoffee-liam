@@ -1,0 +1,100 @@
+================================================================================
+SOURCE GYM PLUS COFFEE - BUSINESS METRICS VALIDATION REPORT
+================================================================================
+Generated: 2025-08-10T03:39:20.200054
+Overall Status: ❌ FAIL
+
+🌞 SEASONAL DISTRIBUTION ANALYSIS
+----------------------------------------
+Status: ❌ FAIL
+Summer Revenue Distribution:
+  ❌ August: 51.4% (Target: 27-31%)
+  ❌ July: 13.9% (Target: 24-27%)
+  ✅ June: 21.5% (Target: 20-23%)
+  ❌ September: 13.1% (Target: 22-26%)
+Issues:
+  ❌ August: 51.4% (above 31%)
+  ❌ July: 13.9% (below 24%)
+  ❌ September: 13.1% (below 22%)
+
+📈 WEEKLY VARIANCE ANALYSIS
+----------------------------------------
+Status: ❌ FAIL
+Weekly Variance: 485.6% (Target: <30%)
+Mean Weekly Revenue: $16,671.71
+  ❌ Weekly variance 485.6% exceeds target 30%
+
+🛍️ CHANNEL DISTRIBUTION ANALYSIS
+----------------------------------------
+Status: ✅ PASS
+Active Channels: 6 (Target: ≥3)
+Channel Performance:
+  • Sales: $968,369.80 (61.8%) - AOV: $333.92
+  • Pop-up Events: $130,336.69 (8.3%) - AOV: $1059.65
+  • Corporate Sales: $129,724.75 (8.3%) - AOV: $960.92
+  • Instagram Shop: $128,601.62 (8.2%) - AOV: $966.93
+  • Amazon Store: $106,725.05 (6.8%) - AOV: $882.03
+  • Shopify: $103,383.20 (6.6%) - AOV: $827.07
+
+🗺️ GEOGRAPHIC DISTRIBUTION ANALYSIS
+----------------------------------------
+Status: ✅ PASS
+Geographic Regions: 8 (Target: ≥5)
+Top States by Revenue:
+  • Florida (UY): $6,475.51
+  • Colorado (US): $6,225.88
+  • Arizona (US): $4,875.10
+  • Oregon (US): $4,109.62
+  • Washington (US): $4,044.61
+  • Georgia (US): $4,033.30
+  • Texas (US): $2,520.06
+  • Massachusetts (US): $2,428.77
+
+📦 PRODUCT PERFORMANCE ANALYSIS
+----------------------------------------
+Status: ✅ PASS
+Total Products Sold: 442
+Top 10 Products by Revenue:
+   1. Essential Everyday Hoodie - Blue: $25,707.17
+   2. Essential Everyday Hoodie - Black: $22,110.98
+   3. Essential Everyday Hoodie - Blue: $19,834.94
+   4. Essential Everyday Hoodie - Black: $19,431.26
+   5. Essential Everyday Hoodie - Black: $19,107.37
+   6. Essential Everyday Hoodie - Grey: $19,092.32
+   7. Essential Everyday Hoodie - Black: $19,009.32
+   8. Essential Everyday Hoodie - Green: $18,625.33
+   9. Essential Everyday Hoodie - Blue: $18,071.92
+  10. Essential Everyday Hoodie - Grey: $17,870.67
+Top Categories by Revenue:
+  • Hoodies: $367,669.73
+  • Leggings: $152,586.30
+  • T-Shirts: $21,945.00
+  • Services: $750.00
+
+👥 CUSTOMER METRICS ANALYSIS
+----------------------------------------
+Status: ✅ PASS
+Total Customers: 355
+Average Customer Lifetime Value: $4,414.48
+Average Order Value: $464.21
+Repeat Customers: 348 (98.0%)
+
+🚨 ISSUES REQUIRING ATTENTION
+----------------------------------------
+  ❌ Seasonal: August: 51.4% (above 31%)
+  ❌ Seasonal: July: 13.9% (below 24%)
+  ❌ Seasonal: September: 13.1% (below 22%)
+  ❌ Variance: Weekly variance 485.6% exceeds target 30%
+
+💡 RECOMMENDATIONS
+----------------------------------------
+Fix scripts have been generated to address issues:
+• Run seasonal boost scripts for underperforming months
+• Execute channel diversification script
+• Run geographic expansion script
+Additional recommendations:
+• Monitor weekly sales variance closely
+• Implement targeted marketing campaigns
+• Focus on customer retention programs
+
+================================================================================

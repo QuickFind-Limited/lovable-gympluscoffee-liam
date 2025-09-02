@@ -1,0 +1,49 @@
+{
+  "generated_date": "2025-08-07T15:49:12.544Z",
+  "datasets": {
+    "products": {
+      "total_records": 15,
+      "expected_issues": [
+        "Invalid SKU formats",
+        "Missing required fields",
+        "Duplicate SKUs",
+        "Price validation warnings",
+        "Suspicious placeholder values",
+        "Invalid categories"
+      ]
+    },
+    "customers": {
+      "total_records": 12,
+      "expected_issues": [
+        "Invalid email formats",
+        "Missing required fields",
+        "Duplicate contact information",
+        "Invalid VAT numbers",
+        "Address completeness issues",
+        "Rank validation errors"
+      ]
+    },
+    "orders": {
+      "total_records": 8,
+      "expected_issues": [
+        "Order total mismatches",
+        "Invalid date sequences",
+        "Empty order lines",
+        "Invalid state values",
+        "Suspicious quantities and prices",
+        "Format validation errors"
+      ]
+    },
+    "inventory": {
+      "total_records": 12,
+      "expected_issues": [
+        "Quantity consistency errors",
+        "Over-reserved stock",
+        "Future dates",
+        "Very old stock warnings",
+        "Duplicate stock records",
+        "Format validation errors"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "import_timestamp": "2025-08-10T03:00:49.530829",
+  "elapsed_time_seconds": 44.615833044052124,
+  "statistics": {
+    "customers_created": 19,
+    "customers_skipped": 6,
+    "orders_created": 100,
+    "orders_failed": 0,
+    "order_lines_created": 190,
+    "returns_created": 7,
+    "total_revenue_imported": 97444.49102669953
+  },
+  "validation": {
+    "total_customers": 235,
+    "total_orders": 3074,
+    "recent_orders_imported": 131,
+    "import_stats": {
+      "customers_created": 19,
+      "customers_skipped": 6,
+      "orders_created": 100,
+      "orders_failed": 0,
+      "order_lines_created": 190,
+      "returns_created": 7,
+      "total_revenue_imported": 97444.49102669953
+    }
+  },
+  "summary": {
+    "customers_processed": 25,
+    "orders_processed": 100,
+    "returns_processed": 7,
+    "total_revenue_imported": 97444.49102669953,
+    "average_order_value": 974.4449102669953
+  }
+}

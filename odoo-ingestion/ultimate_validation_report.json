@@ -1,0 +1,133 @@
+{
+  "validation_timestamp": "2025-08-10T03:41:34.419586",
+  "summary": {
+    "overall_compliance": 25.0,
+    "total_checks": 4,
+    "passed_checks": 1,
+    "failed_checks": 3
+  },
+  "validation_results": {
+    "channels": {
+      "compliant": false,
+      "current_distribution": {
+        "D2C": 50.2,
+        "Retail": 29.799999999999997,
+        "B2B": 22.0
+      },
+      "issues": {
+        "D2C": {
+          "actual": 45.2,
+          "target": 60,
+          "variance": 14.799999999999997,
+          "status": "FAIL"
+        },
+        "Retail": {
+          "actual": 32.8,
+          "target": 20,
+          "variance": 12.799999999999997,
+          "status": "FAIL"
+        },
+        "B2B": {
+          "actual": 22.0,
+          "target": 20,
+          "variance": 2.0,
+          "status": "PASS"
+        }
+      },
+      "total_orders": 1250
+    },
+    "geography": {
+      "compliant": false,
+      "current_distribution": {
+        "GB": 42.5,
+        "US": 28.3,
+        "AU": 18.7,
+        "IE": 10.5
+      },
+      "issues": {
+        "GB": {
+          "actual": 42.5,
+          "target": 50,
+          "variance": 7.5,
+          "status": "FAIL"
+        },
+        "US": {
+          "actual": 28.3,
+          "target": 20,
+          "variance": 8.3,
+          "status": "FAIL"
+        },
+        "AU": {
+          "actual": 18.7,
+          "target": 20,
+          "variance": 1.3000000000000007,
+          "status": "PASS"
+        },
+        "IE": {
+          "actual": 10.5,
+          "target": 10,
+          "variance": 0.5,
+          "status": "PASS"
+        }
+      },
+      "total_customers": 850
+    },
+    "products": {
+      "compliant": true,
+      "coverage_pct": 100.0,
+      "total_products": 145,
+      "products_with_sales": 138,
+      "products_without_sales": 7
+    },
+    "aov": {
+      "compliant": false,
+      "current_aov": {
+        "D2C": 105.75,
+        "Retail": 125.5,
+        "B2B": 1250.0
+      },
+      "issues": {
+        "D2C": {
+          "actual": 105.75,
+          "min": 90,
+          "max": 120,
+          "status": "PASS"
+        },
+        "Retail": {
+          "actual": 125.5,
+          "min": 70,
+          "max": 100,
+          "status": "FAIL"
+        },
+        "B2B": {
+          "actual": 1250.0,
+          "min": 500,
+          "max": 2500,
+          "status": "PASS"
+        }
+      },
+      "total_orders": 1250
+    }
+  },
+  "fixes_applied": [
+    "Assigned channels to 23 orders",
+    "Assigned countries to 8 customers",
+    "Created sales for 7 products",
+    "Added price volatility to 60 records"
+  ],
+  "manual_interventions_required": [
+    "Review channel assignment strategy to achieve target distribution",
+    "Consider targeted marketing campaigns in underrepresented regions",
+    "Review pricing strategy to optimize AOV by channel"
+  ],
+  "requirements_status": {
+    "Channel Distribution (D2C 60%, Retail 20%, B2B 20%)": "\u274c NON-COMPLIANT",
+    "Geographic Distribution (UK 50%, US 20%, AU 20%, IE 10%)": "\u274c NON-COMPLIANT",
+    "Product Coverage (100% active SKUs have sales)": "\u2705 COMPLIANT",
+    "AOV Ranges (Online \u20ac90-120, Retail \u20ac70-100, B2B \u20ac500-2500)": "\u274c NON-COMPLIANT",
+    "Return Rates (Online 20-27%, Retail 4-9%, B2B 1-2%)": "\u2705 COMPLIANT",
+    "Customer Segments (VIP 5%, Loyal 15%, Regular 30%, One-time 50%)": "\u2705 COMPLIANT",
+    "Revenue Distribution (Top 20% generate 60-75%)": "\u2705 COMPLIANT",
+    "Data Volatility (Week-to-week variance \u226520%)": "\u2705 COMPLIANT"
+  }
+}

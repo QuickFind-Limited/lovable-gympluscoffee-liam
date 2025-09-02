@@ -1,0 +1,52 @@
+{
+  "timestamp": "2025-08-10T03:49:16.228452",
+  "status": "NEEDS_COMPLETION",
+  "validation_results": {
+    "customers": {
+      "total": 351,
+      "target": 35000,
+      "status": "\u274c"
+    },
+    "orders": {
+      "total": 3537,
+      "target": 65000,
+      "status": "\u274c"
+    },
+    "products": {
+      "total": 522,
+      "with_sales": 419,
+      "coverage_pct": 80.26819923371647,
+      "status": "\u2705"
+    }
+  },
+  "requirements_met": [
+    "\u2705 Product coverage: 80.3%"
+  ],
+  "requirements_not_met": [
+    "\u274c Customers: 351/35,000",
+    "\u274c Orders: 3,537/65,000",
+    "\u26a0\ufe0f Channel distribution needs balancing"
+  ],
+  "fixes_needed": [
+    "Import remaining customer data",
+    "Import remaining transaction data"
+  ],
+  "summary": {
+    "customers": 351,
+    "orders": 3537,
+    "products": 522,
+    "product_coverage": "80.3%",
+    "geographic_distribution": {
+      "Isle of Man": 197,
+      "United States": 105,
+      "Grenada": 38,
+      "Ireland": 3,
+      "United Kingdom": 5,
+      "Australia": 3
+    },
+    "channel_distribution": {
+      "Sales": "\u20ac363,528.27",
+      "Online/D2C": "\u20ac644.01"
+    }
+  }
+}

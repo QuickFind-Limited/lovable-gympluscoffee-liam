@@ -1,0 +1,351 @@
+{
+  "stats": {
+    "totalRecords": 12,
+    "validRecords": 0,
+    "invalidRecords": 12,
+    "errorCount": 40,
+    "warningCount": 5,
+    "successRate": 0,
+    "duration": 4
+  },
+  "errors": [
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 1,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 2,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "quantity",
+      "message": "Negative stock quantity detected",
+      "value": -25,
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "reserved_quantity",
+      "message": "Reserved quantity (0) exceeds total quantity (-25)",
+      "value": 0,
+      "recordId": 3,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "available_quantity",
+      "message": "Quantity mismatch. Available: 90, Expected: 80",
+      "value": 90,
+      "recordId": 4,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "reserved_quantity",
+      "message": "Reserved quantity (50) exceeds total quantity (30)",
+      "value": 50,
+      "recordId": 5,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "product_id",
+      "message": "Product ID must be in [id, name] format",
+      "value": "invalid-format",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/product_id",
+      "message": "must be array",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 6,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 9,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 10,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/lot_id",
+      "message": "must be array",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/package_id",
+      "message": "must be array",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "error",
+      "field": "/owner_id",
+      "message": "must be array",
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "warning",
+      "field": "quantity",
+      "message": "Very high stock quantity detected: 999999",
+      "value": 999999,
+      "recordId": 7,
+      "timestamp": "2025-08-07T15:49:12.601Z"
+    },
+    {
+      "type": "warning",
+      "field": "in_date",
+      "message": "Very old stock (2045 days old)",
+      "value": "2020-01-01T10:00:00Z",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "warning",
+      "field": "in_date",
+      "message": "Very old stock: 68 months old",
+      "value": "2020-01-01T10:00:00Z",
+      "recordId": 8,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "warning",
+      "field": "quantity",
+      "message": "Fractional quantity for product that may not support it: 0.1",
+      "value": 0.1,
+      "recordId": 11,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    },
+    {
+      "type": "warning",
+      "field": "lot_id",
+      "message": "Stock record has lot ID but zero quantity",
+      "value": [
+        2,
+        "LOT002"
+      ],
+      "recordId": 12,
+      "timestamp": "2025-08-07T15:49:12.602Z"
+    }
+  ],
+  "infos": [
+    {
+      "type": "info",
+      "message": "Starting batch validation of 12 records",
+      "context": null,
+      "timestamp": "2025-08-07T15:49:12.600Z"
+    }
+  ]
+}

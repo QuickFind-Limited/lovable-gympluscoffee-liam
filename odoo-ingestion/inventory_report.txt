@@ -1,0 +1,52 @@
+================================================================================
+GYM+COFFEE INVENTORY MANAGEMENT REPORT
+================================================================================
+Generated: 2025-08-07 16:57:04
+Season: Summer
+Target Monthly Sales: €300,000
+Estimated Monthly Unit Sales: 6,667
+
+INVENTORY SUMMARY
+----------------------------------------
+Total Products: 15
+Total Current Stock Value: €-50.00
+Products Updated: 15
+Errors: 0
+
+CATEGORY BREAKDOWN
+----------------------------------------
+Category             Count    Current Stock   Target Stock   
+------------------------------------------------------------
+hoodies              6        105             4,200          
+t-shirts             6        195             3,000          
+invalid-category     1        0               500            
+accessories          2        1               1,200          
+
+STOCK MOVEMENTS
+----------------------------------------
+Total Movements: 45
+Inbound Quantity: 0
+Outbound Quantity: 306
+Net Movement: -306
+
+
+INVENTORY RULES APPLIED
+----------------------------------------
+hoodies: 500-1000 units, Safety: 25%, Seasonal: Yes
+sweatshirts: 500-1000 units, Safety: 25%, Seasonal: Yes
+basic-tees: 500-1000 units, Safety: 25%, Seasonal: No
+t-shirts: 200-500 units, Safety: 20%, Seasonal: No
+tanks: 200-500 units, Safety: 20%, Seasonal: Yes
+shorts: 200-500 units, Safety: 20%, Seasonal: Yes
+leggings: 200-500 units, Safety: 20%, Seasonal: No
+joggers: 200-500 units, Safety: 20%, Seasonal: No
+limited-edition: 50-200 units, Safety: 15%, Seasonal: No
+collaboration: 50-200 units, Safety: 15%, Seasonal: No
+special: 50-200 units, Safety: 15%, Seasonal: No
+accessories: 300-600 units, Safety: 20%, Seasonal: No
+bags: 300-600 units, Safety: 20%, Seasonal: No
+bottles: 300-600 units, Safety: 20%, Seasonal: No
+caps: 300-600 units, Safety: 20%, Seasonal: Yes
+beanies: 300-600 units, Safety: 20%, Seasonal: Yes
+
+================================================================================

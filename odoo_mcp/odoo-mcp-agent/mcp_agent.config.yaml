@@ -1,0 +1,12 @@
+$schema: "https://raw.githubusercontent.com/lastmile-ai/mcp-agent/main/schema/mcp-agent.config.schema.json"
+
+mcp:
+  servers:
+    odoo:
+      command: "uv"
+      args: ["run", "odoo-mcp-server"]
+      # Make sure to run from the correct directory where odoo-mcp-server is installed
+      
+    filesystem:
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-filesystem", "."]

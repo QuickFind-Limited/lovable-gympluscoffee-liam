@@ -1,0 +1,24 @@
+{
+  "generation_timestamp": "2025-08-10T02:56:16.961140",
+  "total_customers": 35000,
+  "b2c_customers": 34850,
+  "b2b_customers": 150,
+  "repeat_buyers": 11283,
+  "countries": [
+    "UK",
+    "US",
+    "IE",
+    "AU"
+  ],
+  "segments": [
+    "VIP",
+    "Wholesale",
+    "One-Time",
+    "Regular",
+    "Loyal"
+  ],
+  "date_range": {
+    "start": "2023-12-01",
+    "end": "2024-09-30"
+  }
+}

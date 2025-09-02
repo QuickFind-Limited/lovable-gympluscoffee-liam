@@ -1,0 +1,12 @@
+{
+  "processing_date": "2025-08-10T03:11:04.320981",
+  "total_customers_processed": 35000,
+  "total_products_mapped": 42,
+  "batches_created": {
+    "customer_batches": 70,
+    "order_batches": 0
+  },
+  "irish_vat_rate": 0.23,
+  "seasonal_promotions_count": 7,
+  "processing_status": "completed"
+}

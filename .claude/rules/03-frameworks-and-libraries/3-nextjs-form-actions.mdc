@@ -1,0 +1,55 @@
+---
+description: Rules for implementing Next.js Server Actions in form handling with proper validation, error handling, and cache revalidation patterns. Applies to all form mutation operations requiring server-side processing with type safety and consistent state management.
+globs: ["**/actions/*.ts", "**/actions/*.actions.ts", "**/*.actions.ts"]
+alwaysApply: false
+---
+
+Server Action Declaration:
+
+- Start with `"use server"`
+- Use `(prevState, formData) => Promise<State>` signature
+- Export named functions only
+- Return consistent state structure
+- Place in domain actions folder
+
+Form Data Processing:
+
+- Extract with `formData.get()`
+- Cast types explicitly
+- Create raw data object
+- Transform before validation
+
+Validation & Error Handling:
+
+- Use Zod `safeParse()`
+- Map errors to fields
+- Preserve data on errors
+- Handle `_form` errors
+
+API Integration:
+
+- Use @frontend/src/shared/fetch/fetchApi exclusively
+- Reference @frontend/src/shared/api/routes.constant only
+- Never use `fetch` directly
+- Wrap in try-catch
+
+Form UI Integration:
+
+- Use `next/form` with `useActionState`
+- Combine with Radix Themes
+- No inline callbacks
+- Extract functions to top-level
+
+Cache Revalidation:
+
+- Call `revalidatePath()` after mutations
+- Revalidate related paths explicitly
+- Use specific paths only
+- Place after API response
+
+State Management:
+
+- Return `{ success: true, data }`
+- Return `{ errors, data }` on failure
+- Include `success: false` for errors
+- Preserve form data states
