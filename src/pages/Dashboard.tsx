@@ -293,6 +293,10 @@ const Dashboard = ({
                   events={streamingEvents}
                   finalResponse={finalResponse}
                   isStreaming={isStreaming}
+                  onStreamingEvent={handleStreamingEvent}
+                  onStreamingStart={handleStreamingStart}
+                  onStreamingEnd={handleStreamingEnd}
+                  onStreamingError={handleStreamingError}
                 />
               </div> : showChatInterface ? <ChatInterface initialQuery={searchQuery} onSubmit={handleChatSubmit} /> : <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto transition-all duration-500 ease-in-out mt-8" style={{
             minHeight: 'calc(100vh - 16rem)'

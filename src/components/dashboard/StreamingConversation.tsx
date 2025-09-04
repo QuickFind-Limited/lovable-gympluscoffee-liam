@@ -5,24 +5,35 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { StreamEvent } from '@/services/apiStreaming';
 import TypewriterText from './TypewriterText';
+import SearchBar from './SearchBar';
 
 interface StreamingConversationProps {
   className?: string;
   events?: StreamEvent[];
   finalResponse?: string;
   isStreaming?: boolean;
+  onStreamingEvent?: (event: StreamEvent) => void;
+  onStreamingStart?: () => void;
+  onStreamingEnd?: (finalResponse?: string) => void;
+  onStreamingError?: (error: Error) => void;
 }
 
 const StreamingConversation: React.FC<StreamingConversationProps> = ({ 
   className = '', 
   events: propEvents = [], 
   finalResponse: propFinalResponse = '', 
-  isStreaming: propIsStreaming = false 
+  isStreaming: propIsStreaming = false,
+  onStreamingEvent,
+  onStreamingStart,
+  onStreamingEnd,
+  onStreamingError
 }) => {
   const [events, setEvents] = useState<StreamEvent[]>(propEvents);
   const [finalResponse, setFinalResponse] = useState<string>(propFinalResponse);
   const [showFinalResponse, setShowFinalResponse] = useState(false);
   const [isStreaming, setIsStreaming] = useState(propIsStreaming);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [userMessages, setUserMessages] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -44,7 +55,11 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
 
   useEffect(() => {
     scrollToBottom();
-  }, [events, finalResponse]);
+  }, [events, finalResponse, userMessages]);
+
+  const handleSubmit = (query: string) => {
+    setUserMessages(prev => [...prev, query]);
+  };
 
 
   const getEventIcon = (type: StreamEvent['type']) => {
@@ -96,6 +111,29 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
       {/* Messages et événements */}
       <ScrollArea className="flex-1 p-4">
         <div className="space-y-4">
+          {/* Messages utilisateur */}
+          {userMessages.map((message, index) => (
+            <div key={`user-${index}`} className="space-y-2">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 mt-1">
+                  <MessageSquare className="h-4 w-4 text-blue-500" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Badge variant="secondary" className="text-xs">
+                      Question
+                    </Badge>
+                  </div>
+                  <div className="text-sm break-words bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                    {message}
+                  </div>
+                </div>
+              </div>
+              <Separator className="my-2" />
+            </div>
+          ))}
+
+          {/* Événements API */}
           {events.map((event, index) => (
             <div key={event.id} className="space-y-2">
               {/* Événement */}
@@ -156,6 +194,18 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
         <div ref={messagesEndRef} />
       </ScrollArea>
 
+      {/* Input de conversation en bas */}
+      <div className="flex-shrink-0 p-4 border-t bg-background">
+        <SearchBar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onSubmit={handleSubmit}
+          onStreamingEvent={onStreamingEvent}
+          onStreamingStart={onStreamingStart}
+          onStreamingEnd={onStreamingEnd}
+          onStreamingError={onStreamingError}
+        />
+      </div>
     </div>
   );
 };
