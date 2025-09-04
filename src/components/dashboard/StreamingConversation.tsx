@@ -1,92 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, User, Bot, Activity, MessageSquare, Zap } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Bot, Activity, MessageSquare, Zap } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { apiStreamingService, StreamEvent } from '@/services/apiStreaming';
+import { StreamEvent } from '@/services/apiStreaming';
 import TypewriterText from './TypewriterText';
 
 interface StreamingConversationProps {
   className?: string;
+  events?: StreamEvent[];
+  finalResponse?: string;
+  isStreaming?: boolean;
 }
 
-const StreamingConversation: React.FC<StreamingConversationProps> = ({ className = '' }) => {
-  const [input, setInput] = useState('');
-  const [isStreaming, setIsStreaming] = useState(false);
-  const [events, setEvents] = useState<StreamEvent[]>([]);
-  const [finalResponse, setFinalResponse] = useState<string>('');
+const StreamingConversation: React.FC<StreamingConversationProps> = ({ 
+  className = '', 
+  events: propEvents = [], 
+  finalResponse: propFinalResponse = '', 
+  isStreaming: propIsStreaming = false 
+}) => {
+  const [events, setEvents] = useState<StreamEvent[]>(propEvents);
+  const [finalResponse, setFinalResponse] = useState<string>(propFinalResponse);
   const [showFinalResponse, setShowFinalResponse] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(propIsStreaming);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
+    setEvents(propEvents);
+  }, [propEvents]);
+
+  useEffect(() => {
+    setFinalResponse(propFinalResponse);
+    setShowFinalResponse(!!propFinalResponse);
+  }, [propFinalResponse]);
+
+  useEffect(() => {
+    setIsStreaming(propIsStreaming);
+  }, [propIsStreaming]);
+
+  useEffect(() => {
     scrollToBottom();
   }, [events, finalResponse]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isStreaming) return;
-
-    const query = input.trim();
-    setInput('');
-    setEvents([]);
-    setFinalResponse('');
-    setShowFinalResponse(false);
-    setIsStreaming(true);
-
-    // Ajouter le message utilisateur
-    const userEvent: StreamEvent = {
-      id: Date.now().toString(),
-      type: 'message',
-      timestamp: new Date().toISOString(),
-      display: `👤 Vous: ${query}`,
-      data: { role: 'user', content: query },
-      full_content: query
-    };
-    setEvents([userEvent]);
-
-    try {
-      await apiStreamingService.streamQuery(
-        {
-          prompt: query,
-          model: 'claude-sonnet-4-20250514',
-          max_turns: 30
-        },
-        (event: StreamEvent) => {
-          setEvents(prev => [...prev, event]);
-        },
-        (finalResponse?: string) => {
-          setIsStreaming(false);
-          if (finalResponse) {
-            setFinalResponse(finalResponse);
-            setShowFinalResponse(true);
-          }
-        },
-        (error: Error) => {
-          setIsStreaming(false);
-          const errorEvent: StreamEvent = {
-            id: Date.now().toString(),
-            type: 'log',
-            timestamp: new Date().toISOString(),
-            display: `❌ Erreur: ${error.message}`,
-            data: { error: error.message }
-          };
-          setEvents(prev => [...prev, errorEvent]);
-        }
-      );
-    } catch (error) {
-      setIsStreaming(false);
-      console.error('Streaming error:', error);
-    }
-
-    inputRef.current?.focus();
-  };
 
   const getEventIcon = (type: StreamEvent['type']) => {
     switch (type) {
@@ -197,26 +156,6 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({ className
         <div ref={messagesEndRef} />
       </ScrollArea>
 
-      {/* Input */}
-      <div className="flex-shrink-0 p-4 border-t">
-        <form onSubmit={handleSubmit} className="flex gap-2">
-          <Input
-            ref={inputRef}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Tapez votre question..."
-            disabled={isStreaming}
-            className="flex-1"
-          />
-          <Button 
-            type="submit" 
-            disabled={!input.trim() || isStreaming}
-            size="icon"
-          >
-            <Send className="h-4 w-4" />
-          </Button>
-        </form>
-      </div>
     </div>
   );
 };

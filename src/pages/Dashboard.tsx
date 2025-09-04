@@ -15,6 +15,7 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { useOpenAISearch } from '@/hooks/useOpenAISearch';
 import type { OrderSummaryData } from '@/types/search.types';
+import { StreamEvent } from '@/services/apiStreaming';
 interface DashboardProps {
   onNavigateToOrderSummary: (query: string) => void;
 }
@@ -30,6 +31,9 @@ const Dashboard = ({
   const [showChatInterface, setShowChatInterface] = useState(false);
   const [showStreamingConversation, setShowStreamingConversation] = useState(false);
   const [showOrderGeneration, setShowOrderGeneration] = useState(false);
+  const [streamingEvents, setStreamingEvents] = useState<StreamEvent[]>([]);
+  const [finalResponse, setFinalResponse] = useState<string>('');
+  const [isStreaming, setIsStreaming] = useState(false);
   const [chatLoadingMessage, setChatLoadingMessage] = useState('');
   const [isGeneratingPO, setIsGeneratingPO] = useState(false);
   const [showPurchaseOrder, setShowPurchaseOrder] = useState(false);
@@ -144,10 +148,43 @@ const Dashboard = ({
     navigate('/purchase-order-editor');
   };
   const handleChatSubmit = (query: string) => {
-    // Simply show the chat interface - no complex processing
+    // Show streaming conversation instead of old chat interface
     setSearchQuery(query);
-    setShowChatInterface(true);
+    setShowStreamingConversation(true);
+    setShowChatInterface(false);
     setShowOrderGeneration(false);
+  };
+
+  const handleStreamingEvent = (event: StreamEvent) => {
+    setStreamingEvents(prev => [...prev, event]);
+  };
+
+  const handleStreamingStart = () => {
+    setIsStreaming(true);
+    setStreamingEvents([]);
+    setFinalResponse('');
+    setShowStreamingConversation(true);
+    setShowChatInterface(false);
+    setShowOrderGeneration(false);
+  };
+
+  const handleStreamingEnd = (finalResponse?: string) => {
+    setIsStreaming(false);
+    if (finalResponse) {
+      setFinalResponse(finalResponse);
+    }
+  };
+
+  const handleStreamingError = (error: Error) => {
+    setIsStreaming(false);
+    const errorEvent: StreamEvent = {
+      id: Date.now().toString(),
+      type: 'log',
+      timestamp: new Date().toISOString(),
+      display: `❌ Erreur: ${error.message}`,
+      data: { error: error.message }
+    };
+    setStreamingEvents(prev => [...prev, errorEvent]);
   };
   const handleOrderGeneration = (query: string) => {
     // For replenishment orders, use the ChatInterface with sophisticated parsing
@@ -227,6 +264,9 @@ const Dashboard = ({
     setSearchQuery('');
     setIsLoadingOrderSummary(false);
     setIsGeneratingPO(false);
+    setStreamingEvents([]);
+    setFinalResponse('');
+    setIsStreaming(false);
   };
 
   if (!currentUser) return null;
@@ -248,7 +288,12 @@ const Dashboard = ({
                   </button>
                 </div>
               </div> : showStreamingConversation ? <div className="h-full">
-                <StreamingConversation className="h-[calc(100vh-8rem)]" />
+                <StreamingConversation 
+                  className="h-[calc(100vh-8rem)]" 
+                  events={streamingEvents}
+                  finalResponse={finalResponse}
+                  isStreaming={isStreaming}
+                />
               </div> : showChatInterface ? <ChatInterface initialQuery={searchQuery} onSubmit={handleChatSubmit} /> : <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto transition-all duration-500 ease-in-out mt-8" style={{
             minHeight: 'calc(100vh - 16rem)'
           }}>
@@ -258,7 +303,16 @@ const Dashboard = ({
                 </div>
                 
                 <div className="w-full max-w-3xl mx-auto animate-in fade-in-0 slide-in-from-bottom-6 duration-700 delay-200">
-                  <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} onSubmit={handleChatSubmit} onOrderGeneration={handleOrderGeneration} />
+                  <SearchBar 
+                    searchQuery={searchQuery} 
+                    setSearchQuery={setSearchQuery} 
+                    onSubmit={handleChatSubmit} 
+                    onOrderGeneration={handleOrderGeneration}
+                    onStreamingEvent={handleStreamingEvent}
+                    onStreamingStart={handleStreamingStart}
+                    onStreamingEnd={handleStreamingEnd}
+                    onStreamingError={handleStreamingError}
+                  />
                 </div>
                 
                 {/* System Prompts - Two on top, one on bottom */}
@@ -285,12 +339,6 @@ const Dashboard = ({
                       className="px-6 py-3 text-sm font-bold text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors backdrop-blur whitespace-nowrap"
                     >
                       "Identify stockouts across our best catagories and calculate missed sales"
-                    </button>
-                    <button
-                      onClick={handleStreamingConversationClick}
-                      className="px-6 py-3 text-sm font-bold text-white bg-primary border border-primary rounded-full hover:bg-primary/90 transition-colors backdrop-blur whitespace-nowrap"
-                    >
-                      🔄 Conversation Streaming API
                     </button>
                   </div>
                 </div>

@@ -1,19 +1,28 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Search, ArrowRight, Loader2 } from 'lucide-react';
+import { apiStreamingService, StreamEvent } from '@/services/apiStreaming';
 
 interface SearchBarProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   onSubmit: (query: string) => void;
   onOrderGeneration?: (query: string) => void;
+  onStreamingEvent?: (event: StreamEvent) => void;
+  onStreamingStart?: () => void;
+  onStreamingEnd?: (finalResponse?: string) => void;
+  onStreamingError?: (error: Error) => void;
 }
 
 const SearchBar = ({
   searchQuery,
   setSearchQuery,
   onSubmit,
-  onOrderGeneration
+  onOrderGeneration,
+  onStreamingEvent,
+  onStreamingStart,
+  onStreamingEnd,
+  onStreamingError
 }: SearchBarProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -33,19 +42,49 @@ const SearchBar = ({
     
     setIsProcessing(true);
     
-    // Check if the query contains "order" keyword
-    const containsOrder = queryToUse.toLowerCase().includes('order');
-    
-    // Simulate brief processing
-    setTimeout(() => {
-      setIsProcessing(false);
+    // Start streaming if callbacks are provided
+    if (onStreamingEvent && onStreamingStart && onStreamingEnd) {
+      onStreamingStart();
       
-      if (containsOrder && onOrderGeneration) {
-        onOrderGeneration(queryToUse);
-      } else {
-        onSubmit(queryToUse);
+      try {
+        await apiStreamingService.streamQuery(
+          {
+            prompt: queryToUse,
+            model: 'claude-sonnet-4-20250514',
+            max_turns: 30
+          },
+          onStreamingEvent,
+          (finalResponse?: string) => {
+            setIsProcessing(false);
+            onStreamingEnd(finalResponse);
+          },
+          (error: Error) => {
+            setIsProcessing(false);
+            if (onStreamingError) {
+              onStreamingError(error);
+            }
+          }
+        );
+      } catch (error) {
+        setIsProcessing(false);
+        if (onStreamingError) {
+          onStreamingError(error as Error);
+        }
       }
-    }, 800);
+    } else {
+      // Fallback to original behavior
+      const containsOrder = queryToUse.toLowerCase().includes('order');
+      
+      setTimeout(() => {
+        setIsProcessing(false);
+        
+        if (containsOrder && onOrderGeneration) {
+          onOrderGeneration(queryToUse);
+        } else {
+          onSubmit(queryToUse);
+        }
+      }, 800);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
