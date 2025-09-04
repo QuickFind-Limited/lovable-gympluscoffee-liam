@@ -7,6 +7,7 @@ import Header from '@/components/dashboard/Header';
 import AppSidebar from '@/components/dashboard/AppSidebar';
 import SearchBar from '@/components/dashboard/SearchBar';
 import ChatInterface from '@/components/dashboard/ChatInterface';
+import StreamingConversation from '@/components/dashboard/StreamingConversation';
 import KpiCard from '@/components/dashboard/analytics/KpiCard';
 import PurchaseOrderPDFView from '@/components/PurchaseOrderPDFView';
 import { useFinancialData } from '@/contexts/FinancialDataContext';
@@ -27,6 +28,7 @@ const Dashboard = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoadingOrderSummary, setIsLoadingOrderSummary] = useState(false);
   const [showChatInterface, setShowChatInterface] = useState(false);
+  const [showStreamingConversation, setShowStreamingConversation] = useState(false);
   const [showOrderGeneration, setShowOrderGeneration] = useState(false);
   const [chatLoadingMessage, setChatLoadingMessage] = useState('');
   const [isGeneratingPO, setIsGeneratingPO] = useState(false);
@@ -210,9 +212,17 @@ const Dashboard = ({
     bgColor: 'bg-gray-100',
     onClick: handleNotificationsClick
   }];
+  const handleStreamingConversationClick = () => {
+    // Activer la conversation en streaming
+    setShowStreamingConversation(true);
+    setShowChatInterface(false);
+    setShowOrderGeneration(false);
+  };
+
   const handleNewQuery = () => {
     // Reset all chat-related states to return to main dashboard prompt box
     setShowChatInterface(false);
+    setShowStreamingConversation(false);
     setShowOrderGeneration(false);
     setSearchQuery('');
     setIsLoadingOrderSummary(false);
@@ -237,6 +247,8 @@ const Dashboard = ({
                     Back to Search
                   </button>
                 </div>
+              </div> : showStreamingConversation ? <div className="h-full">
+                <StreamingConversation className="h-[calc(100vh-8rem)]" />
               </div> : showChatInterface ? <ChatInterface initialQuery={searchQuery} onSubmit={handleChatSubmit} /> : <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto transition-all duration-500 ease-in-out mt-8" style={{
             minHeight: 'calc(100vh - 16rem)'
           }}>
@@ -266,13 +278,19 @@ const Dashboard = ({
                       "Help me create a new forecast for SS25"
                     </button>
                   </div>
-                  {/* Bottom row - one prompt centered */}
-                  <div className="flex justify-center">
+                  {/* Bottom row - prompts */}
+                  <div className="flex flex-wrap gap-4 justify-center">
                     <button
                       onClick={() => handleSuggestionClick("Identify stockouts across our best catagories and calculate missed sales")}
                       className="px-6 py-3 text-sm font-bold text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors backdrop-blur whitespace-nowrap"
                     >
                       "Identify stockouts across our best catagories and calculate missed sales"
+                    </button>
+                    <button
+                      onClick={handleStreamingConversationClick}
+                      className="px-6 py-3 text-sm font-bold text-white bg-primary border border-primary rounded-full hover:bg-primary/90 transition-colors backdrop-blur whitespace-nowrap"
+                    >
+                      🔄 Conversation Streaming API
                     </button>
                   </div>
                 </div>
