@@ -196,10 +196,11 @@ const Dashboard = ({
     navigate('/purchase-order-editor');
   };
   const handleChatSubmit = (query: string) => {
-    // Show streaming conversation instead of old chat interface
+    console.log('🎯 handleChatSubmit called with query:', query);
+    // Show ChatInterface to display the user's message first
     setSearchQuery(query);
-    setShowStreamingConversation(true);
-    setShowChatInterface(false);
+    setShowChatInterface(true);
+    setShowStreamingConversation(false);
     setShowOrderGeneration(false);
   };
 
