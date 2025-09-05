@@ -128,144 +128,124 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
 
       {/* Messages et événements */}
       <ScrollArea className="flex-1 p-4">
-        <div className="space-y-4">
+        <div className="space-y-6">
           {/* Historique des conversations précédentes */}
           {conversationHistory.map((conversation, conversationIndex) => (
-            <div key={`conversation-${conversationIndex}`} className="space-y-4">
-              {/* Événements de cette conversation */}
-              {conversation.events.filter(event => event.type !== 'log').map((event, index) => (
-                <div key={`${conversationIndex}-${event.id}`} className="space-y-2">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      {getEventIcon(event.type)}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Badge variant={getEventBadgeVariant(event.type)} className="text-xs">
-                          {event.type}
-                        </Badge>
-                        <span className="text-xs text-muted-foreground">
-                          {new Date(event.timestamp).toLocaleTimeString()}
-                        </span>
-                      </div>
-                      <div className="text-sm break-words">
-                        {event.display}
-                      </div>
-                      {event.full_content && event.type === 'message' && event.data.role !== 'user' && (
-                        <div className="mt-2 p-3 bg-muted/50 rounded-lg border-l-2 border-primary">
-                          <div className="text-sm text-muted-foreground mb-1">Contenu complet:</div>
-                          <div className="text-sm whitespace-pre-wrap">{event.full_content}</div>
-                        </div>
-                      )}
-                    </div>
+            <div key={`conversation-${conversationIndex}`} className="space-y-6">
+              {/* Étapes de progression */}
+              {conversation.events.filter(event => event.type !== 'log' && event.type !== 'final_response').length > 0 && (
+                <div className="bg-muted/20 rounded-lg p-4 border">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Activity className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-sm font-medium text-muted-foreground">Traitement en cours</span>
                   </div>
-                  {index < conversation.events.length - 1 && <Separator className="my-2" />}
-                </div>
-              ))}
-              
-              {/* Réponse finale de cette conversation */}
-              {conversation.finalResponse && (
-                <div className="space-y-2">
-                  <Separator className="my-4" />
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <Bot className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge variant="default" className="text-xs">
-                          Réponse finale
-                        </Badge>
-                      </div>
-                      <div className="bg-muted/30 rounded-lg p-4 border-l-4 border-primary">
-                        <div className="text-sm leading-relaxed whitespace-pre-wrap">
-                          {conversation.finalResponse}
+                  <div className="space-y-2">
+                    {conversation.events.filter(event => event.type !== 'log' && event.type !== 'final_response').map((event, index) => (
+                      <div key={`${conversationIndex}-${event.id}`} className="flex items-center gap-3 animate-fade-in">
+                        <div className="flex-shrink-0">
+                          {getEventIcon(event.type)}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          {event.display}
+                        </div>
+                        <div className="text-xs text-muted-foreground ml-auto">
+                          {new Date(event.timestamp).toLocaleTimeString()}
                         </div>
                       </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Réponse finale comme bulle de chat */}
+              {conversation.finalResponse && (
+                <div className="flex items-start gap-3 animate-fade-in">
+                  <div className="flex-shrink-0 mt-1">
+                    <Bot className="h-8 w-8 text-primary bg-primary/10 rounded-full p-1.5" />
+                  </div>
+                  <div className="flex-1 min-w-0 max-w-[85%]">
+                    <div className="bg-background border rounded-2xl p-4 shadow-sm">
+                      <div className="text-sm leading-relaxed whitespace-pre-wrap">
+                        {conversation.finalResponse}
+                      </div>
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1 ml-2">
+                      Assistant
                     </div>
                   </div>
                 </div>
               )}
               
-              {conversationIndex < conversationHistory.length - 1 && <Separator className="my-6" />}
+              {conversationIndex < conversationHistory.length - 1 && <Separator className="my-8" />}
             </div>
           ))}
 
           {/* Messages utilisateur */}
           {userMessages.map((message, index) => (
-            <div key={`user-${index}`} className="space-y-2">
-              <div className="flex items-start gap-3 justify-end">
-                <div className="flex-1 min-w-0 max-w-[80%]">
-                  <div className="flex items-center gap-2 mb-1 justify-end">
-                    <Badge variant="secondary" className="text-xs">
-                      Vous
-                    </Badge>
-                  </div>
-                  <div className="text-sm break-words bg-primary text-primary-foreground p-3 rounded-lg ml-auto">
+            <div key={`user-${index}`} className="flex items-start gap-3 justify-end animate-fade-in">
+              <div className="flex-1 min-w-0 max-w-[85%]">
+                <div className="bg-primary text-primary-foreground rounded-2xl p-4 ml-auto shadow-sm">
+                  <div className="text-sm leading-relaxed">
                     {message}
                   </div>
                 </div>
-                <div className="flex-shrink-0 mt-1">
-                  <MessageSquare className="h-4 w-4 text-primary" />
+                <div className="text-xs text-muted-foreground mt-1 mr-2 text-right">
+                  Vous
                 </div>
               </div>
-              <Separator className="my-2" />
+              <div className="flex-shrink-0 mt-1">
+                <MessageSquare className="h-8 w-8 text-primary bg-primary/10 rounded-full p-1.5" />
+              </div>
             </div>
           ))}
 
-          {/* Événements API actuels */}
-          {events.filter(event => event.type !== 'log').map((event, index) => (
-            <div key={event.id} className="space-y-2">
-              {/* Événement */}
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 mt-1">
-                  {getEventIcon(event.type)}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Badge variant={getEventBadgeVariant(event.type)} className="text-xs">
-                      {event.type}
-                    </Badge>
-                    <span className="text-xs text-muted-foreground">
-                      {new Date(event.timestamp).toLocaleTimeString()}
-                    </span>
+          {/* Étapes de progression actuelles */}
+          {events.filter(event => event.type !== 'log' && event.type !== 'final_response').length > 0 && (
+            <div className="bg-muted/20 rounded-lg p-4 border animate-fade-in">
+              <div className="flex items-center gap-2 mb-3">
+                <Activity className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm font-medium text-muted-foreground">Traitement en cours</span>
+                {isStreaming && (
+                  <div className="flex space-x-1 ml-2">
+                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce"></div>
                   </div>
-                  <div className="text-sm break-words">
-                    {event.display}
-                  </div>
-                  {event.full_content && event.type === 'message' && event.data.role !== 'user' && (
-                    <div className="mt-2 p-3 bg-muted/50 rounded-lg border-l-2 border-primary">
-                      <div className="text-sm text-muted-foreground mb-1">Contenu complet:</div>
-                      <div className="text-sm whitespace-pre-wrap">{event.full_content}</div>
+                )}
+              </div>
+              <div className="space-y-2">
+                {events.filter(event => event.type !== 'log' && event.type !== 'final_response').map((event, index) => (
+                  <div key={event.id} className="flex items-center gap-3 animate-fade-in">
+                    <div className="flex-shrink-0">
+                      {getEventIcon(event.type)}
                     </div>
-                  )}
-                </div>
+                    <div className="text-sm text-muted-foreground">
+                      {event.display}
+                    </div>
+                    <div className="text-xs text-muted-foreground ml-auto">
+                      {new Date(event.timestamp).toLocaleTimeString()}
+                    </div>
+                  </div>
+                ))}
               </div>
-              
-              {index < events.length - 1 && <Separator className="my-2" />}
             </div>
-          ))}
+          )}
 
-          {/* Réponse finale avec effet TypewriterText */}
+          {/* Réponse finale actuelle comme bulle de chat */}
           {showFinalResponse && finalResponse && (
-            <div className="space-y-2">
-              <Separator className="my-4" />
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 mt-1">
-                  <Bot className="h-5 w-5 text-primary" />
+            <div className="flex items-start gap-3 animate-fade-in">
+              <div className="flex-shrink-0 mt-1">
+                <Bot className="h-8 w-8 text-primary bg-primary/10 rounded-full p-1.5" />
+              </div>
+              <div className="flex-1 min-w-0 max-w-[85%]">
+                <div className="bg-background border rounded-2xl p-4 shadow-sm">
+                  <TypewriterText 
+                    text={finalResponse}
+                    className="text-sm leading-relaxed"
+                  />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge variant="default" className="text-xs">
-                      Réponse finale
-                    </Badge>
-                  </div>
-                  <div className="bg-muted/30 rounded-lg p-4 border-l-4 border-primary">
-                    <TypewriterText 
-                      text={finalResponse}
-                      className="text-sm leading-relaxed"
-                    />
-                  </div>
+                <div className="text-xs text-muted-foreground mt-1 ml-2">
+                  Assistant
                 </div>
               </div>
             </div>
