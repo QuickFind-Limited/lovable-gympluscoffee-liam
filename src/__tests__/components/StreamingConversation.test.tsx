@@ -295,17 +295,98 @@ describe('StreamingConversation Component', () => {
     });
   });
 
+  describe('Final Response Display', () => {
+    it('displays final response after thinking block', () => {
+      const events: StreamEvent[] = [
+        {
+          ...mockStreamEvent,
+          type: 'connection',
+          display: 'Connected to assistant',
+        },
+        {
+          ...mockStreamEvent,
+          id: 'event-2',
+          type: 'message',
+          display: 'Processing request',
+          full_content: 'Thinking about your question...',
+          data: { role: 'assistant' },
+        },
+        {
+          ...mockStreamEvent,
+          id: 'event-3',
+          type: 'final_response',
+          display: 'Final response',
+          full_content: '6 + 6 = 12',
+          data: { response: '6 + 6 = 12', session_id: 'test-session' },
+        },
+      ];
+
+      render(<StreamingConversation {...defaultProps} events={events} />);
+      
+      // Check that thinking block appears
+      expect(screen.getByText('Connected to assistant')).toBeInTheDocument();
+      expect(screen.getByText('Thinking about your question...')).toBeInTheDocument();
+      
+      // Check that final response appears after thinking block
+      expect(screen.getByText('6 + 6 = 12')).toBeInTheDocument();
+      
+      // Verify the final response is displayed as a separate message block
+      const finalResponseElements = screen.getAllByText('6 + 6 = 12');
+      expect(finalResponseElements.length).toBeGreaterThan(0);
+    });
+
+    it('displays multiple final responses if present', () => {
+      const events: StreamEvent[] = [
+        {
+          ...mockStreamEvent,
+          type: 'final_response',
+          display: 'First response',
+          full_content: 'First answer',
+          data: { response: 'First answer', session_id: 'test-session-1' },
+        },
+        {
+          ...mockStreamEvent,
+          id: 'event-2',
+          type: 'final_response',
+          display: 'Second response',
+          full_content: 'Second answer',
+          data: { response: 'Second answer', session_id: 'test-session-2' },
+        },
+      ];
+
+      render(<StreamingConversation {...defaultProps} events={events} />);
+      
+      expect(screen.getByText('First answer')).toBeInTheDocument();
+      expect(screen.getByText('Second answer')).toBeInTheDocument();
+    });
+
+    it('handles final response with data.response field', () => {
+      const events: StreamEvent[] = [
+        {
+          ...mockStreamEvent,
+          type: 'final_response',
+          display: 'Response from data field',
+          data: { response: 'Answer from data.response', session_id: 'test-session' },
+        },
+      ];
+
+      render(<StreamingConversation {...defaultProps} events={events} />);
+      
+      expect(screen.getByText('Answer from data.response')).toBeInTheDocument();
+    });
+  });
+
   describe('Accessibility', () => {
     it('has proper semantic structure', () => {
       render(<StreamingConversation {...defaultProps} />);
       
-      expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(/conversation en streaming/i);
+      expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(/conversation/i);
     });
 
     it('provides proper labels for streaming status', () => {
       render(<StreamingConversation {...defaultProps} isStreaming={true} />);
       
-      const statusIndicator = screen.getByText(/en cours/i);
+      const statusIndicator = screen.getByText(/thinking/i);
       expect(statusIndicator).toBeInTheDocument();
     });
   });

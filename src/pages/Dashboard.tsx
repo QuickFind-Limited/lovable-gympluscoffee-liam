@@ -371,7 +371,6 @@ const Dashboard = ({
                 <StreamingConversation
                   className="h-[calc(100vh-8rem)]"
                   events={conversation.streamingEvents}
-                  finalResponse={conversation.finalResponse}
                   isStreaming={conversation.isStreaming}
                   conversationMessages={conversation.messages}
                 />

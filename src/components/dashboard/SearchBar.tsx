@@ -67,13 +67,21 @@ const SearchBar: React.FC<SearchBarProps> = ({
           prompt: queryToUse,
           model: "claude-sonnet-4-20250514",
           max_turns: 30,
+          session_id: conversation.sessionId || undefined, // Inclure le session_id s'il existe
         },
         (event: StreamEvent) => {
           conversation.addStreamingEvent(event);
         },
-        (finalResponse?: string) => {
+        (finalResponse?: string, sessionId?: string) => {
           setIsProcessing(false);
           conversation.setIsStreaming(false);
+
+          // Conserver le session_id reçu pour les prochaines requêtes
+          if (sessionId) {
+            conversation.setSessionId(sessionId);
+            console.log("Session ID conservé dans le contexte:", sessionId);
+          }
+
           if (finalResponse) {
             conversation.setFinalResponse(finalResponse);
             // Ajouter la réponse de l'assistant aux messages

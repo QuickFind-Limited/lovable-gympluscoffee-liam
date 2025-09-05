@@ -14,6 +14,8 @@ export interface StreamEventData {
   full_content?: string;
   user_message?: string;
   error?: string;
+  session_id?: string;
+  response?: string;
   [key: string]: unknown;
 }
 
@@ -30,17 +32,23 @@ export interface StreamingOptions {
   prompt: string;
   model: string;
   max_turns: number;
+  session_id?: string;
 }
 
 export class APIStreamingService {
   private readonly baseUrl =
     "https://api.gympluscoffee.source.shop/api/v1/query/stream";
   private currentController: AbortController | null = null;
+  private currentSessionId: string | null = null;
+
+  getCurrentSessionId(): string | null {
+    return this.currentSessionId;
+  }
 
   async streamQuery(
     options: StreamingOptions,
     onEvent: (event: StreamEvent) => void,
-    onComplete: (finalResponse?: string) => void,
+    onComplete: (finalResponse?: string, sessionId?: string) => void,
     onError: (error: Error) => void
   ): Promise<void> {
     // Annuler la requête précédente si elle existe
@@ -72,6 +80,7 @@ export class APIStreamingService {
       const decoder = new TextDecoder();
       let buffer = "";
       let finalResponse = "";
+      let capturedSessionId: string | null = null;
 
       try {
         while (true) {
@@ -110,9 +119,27 @@ export class APIStreamingService {
                   full_content: eventData.full_content,
                 };
 
-                // Capturer la réponse finale
+                // Capturer la réponse finale et le session_id
                 if (eventData.full_content && streamEvent.type === "message") {
                   finalResponse = eventData.full_content;
+                }
+
+                // Capturer le session_id quand il est présent dans la réponse
+                if (eventData.session_id) {
+                  capturedSessionId = eventData.session_id;
+                  this.currentSessionId = capturedSessionId;
+                  console.log("Session ID capturé:", capturedSessionId);
+                }
+
+                // Capturer aussi depuis le champ response si c'est la réponse finale
+                if (eventData.response && eventData.session_id) {
+                  finalResponse = eventData.response;
+                  capturedSessionId = eventData.session_id;
+                  this.currentSessionId = capturedSessionId;
+                  console.log(
+                    "Réponse finale avec Session ID:",
+                    capturedSessionId
+                  );
                 }
 
                 onEvent(streamEvent);
@@ -123,7 +150,7 @@ export class APIStreamingService {
           }
         }
 
-        onComplete(finalResponse);
+        onComplete(finalResponse, capturedSessionId);
       } finally {
         reader.releaseLock();
       }
@@ -150,8 +177,13 @@ export class APIStreamingService {
       }
       return "log";
     }
-    if (data.full_content) {
+    // Réponse finale : quand on a une réponse complète avec session_id
+    if ((data.full_content || data.response) && data.session_id) {
       return "final_response";
+    }
+    // Message intermédiaire pendant le streaming
+    if (data.full_content) {
+      return "message";
     }
     return "log";
   }

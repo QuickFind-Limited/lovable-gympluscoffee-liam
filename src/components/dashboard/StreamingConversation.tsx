@@ -16,7 +16,6 @@ interface ConversationMessage {
 interface StreamingConversationProps {
   className?: string;
   events?: StreamEvent[];
-  finalResponse?: string;
   isStreaming?: boolean;
   conversationMessages?: ConversationMessage[];
   onStreamingEvent?: (event: StreamEvent) => void;
@@ -28,7 +27,6 @@ interface StreamingConversationProps {
 const StreamingConversation: React.FC<StreamingConversationProps> = ({
   className = "",
   events: propEvents = [],
-  finalResponse: propFinalResponse = "",
   isStreaming: propIsStreaming = false,
   conversationMessages: propConversationMessages = [],
   onStreamingEvent,
@@ -37,8 +35,6 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
   onStreamingError,
 }) => {
   const [events, setEvents] = useState<StreamEvent[]>(propEvents);
-  const [finalResponse, setFinalResponse] = useState<string>(propFinalResponse);
-  const [showFinalResponse, setShowFinalResponse] = useState(false);
   const [isStreaming, setIsStreaming] = useState(propIsStreaming);
   const [searchQuery, setSearchQuery] = useState("");
   const [conversationMessages, setConversationMessages] = useState<
@@ -59,17 +55,12 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
   }, [propConversationMessages]);
 
   useEffect(() => {
-    setFinalResponse(propFinalResponse);
-    setShowFinalResponse(!!propFinalResponse);
-  }, [propFinalResponse]);
-
-  useEffect(() => {
     setIsStreaming(propIsStreaming);
   }, [propIsStreaming]);
 
   useEffect(() => {
     scrollToBottom();
-  }, [events, finalResponse, conversationMessages]);
+  }, [events, conversationMessages]);
 
   const handleSubmit = (query: string) => {
     // Cette fonction n'est plus utilisée car on utilise le store de conversation
@@ -129,50 +120,82 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
       <ScrollArea className="flex-1 p-4">
         <div className="space-y-6">
           {/* Messages de conversation */}
-          {conversationMessages.map((message, index) => (
-            <div key={message.id} className="animate-fade-in">
-              {message.role === "user" ? (
-                <div className="flex items-start gap-3 justify-end">
-                  <div className="flex-1 min-w-0 max-w-[85%]">
-                    <div className="bg-primary text-primary-foreground rounded-2xl p-4 ml-auto shadow-sm">
-                      <div className="text-sm leading-relaxed">
-                        {message.content}
+          {conversationMessages
+            .filter((message, index) => {
+              // Ne pas afficher les messages assistant si il y a des événements final_response
+              // car ils seront affichés via les événements
+              if (
+                message.role === "assistant" &&
+                events.some((event) => event.type === "final_response")
+              ) {
+                // Pendant le streaming, ne pas afficher le dernier message assistant
+                if (isStreaming) {
+                  const isLastAssistantMessage =
+                    index === conversationMessages.length - 1 ||
+                    conversationMessages
+                      .slice(index + 1)
+                      .every((m) => m.role === "user");
+                  return !isLastAssistantMessage;
+                }
+                // Après le streaming, ne pas afficher le dernier message assistant si on a des final_response
+                const isLastAssistantMessage =
+                  index === conversationMessages.length - 1 ||
+                  conversationMessages
+                    .slice(index + 1)
+                    .every((m) => m.role === "user");
+                return !isLastAssistantMessage;
+              }
+              return true;
+            })
+            .map((message, index) => (
+              <div key={message.id} className="animate-fade-in">
+                {message.role === "user" ? (
+                  <div className="flex items-start gap-3 justify-end">
+                    <div className="flex-1 min-w-0 max-w-[85%]">
+                      <div className="bg-primary text-primary-foreground rounded-2xl p-4 ml-auto shadow-sm">
+                        <div className="text-sm leading-relaxed">
+                          {message.content}
+                        </div>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 mr-2 text-right">
+                        Vous • {message.timestamp.toLocaleTimeString()}
                       </div>
                     </div>
-                    <div className="text-xs text-muted-foreground mt-1 mr-2 text-right">
-                      Vous • {message.timestamp.toLocaleTimeString()}
+                    <div className="flex-shrink-0 mt-1">
+                      <User className="h-8 w-8 text-primary bg-primary/10 rounded-full p-1.5" />
                     </div>
                   </div>
-                  <div className="flex-shrink-0 mt-1">
-                    <User className="h-8 w-8 text-primary bg-primary/10 rounded-full p-1.5" />
-                  </div>
-                </div>
-              ) : (
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-1">
-                    <Bot className="h-8 w-8 text-muted-foreground bg-muted/20 rounded-full p-1.5" />
-                  </div>
-                  <div className="flex-1 min-w-0 max-w-[85%]">
-                    <div className="bg-background border rounded-2xl p-4 shadow-sm">
-                      <MarkdownRenderer content={message.content} />
+                ) : (
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <Bot className="h-8 w-8 text-muted-foreground bg-muted/20 rounded-full p-1.5" />
                     </div>
-                    <div className="text-xs text-muted-foreground mt-1 ml-2">
-                      Assistant • {message.timestamp.toLocaleTimeString()}
+                    <div className="flex-1 min-w-0 max-w-[85%]">
+                      <div className="bg-background border rounded-2xl p-4 shadow-sm">
+                        <MarkdownRenderer content={message.content} />
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 ml-2">
+                        Assistant • {message.timestamp.toLocaleTimeString()}
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ))}
 
+          {/* Bloc Thinking - affiché pendant et après le streaming */}
           {events.filter(
             (event) => event.type === "connection" || event.type === "message"
           ).length > 0 && (
-            <div className="bg-muted/20 rounded-lg p-4 border animate-fade-in">
+            <div
+              className={`rounded-lg p-4 border animate-fade-in ${
+                isStreaming ? "bg-muted/20" : "bg-muted/10 opacity-75"
+              }`}
+            >
               <div className="flex items-center gap-2 mb-3">
                 <Activity className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm font-medium text-muted-foreground">
-                  Thinking...
+                  {isStreaming ? "Thinking..." : "Processus de réflexion"}
                 </span>
                 {isStreaming && (
                   <div className="flex space-x-1 ml-2">
@@ -235,22 +258,33 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
             </div>
           )}
 
-          {/* Réponse finale en streaming */}
-          {showFinalResponse && finalResponse && (
-            <div className="flex items-start gap-3 animate-fade-in">
-              <div className="flex-shrink-0 mt-1">
-                <Bot className="h-8 w-8 text-muted-foreground bg-muted/20 rounded-full p-1.5" />
-              </div>
-              <div className="flex-1 min-w-0 max-w-[85%]">
-                <div className="bg-background border rounded-2xl p-4 shadow-sm">
-                  <MarkdownRenderer content={finalResponse} />
+          {/* Réponse finale - affichée après le bloc events */}
+          {events
+            .filter((event) => event.type === "final_response")
+            .map((finalEvent) => (
+              <div key={finalEvent.id} className="animate-fade-in">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-1">
+                    <Bot className="h-8 w-8 text-muted-foreground bg-muted/20 rounded-full p-1.5" />
+                  </div>
+                  <div className="flex-1 min-w-0 max-w-[85%]">
+                    <div className="bg-background border rounded-2xl p-4 shadow-sm">
+                      <MarkdownRenderer
+                        content={
+                          finalEvent.full_content ||
+                          finalEvent.data.response ||
+                          ""
+                        }
+                      />
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1 ml-2">
+                      Assistant •{" "}
+                      {new Date(finalEvent.timestamp).toLocaleTimeString()}
+                    </div>
+                  </div>
                 </div>
-                <div className="text-xs text-muted-foreground mt-1 ml-2">
-                  Assistant
-                </div>
               </div>
-            </div>
-          )}
+            ))}
         </div>
         <div ref={messagesEndRef} />
       </ScrollArea>

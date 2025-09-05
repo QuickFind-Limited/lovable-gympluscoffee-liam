@@ -13,20 +13,26 @@ interface ConversationContextType {
   streamingEvents: StreamEvent[];
   isStreaming: boolean;
   finalResponse: string;
+  sessionId: string | null;
   addUserMessage: (userMessage: string) => void;
   addAssistantMessage: (content: string) => void;
   addStreamingEvent: (event: StreamEvent) => void;
   setIsStreaming: (streaming: boolean) => void;
   setFinalResponse: (response: string) => void;
+  setSessionId: (sessionId: string | null) => void;
   clearConversation: () => void;
 }
 
-const ConversationContext = createContext<ConversationContextType | undefined>(undefined);
+const ConversationContext = createContext<ConversationContextType | undefined>(
+  undefined
+);
 
 export const useConversation = () => {
   const context = useContext(ConversationContext);
   if (!context) {
-    throw new Error('useConversation must be used within a ConversationProvider');
+    throw new Error(
+      "useConversation must be used within a ConversationProvider"
+    );
   }
   return context;
 };
@@ -35,46 +41,50 @@ interface ConversationProviderProps {
   children: ReactNode;
 }
 
-export const ConversationProvider: React.FC<ConversationProviderProps> = ({ children }) => {
+export const ConversationProvider: React.FC<ConversationProviderProps> = ({
+  children,
+}) => {
   const [messages, setMessages] = useState<ConversationMessage[]>([]);
   const [streamingEvents, setStreamingEvents] = useState<StreamEvent[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
-  const [finalResponse, setFinalResponse] = useState('');
+  const [finalResponse, setFinalResponse] = useState("");
+  const [sessionId, setSessionId] = useState<string | null>(null);
 
   const addUserMessage = (userMessage: string) => {
     const userMsg: ConversationMessage = {
       id: Date.now().toString(),
       content: userMessage,
-      role: 'user',
-      timestamp: new Date()
+      role: "user",
+      timestamp: new Date(),
     };
-    
-    setMessages(prev => [...prev, userMsg]);
+
+    setMessages((prev) => [...prev, userMsg]);
     // Ne pas réinitialiser les événements de streaming, juste les vider pour la nouvelle réponse
     setStreamingEvents([]);
-    setFinalResponse('');
+    setFinalResponse("");
   };
 
   const addAssistantMessage = (content: string) => {
     const assistantMsg: ConversationMessage = {
       id: Date.now().toString(),
       content: content,
-      role: 'assistant',
-      timestamp: new Date()
+      role: "assistant",
+      timestamp: new Date(),
     };
-    
-    setMessages(prev => [...prev, assistantMsg]);
+
+    setMessages((prev) => [...prev, assistantMsg]);
   };
 
   const addStreamingEvent = (event: StreamEvent) => {
-    setStreamingEvents(prev => [...prev, event]);
+    setStreamingEvents((prev) => [...prev, event]);
   };
 
   const clearConversation = () => {
     setMessages([]);
     setStreamingEvents([]);
-    setFinalResponse('');
+    setFinalResponse("");
     setIsStreaming(false);
+    // Note: on ne remet pas le sessionId à null lors du clear pour le conserver entre les conversations
   };
 
   const value: ConversationContextType = {
@@ -82,12 +92,14 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
     streamingEvents,
     isStreaming,
     finalResponse,
+    sessionId,
     addUserMessage,
     addAssistantMessage,
     addStreamingEvent,
     setIsStreaming,
     setFinalResponse,
-    clearConversation
+    setSessionId,
+    clearConversation,
   };
 
   return (
