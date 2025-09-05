@@ -114,19 +114,19 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
           {/* Messages utilisateur */}
           {userMessages.map((message, index) => (
             <div key={`user-${index}`} className="space-y-2">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 mt-1">
-                  <MessageSquare className="h-4 w-4 text-blue-500" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-start gap-3 justify-end">
+                <div className="flex-1 min-w-0 max-w-[80%]">
+                  <div className="flex items-center gap-2 mb-1 justify-end">
                     <Badge variant="secondary" className="text-xs">
-                      Question
+                      Vous
                     </Badge>
                   </div>
-                  <div className="text-sm break-words bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                  <div className="text-sm break-words bg-primary text-primary-foreground p-3 rounded-lg ml-auto">
                     {message}
                   </div>
+                </div>
+                <div className="flex-shrink-0 mt-1">
+                  <MessageSquare className="h-4 w-4 text-primary" />
                 </div>
               </div>
               <Separator className="my-2" />
