@@ -21,7 +21,7 @@ export interface StreamingOptions {
 }
 
 export class APIStreamingService {
-  private readonly baseUrl = 'https://20.246.67.213/api/v1/query/stream';
+  private readonly baseUrl = 'https://api.gympluscoffee.source.shop/api/v1/query/stream';
   private currentController: AbortController | null = null;
 
   async streamQuery(
