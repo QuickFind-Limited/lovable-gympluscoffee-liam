@@ -162,7 +162,10 @@ const ChatInterface = ({
   };
 
   useEffect(() => {
+    console.log('🔧 Initial load effect triggered:', { hasInitialQuery: !!(initialQuery && initialQuery.trim()) });
+    
     if (initialQuery && initialQuery.trim()) {
+      console.log('🚀 Marking as not initial load');
       // Mark as not initial load since we're handling it specially
       setIsInitialLoad(false);
     }
