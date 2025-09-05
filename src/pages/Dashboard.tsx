@@ -78,13 +78,21 @@ const Dashboard = ({
     checkUser();
   }, [navigate]);
 
-  // Handle initial message from URL parameters
+  // Handle initial message from URL parameters - RUN IMMEDIATELY
   useEffect(() => {
-    console.log('🔍 Dashboard URL effect:', { currentUser: !!currentUser, searchParams: Object.fromEntries(searchParams) });
+    const urlParams = new URLSearchParams(window.location.search);
+    const messageParam = urlParams.get('message');
     
-    if (currentUser) {
-      const initialMessage = extractMessageFromParams(searchParams);
-      console.log('📨 Extracted message:', initialMessage);
+    console.log('🔍 Dashboard URL effect:', { 
+      currentUser: !!currentUser, 
+      messageParam,
+      windowLocation: window.location.href,
+      searchParamsEntries: Object.fromEntries(searchParams)
+    });
+    
+    if (currentUser && messageParam) {
+      const initialMessage = extractMessageFromParams(urlParams);
+      console.log('📨 Extracted message from URL:', initialMessage);
       
       if (initialMessage) {
         console.log('✅ Setting search query and showing chat:', initialMessage);
@@ -94,21 +102,21 @@ const Dashboard = ({
         setShowChatInterface(true);
         setShowStreamingConversation(false);
         setShowOrderGeneration(false);
-      } else if (searchParams.get('message')) {
+        
+        // Clear the URL parameter AFTER processing to avoid re-triggering
+        console.log('🧹 Clearing URL parameter after processing');
+        setTimeout(() => {
+          const newSearchParams = new URLSearchParams(searchParams);
+          newSearchParams.delete('message');
+          setSearchParams(newSearchParams, { replace: true });
+        }, 1000); // Give more time
+      } else {
         console.log('❌ Invalid message parameter detected');
-        // If there was a message parameter but it was invalid
         toast({
           title: "Invalid Message",
           description: "The message parameter is malformed or too long.",
           variant: "destructive"
         });
-      }
-      
-      // Clear the URL parameter to avoid re-triggering
-      if (searchParams.get('message')) {
-        const newSearchParams = new URLSearchParams(searchParams);
-        newSearchParams.delete('message');
-        setSearchParams(newSearchParams, { replace: true });
       }
     }
   }, [currentUser, searchParams, setSearchParams, toast]);
