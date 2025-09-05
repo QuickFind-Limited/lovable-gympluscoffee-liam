@@ -11,6 +11,7 @@ import DataSources from "./pages/DataSources";
 import { Logger } from "@/services/Logger";
 import Suppliers from "./pages/Suppliers";
 import Insights from "./pages/Insights";
+import { navigateToConversation, navigateToOrderSummary } from "@/utils/navigationUtils";
 
 import NotFound from "./pages/NotFound";
 import ProductDetails from "./pages/ProductDetails";
@@ -52,10 +53,17 @@ const DashboardWithNavigation = () => {
   const navigate = useNavigate();
   
   const handleNavigateToOrderSummary = (query: string) => {
-    navigate(`/order-summary?query=${encodeURIComponent(query)}`);
+    navigateToOrderSummary(navigate, query);
+  };
+
+  const handleNavigateToConversation = (message: string) => {
+    navigateToConversation(navigate, message);
   };
   
-  return <Dashboard onNavigateToOrderSummary={handleNavigateToOrderSummary} />;
+  return <Dashboard 
+    onNavigateToOrderSummary={handleNavigateToOrderSummary}
+    onNavigateToConversation={handleNavigateToConversation}
+  />;
 };
 
 const queryClient = new QueryClient();

@@ -100,6 +100,11 @@ const ChatInterface = ({
 
   // Load conversation history from localStorage on mount
   useEffect(() => {
+    // Don't load history if we have an initial query to process
+    if (initialQuery && initialQuery.trim()) {
+      return;
+    }
+    
     const savedHistory = localStorage.getItem('chat-history');
     if (savedHistory) {
       try {
@@ -122,7 +127,7 @@ const ChatInterface = ({
       };
       setMessages([greetingMessage]);
     }
-  }, []);
+  }, [initialQuery]);
 
   // Save conversation history to localStorage whenever messages change
   useEffect(() => {
@@ -155,11 +160,78 @@ const ChatInterface = ({
 
   useEffect(() => {
     if (initialQuery && initialQuery.trim()) {
-      // Auto-run the same pipeline as if the user submitted the prompt
-      processQuery(initialQuery.trim());
+      // Mark as not initial load since we're handling it specially
       setIsInitialLoad(false);
     }
   }, [initialQuery]);
+
+  // Enhanced effect to handle initial message as first conversation entry
+  useEffect(() => {
+    if (initialQuery && initialQuery.trim() && messages.length === 0) {
+      // Start with a fresh conversation for the initial query
+      const userMessage: ChatMessage = {
+        id: Date.now().toString(),
+        content: initialQuery.trim(),
+        role: 'user',
+        timestamp: new Date()
+      };
+      
+      setMessages([userMessage]);
+      
+      // Process the assistant response after a brief delay
+      setTimeout(() => {
+        handleInitialQueryResponse(initialQuery.trim());
+      }, 500);
+    }
+  }, [initialQuery, messages.length]);
+
+  // Handle initial query response
+  const handleInitialQueryResponse = (query: string) => {
+    // Determine response type based on query analysis
+    const promptType = determinePromptType(query);
+    const iframeTagMatch = query.match(/<iframe[^>]*src=["']([^"']+)["'][^>]*>/i);
+    const urlMatch = query.match(/https?:\/\/\S+/i);
+    const rawSrc = iframeTagMatch?.[1] || urlMatch?.[0];
+    const iframeSrc = rawSrc ? rawSrc.replace(/&amp;/g, '&') : undefined;
+    const isEmbedUrl = !!(rawSrc && /docs.google.com\/spreadsheets|pubhtml/i.test(rawSrc));
+
+    if (promptType || iframeTagMatch || isEmbedUrl) {
+      // Show reasoning display first for analytical prompts
+      setTimeout(() => {
+        const reasoningMessage: ChatMessage = {
+          id: (Date.now() + Math.random()).toString(),
+          content: query,
+          role: 'assistant',
+          timestamp: new Date(),
+          type: 'reasoning',
+          promptType: promptType || 'forecast',
+          iframeSrc,
+        };
+        setMessages(prev => [...prev, reasoningMessage]);
+      }, 300);
+    } else {
+      // Default simple bot response for non-analytical queries
+      setTimeout(() => {
+        // Check if user said "hey" or similar casual greeting
+        const lowerQuery = query.toLowerCase().trim();
+        let responseText = "I understand your request. For more specific analysis, try using keywords like 'show me', 'analyze', 'create', 'forecast', or 'rank' to help me provide more detailed insights and actions.";
+        
+        if (lowerQuery === 'hey' || lowerQuery === 'hi' || lowerQuery === 'hello') {
+          responseText = "Hey how can i help you today?";
+        }
+        
+        const botResponse: ChatMessage = {
+          id: (Date.now() + Math.random()).toString(),
+          content: responseText,
+          role: 'assistant',
+          timestamp: new Date(),
+          type: 'text'
+        };
+        setMessages(prev => [...prev, botResponse]);
+        setFinishedMessages(prev => ({ ...prev, [botResponse.id]: false }));
+      }, 1000);
+    }
+  };
 
   useEffect(() => {
     // Only scroll to bottom for user-initiated messages, not assistant responses

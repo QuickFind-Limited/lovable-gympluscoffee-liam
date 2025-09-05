@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { FileText, ClipboardList, Check, Bell, Package } from 'lucide-react';
 import PurchaseOrderGenerationTransition from '@/components/PurchaseOrderGenerationTransition';
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
@@ -16,11 +16,14 @@ import { supabase } from '@/integrations/supabase/client';
 import { useOpenAISearch } from '@/hooks/useOpenAISearch';
 import type { OrderSummaryData } from '@/types/search.types';
 import { StreamEvent } from '@/services/apiStreaming';
+import { extractMessageFromParams } from '@/utils/navigationUtils';
 interface DashboardProps {
   onNavigateToOrderSummary: (query: string) => void;
+  onNavigateToConversation?: (message: string) => void;
 }
 const Dashboard = ({
-  onNavigateToOrderSummary
+  onNavigateToOrderSummary,
+  onNavigateToConversation
 }: DashboardProps) => {
   const [currentUser, setCurrentUser] = useState<{
     name: string;
@@ -45,6 +48,8 @@ const Dashboard = ({
     action: string;
   } | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const {
     toast
   } = useToast();
@@ -72,6 +77,36 @@ const Dashboard = ({
     };
     checkUser();
   }, [navigate]);
+
+  // Handle initial message from URL parameters
+  useEffect(() => {
+    if (currentUser) {
+      const initialMessage = extractMessageFromParams(searchParams);
+      
+      if (initialMessage) {
+        setSearchQuery(initialMessage);
+        
+        // Show chat interface with the initial message
+        setShowChatInterface(true);
+        setShowStreamingConversation(false);
+        setShowOrderGeneration(false);
+      } else if (searchParams.get('message')) {
+        // If there was a message parameter but it was invalid
+        toast({
+          title: "Invalid Message",
+          description: "The message parameter is malformed or too long.",
+          variant: "destructive"
+        });
+      }
+      
+      // Clear the URL parameter to avoid re-triggering
+      if (searchParams.get('message')) {
+        const newSearchParams = new URLSearchParams(searchParams);
+        newSearchParams.delete('message');
+        setSearchParams(newSearchParams, { replace: true });
+      }
+    }
+  }, [currentUser, searchParams, setSearchParams, toast]);
   const handleLogout = async () => {
     try {
       const {
