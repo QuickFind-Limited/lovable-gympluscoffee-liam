@@ -1,12 +1,14 @@
-
-import React, { useState, useRef, useEffect } from 'react';
-import { Search, ArrowRight, Loader2 } from 'lucide-react';
-import { apiStreamingService, StreamEvent } from '@/services/apiStreaming';
+import { useConversation } from "@/contexts/ConversationContext";
+import { apiStreamingService, StreamEvent } from "@/services/apiStreaming";
+import { ArrowRight, Loader2 } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface SearchBarProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   onSubmit: (query: string) => void;
+  onNavigateToConversation?: (message: string) => void;
   onOrderGeneration?: (query: string) => void;
   onStreamingEvent?: (event: StreamEvent) => void;
   onStreamingStart?: () => void;
@@ -14,87 +16,106 @@ interface SearchBarProps {
   onStreamingError?: (error: Error) => void;
 }
 
-const SearchBar = ({
+const SearchBar: React.FC<SearchBarProps> = ({
   searchQuery,
   setSearchQuery,
   onSubmit,
+  onNavigateToConversation,
   onOrderGeneration,
   onStreamingEvent,
   onStreamingStart,
   onStreamingEnd,
-  onStreamingError
-}: SearchBarProps) => {
+  onStreamingError,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const navigate = useNavigate();
+  const conversation = useConversation();
 
   // Auto-resize textarea
   useEffect(() => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = Math.min(textareaRef.current.scrollHeight, 200) + 'px';
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height =
+        Math.min(textareaRef.current.scrollHeight, 200) + "px";
     }
   }, [searchQuery]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const queryToUse = searchQuery.trim();
-    
+
     if (!queryToUse) return;
-    
-    // Appeler onSubmit immédiatement pour ajouter le message utilisateur
-    onSubmit(queryToUse);
-    
-    // Vider le champ de texte
-    setSearchQuery('');
-    
+
+    // Vider le champ de texte immédiatement
+    setSearchQuery("");
+
+    // Ajouter le message utilisateur au store
+    conversation.addUserMessage(queryToUse);
+    conversation.setIsStreaming(true);
+
+    // Naviguer vers la page de conversation
+    navigate("/dashboard");
+
     setIsProcessing(true);
-    
-    // Start streaming if callbacks are provided
-    if (onStreamingEvent && onStreamingStart && onStreamingEnd) {
-      onStreamingStart();
-      
-      try {
-        await apiStreamingService.streamQuery(
-          {
-            prompt: queryToUse,
-            model: 'claude-sonnet-4-20250514',
-            max_turns: 30
-          },
-          onStreamingEvent,
-          (finalResponse?: string) => {
-            setIsProcessing(false);
-            onStreamingEnd(finalResponse);
-          },
+
+    try {
+      // Démarrer le streaming
+      await apiStreamingService.streamQuery(
+        {
+          prompt: queryToUse,
+          model: "claude-sonnet-4-20250514",
+          max_turns: 30,
+        },
+        (event: StreamEvent) => {
+          conversation.addStreamingEvent(event);
+        },
+        (finalResponse?: string) => {
+          setIsProcessing(false);
+          conversation.setIsStreaming(false);
+          if (finalResponse) {
+            conversation.setFinalResponse(finalResponse);
+            // Ajouter la réponse de l'assistant aux messages
+            conversation.addAssistantMessage(finalResponse);
+          }
+        },
           (error: Error) => {
             setIsProcessing(false);
-            if (onStreamingError) {
-              onStreamingError(error);
-            }
-          }
-        );
-      } catch (error) {
-        setIsProcessing(false);
-        if (onStreamingError) {
-          onStreamingError(error as Error);
-        }
-      }
-    } else {
-      // Fallback to original behavior
-      const containsOrder = queryToUse.toLowerCase().includes('order');
-      
-      setTimeout(() => {
-        setIsProcessing(false);
-        
-        if (containsOrder && onOrderGeneration) {
-          onOrderGeneration(queryToUse);
-        }
-      }, 800);
+            conversation.setIsStreaming(false);
+
+            // Ajouter l'erreur comme événement
+            const errorEvent: StreamEvent = {
+              id: Date.now().toString(),
+              type: "log",
+              timestamp: new Date().toISOString(),
+              display: `❌ Erreur: ${error.message}`,
+              data: { error: error.message },
+            };
+            conversation.addStreamingEvent(errorEvent);
+          };
+      );
+    } catch (error) {
+      setIsProcessing(false);
+      conversation.setIsStreaming(false);
+
+      const errorEvent: StreamEvent = {
+        id: Date.now().toString(),
+        type: "log",
+        timestamp: new Date().toISOString(),
+        display: `❌ Erreur: ${
+          error instanceof Error ? error.message : "Erreur inconnue"
+        }`,
+        data: {
+          error: error instanceof Error ? error.message : "Erreur inconnue",
+        },
+      };
+      conversation.addStreamingEvent(errorEvent);
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);
     }
@@ -106,7 +127,7 @@ const SearchBar = ({
         <textarea
           ref={textareaRef}
           value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}

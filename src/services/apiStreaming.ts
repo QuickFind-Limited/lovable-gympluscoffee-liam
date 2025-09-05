@@ -5,12 +5,24 @@
  * Il envoie les requêtes au serveur et traite les événements SSE en temps réel.
  */
 
+export interface StreamEventData {
+  status?: string;
+  client_id?: string;
+  type?: string;
+  details?: Record<string, unknown>;
+  display?: string;
+  full_content?: string;
+  user_message?: string;
+  error?: string;
+  [key: string]: unknown;
+}
+
 export interface StreamEvent {
   id: string;
-  type: 'connection' | 'log' | 'message' | 'final_response';
+  type: "connection" | "log" | "message" | "final_response";
   timestamp: string;
   display?: string;
-  data: any;
+  data: StreamEventData;
   full_content?: string;
 }
 
@@ -21,7 +33,8 @@ export interface StreamingOptions {
 }
 
 export class APIStreamingService {
-  private readonly baseUrl = 'https://api.gympluscoffee.source.shop/api/v1/query/stream';
+  private readonly baseUrl =
+    "https://api.gympluscoffee.source.shop/api/v1/query/stream";
   private currentController: AbortController | null = null;
 
   async streamQuery(
@@ -39,9 +52,9 @@ export class APIStreamingService {
 
     try {
       const response = await fetch(this.baseUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(options),
         signal: this.currentController.signal,
@@ -52,56 +65,59 @@ export class APIStreamingService {
       }
 
       if (!response.body) {
-        throw new Error('No response body received');
+        throw new Error("No response body received");
       }
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
-      let buffer = '';
-      let finalResponse = '';
+      let buffer = "";
+      let finalResponse = "";
 
       try {
         while (true) {
           const { done, value } = await reader.read();
-          
+
           if (done) break;
 
           buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split('\n');
-          buffer = lines.pop() || '';
+          const lines = buffer.split("\n");
+          buffer = lines.pop() || "";
 
           for (const line of lines) {
-            if (line.trim() === '') continue;
+            if (line.trim() === "") continue;
 
-            if (line.startsWith('event:')) {
+            if (line.startsWith("event:")) {
               // On attend la ligne de données suivante
               continue;
             }
 
-            if (line.startsWith('data:')) {
+            if (line.startsWith("data:")) {
               try {
                 const dataContent = line.slice(5).trim();
-                if (dataContent === '') continue;
+                if (dataContent === "") continue;
 
                 const eventData = JSON.parse(dataContent);
-                
+
                 const streamEvent: StreamEvent = {
-                  id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+                  id:
+                    Date.now().toString() +
+                    Math.random().toString(36).substr(2, 9),
                   type: this.determineEventType(eventData),
                   timestamp: new Date().toISOString(),
-                  display: eventData.display || this.formatEventDisplay(eventData),
+                  display:
+                    eventData.display || this.formatEventDisplay(eventData),
                   data: eventData,
-                  full_content: eventData.full_content
+                  full_content: eventData.full_content,
                 };
 
                 // Capturer la réponse finale
-                if (eventData.full_content && streamEvent.type === 'message') {
+                if (eventData.full_content && streamEvent.type === "message") {
                   finalResponse = eventData.full_content;
                 }
 
                 onEvent(streamEvent);
               } catch (parseError) {
-                console.warn('Failed to parse SSE data:', parseError, line);
+                console.warn("Failed to parse SSE data:", parseError, line);
               }
             }
           }
@@ -112,41 +128,46 @@ export class APIStreamingService {
         reader.releaseLock();
       }
     } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') {
-        console.log('Request was aborted');
+      if (error instanceof Error && error.name === "AbortError") {
+        console.log("Request was aborted");
         return;
       }
-      onError(error instanceof Error ? error : new Error('Unknown streaming error'));
+      onError(
+        error instanceof Error ? error : new Error("Unknown streaming error")
+      );
     } finally {
       this.currentController = null;
     }
   }
 
-  private determineEventType(data: any): StreamEvent['type'] {
-    if (data.status === 'connected') {
-      return 'connection';
+  private determineEventType(data: StreamEventData): StreamEvent["type"] {
+    if (data.status === "connected") {
+      return "connection";
     }
     if (data.type) {
-      if (data.type === 'assistant_message' && data.full_content) {
-        return 'message';
+      if (data.type === "assistant_message" && data.full_content) {
+        return "message";
       }
-      return 'log';
+      return "log";
     }
     if (data.full_content) {
-      return 'final_response';
+      return "final_response";
     }
-    return 'log';
+    return "log";
   }
 
-  private formatEventDisplay(data: any): string {
-    if (data.status === 'connected') {
-      return `🔗 Connexion établie (ID: ${data.client_id?.slice(0, 8)}...)`;
+  private formatEventDisplay(data: StreamEventData): string {
+    if (data.status === "connected") {
+      return `🔗 Connected (ID: ${data.client_id?.slice(0, 8)}...)`;
     }
     if (data.display) {
       return data.display;
     }
     if (data.type) {
-      return `📝 ${data.type}: ${JSON.stringify(data.details || {}).slice(0, 50)}...`;
+      return `📝 ${data.type}: ${JSON.stringify(data.details || {}).slice(
+        0,
+        50
+      )}...`;
     }
     return `📋 Événement: ${JSON.stringify(data).slice(0, 100)}...`;
   }
