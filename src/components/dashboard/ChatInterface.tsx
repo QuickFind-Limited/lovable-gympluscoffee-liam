@@ -87,6 +87,7 @@ const ChatInterface = ({
   initialQuery, 
   onSubmit
 }: ChatInterfaceProps) => {
+  console.log('🎯 ChatInterface mounted with initialQuery:', initialQuery);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [showHistory, setShowHistory] = useState(true); // When false, only show latest exchange

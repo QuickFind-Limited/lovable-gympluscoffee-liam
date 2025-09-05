@@ -80,10 +80,14 @@ const Dashboard = ({
 
   // Handle initial message from URL parameters
   useEffect(() => {
+    console.log('🔍 Dashboard URL effect:', { currentUser: !!currentUser, searchParams: Object.fromEntries(searchParams) });
+    
     if (currentUser) {
       const initialMessage = extractMessageFromParams(searchParams);
+      console.log('📨 Extracted message:', initialMessage);
       
       if (initialMessage) {
+        console.log('✅ Setting search query and showing chat:', initialMessage);
         setSearchQuery(initialMessage);
         
         // Show chat interface with the initial message
@@ -91,6 +95,7 @@ const Dashboard = ({
         setShowStreamingConversation(false);
         setShowOrderGeneration(false);
       } else if (searchParams.get('message')) {
+        console.log('❌ Invalid message parameter detected');
         // If there was a message parameter but it was invalid
         toast({
           title: "Invalid Message",
