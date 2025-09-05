@@ -133,7 +133,7 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
           {conversationHistory.map((conversation, conversationIndex) => (
             <div key={`conversation-${conversationIndex}`} className="space-y-4">
               {/* Événements de cette conversation */}
-              {conversation.events.map((event, index) => (
+              {conversation.events.filter(event => event.type !== 'log').map((event, index) => (
                 <div key={`${conversationIndex}-${event.id}`} className="space-y-2">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
@@ -214,7 +214,7 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
           ))}
 
           {/* Événements API actuels */}
-          {events.map((event, index) => (
+          {events.filter(event => event.type !== 'log').map((event, index) => (
             <div key={event.id} className="space-y-2">
               {/* Événement */}
               <div className="flex items-start gap-3">
