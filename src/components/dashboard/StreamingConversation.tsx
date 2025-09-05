@@ -169,12 +169,8 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                                 </span>
                               </div>
                             </div>
-                            <div className="text-sm break-words ml-6">
-                              {event.display}
-                            </div>
                             {event.full_content && event.data.role !== 'user' && (
-                              <div className="ml-6 mt-2 p-3 bg-background rounded-lg border-l-2 border-primary">
-                                <div className="text-sm text-muted-foreground mb-1">Contenu complet:</div>
+                              <div className="ml-6 p-3 bg-background rounded-lg border-l-2 border-primary">
                                 <div className="text-sm whitespace-pre-wrap">{event.full_content}</div>
                               </div>
                             )}
@@ -272,12 +268,8 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                             </span>
                           </div>
                         </div>
-                        <div className="text-sm break-words ml-6">
-                          {event.display}
-                        </div>
                         {event.full_content && event.data.role !== 'user' && (
-                          <div className="ml-6 mt-2 p-3 bg-background rounded-lg border-l-2 border-primary">
-                            <div className="text-sm text-muted-foreground mb-1">Contenu complet:</div>
+                          <div className="ml-6 p-3 bg-background rounded-lg border-l-2 border-primary">
                             <div className="text-sm whitespace-pre-wrap">{event.full_content}</div>
                           </div>
                         )}
