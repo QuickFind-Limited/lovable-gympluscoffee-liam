@@ -133,14 +133,14 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
           {conversationHistory.map((conversation, conversationIndex) => (
             <div key={`conversation-${conversationIndex}`} className="space-y-6">
               {/* Étapes de progression */}
-              {conversation.events.filter(event => event.type !== 'log' && event.type !== 'final_response').length > 0 && (
+              {conversation.events.filter(event => event.type === 'connection').length > 0 && (
                 <div className="bg-muted/20 rounded-lg p-4 border">
                   <div className="flex items-center gap-2 mb-3">
                     <Activity className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm font-medium text-muted-foreground">Traitement en cours</span>
+                    <span className="text-sm font-medium text-muted-foreground">Connexion</span>
                   </div>
                   <div className="space-y-2">
-                    {conversation.events.filter(event => event.type !== 'log' && event.type !== 'final_response').map((event, index) => (
+                    {conversation.events.filter(event => event.type === 'connection').map((event, index) => (
                       <div key={`${conversationIndex}-${event.id}`} className="flex items-center gap-3 animate-fade-in">
                         <div className="flex-shrink-0">
                           {getEventIcon(event.type)}
@@ -156,6 +156,36 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                   </div>
                 </div>
               )}
+
+              {/* Messages complets */}
+              {conversation.events.filter(event => event.type === 'message').map((event, index) => (
+                <div key={`${conversationIndex}-${event.id}`} className="space-y-2 animate-fade-in">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      {getEventIcon(event.type)}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Badge variant={getEventBadgeVariant(event.type)} className="text-xs">
+                          {event.type}
+                        </Badge>
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(event.timestamp).toLocaleTimeString()}
+                        </span>
+                      </div>
+                      <div className="text-sm break-words">
+                        {event.display}
+                      </div>
+                      {event.full_content && event.data.role !== 'user' && (
+                        <div className="mt-2 p-3 bg-muted/50 rounded-lg border-l-2 border-primary">
+                          <div className="text-sm text-muted-foreground mb-1">Contenu complet:</div>
+                          <div className="text-sm whitespace-pre-wrap">{event.full_content}</div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
               
               {/* Réponse finale comme bulle de chat */}
               {conversation.finalResponse && (
@@ -200,11 +230,11 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
           ))}
 
           {/* Étapes de progression actuelles */}
-          {events.filter(event => event.type !== 'log' && event.type !== 'final_response').length > 0 && (
+          {events.filter(event => event.type === 'connection').length > 0 && (
             <div className="bg-muted/20 rounded-lg p-4 border animate-fade-in">
               <div className="flex items-center gap-2 mb-3">
                 <Activity className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium text-muted-foreground">Traitement en cours</span>
+                <span className="text-sm font-medium text-muted-foreground">Connexion</span>
                 {isStreaming && (
                   <div className="flex space-x-1 ml-2">
                     <div className="h-2 w-2 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
@@ -214,7 +244,7 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                 )}
               </div>
               <div className="space-y-2">
-                {events.filter(event => event.type !== 'log' && event.type !== 'final_response').map((event, index) => (
+                {events.filter(event => event.type === 'connection').map((event, index) => (
                   <div key={event.id} className="flex items-center gap-3 animate-fade-in">
                     <div className="flex-shrink-0">
                       {getEventIcon(event.type)}
@@ -230,6 +260,36 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
               </div>
             </div>
           )}
+
+          {/* Messages actuels complets */}
+          {events.filter(event => event.type === 'message').map((event, index) => (
+            <div key={event.id} className="space-y-2 animate-fade-in">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 mt-1">
+                  {getEventIcon(event.type)}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Badge variant={getEventBadgeVariant(event.type)} className="text-xs">
+                      {event.type}
+                    </Badge>
+                    <span className="text-xs text-muted-foreground">
+                      {new Date(event.timestamp).toLocaleTimeString()}
+                    </span>
+                  </div>
+                  <div className="text-sm break-words">
+                    {event.display}
+                  </div>
+                  {event.full_content && event.data.role !== 'user' && (
+                    <div className="mt-2 p-3 bg-muted/50 rounded-lg border-l-2 border-primary">
+                      <div className="text-sm text-muted-foreground mb-1">Contenu complet:</div>
+                      <div className="text-sm whitespace-pre-wrap">{event.full_content}</div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
 
           {/* Réponse finale actuelle comme bulle de chat */}
           {showFinalResponse && finalResponse && (
