@@ -38,7 +38,15 @@ const SearchBar = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const queryToUse = searchQuery.trim() || "How can I help you today?";
+    const queryToUse = searchQuery.trim();
+    
+    if (!queryToUse) return;
+    
+    // Appeler onSubmit immédiatement pour ajouter le message utilisateur
+    onSubmit(queryToUse);
+    
+    // Vider le champ de texte
+    setSearchQuery('');
     
     setIsProcessing(true);
     
@@ -80,8 +88,6 @@ const SearchBar = ({
         
         if (containsOrder && onOrderGeneration) {
           onOrderGeneration(queryToUse);
-        } else {
-          onSubmit(queryToUse);
         }
       }, 800);
     }
