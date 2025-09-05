@@ -80,20 +80,20 @@ const SearchBar: React.FC<SearchBarProps> = ({
             conversation.addAssistantMessage(finalResponse);
           }
         },
-          (error: Error) => {
-            setIsProcessing(false);
-            conversation.setIsStreaming(false);
+        (error: Error) => {
+          setIsProcessing(false);
+          conversation.setIsStreaming(false);
 
-            // Ajouter l'erreur comme événement
-            const errorEvent: StreamEvent = {
-              id: Date.now().toString(),
-              type: "log",
-              timestamp: new Date().toISOString(),
-              display: `❌ Erreur: ${error.message}`,
-              data: { error: error.message },
-            };
-            conversation.addStreamingEvent(errorEvent);
+          // Ajouter l'erreur comme événement
+          const errorEvent: StreamEvent = {
+            id: Date.now().toString(),
+            type: "log",
+            timestamp: new Date().toISOString(),
+            display: `❌ Erreur: ${error.message}`,
+            data: { error: error.message },
           };
+          conversation.addStreamingEvent(errorEvent);
+        }
       );
     } catch (error) {
       setIsProcessing(false);

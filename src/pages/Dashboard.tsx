@@ -80,19 +80,10 @@ const Dashboard = ({
     const urlParams = new URLSearchParams(window.location.search);
     const messageParam = urlParams.get("message");
 
-    console.log("🔍 Dashboard URL effect:", {
-      currentUser: !!currentUser,
-      messageParam,
-      windowLocation: window.location.href,
-      searchParamsEntries: Object.fromEntries(searchParams),
-    });
-
     if (currentUser && messageParam) {
       const initialMessage = extractMessageFromParams(urlParams);
-      console.log("📨 Extracted message from URL:", initialMessage);
 
       if (initialMessage) {
-        console.log("✅ Setting search query from URL:", initialMessage);
         setSearchQuery(initialMessage);
 
         // Utiliser le store de conversation pour gérer le message depuis l'URL
@@ -137,14 +128,12 @@ const Dashboard = ({
         }, 100);
 
         // Clear the URL parameter AFTER processing to avoid re-triggering
-        console.log("🧹 Clearing URL parameter after processing");
         setTimeout(() => {
           const newSearchParams = new URLSearchParams(searchParams);
           newSearchParams.delete("message");
           setSearchParams(newSearchParams, { replace: true });
         }, 1000); // Give more time
       } else {
-        console.log("❌ Invalid message parameter detected");
         toast({
           title: "Invalid Message",
           description: "The message parameter is malformed or too long.",

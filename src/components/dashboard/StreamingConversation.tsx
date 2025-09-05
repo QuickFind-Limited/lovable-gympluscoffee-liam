@@ -1,10 +1,9 @@
+import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { StreamEvent } from "@/services/apiStreaming";
 import { Activity, Bot, MessageSquare, User, Zap } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import SearchBar from "./SearchBar";
 
 interface ConversationMessage {
@@ -155,75 +154,7 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                   </div>
                   <div className="flex-1 min-w-0 max-w-[85%]">
                     <div className="bg-background border rounded-2xl p-4 shadow-sm">
-                      <div className="text-sm leading-relaxed prose prose-sm max-w-none">
-                        <ReactMarkdown
-                          remarkPlugins={[remarkGfm]}
-                          components={{
-                            // Personnaliser les composants pour s'adapter au design
-                            p: ({ children }) => (
-                              <p className="mb-2 last:mb-0">{children}</p>
-                            ),
-                            h1: ({ children }) => (
-                              <h1 className="text-lg font-bold mb-2">
-                                {children}
-                              </h1>
-                            ),
-                            h2: ({ children }) => (
-                              <h2 className="text-base font-bold mb-2">
-                                {children}
-                              </h2>
-                            ),
-                            h3: ({ children }) => (
-                              <h3 className="text-sm font-bold mb-1">
-                                {children}
-                              </h3>
-                            ),
-                            ul: ({ children }) => (
-                              <ul className="list-disc pl-4 mb-2">
-                                {children}
-                              </ul>
-                            ),
-                            ol: ({ children }) => (
-                              <ol className="list-decimal pl-4 mb-2">
-                                {children}
-                              </ol>
-                            ),
-                            li: ({ children }) => (
-                              <li className="mb-1">{children}</li>
-                            ),
-                            code: ({ children, ...props }) =>
-                              (props as any).inline ? (
-                                <code className="bg-muted px-1 py-0.5 rounded text-xs font-mono">
-                                  {children}
-                                </code>
-                              ) : (
-                                <code className="block bg-muted p-2 rounded text-xs font-mono overflow-x-auto">
-                                  {children}
-                                </code>
-                              ),
-                            pre: ({ children }) => (
-                              <pre className="bg-muted p-2 rounded overflow-x-auto mb-2">
-                                {children}
-                              </pre>
-                            ),
-                            blockquote: ({ children }) => (
-                              <blockquote className="border-l-4 border-primary pl-4 italic mb-2">
-                                {children}
-                              </blockquote>
-                            ),
-                            strong: ({ children }) => (
-                              <strong className="font-semibold">
-                                {children}
-                              </strong>
-                            ),
-                            em: ({ children }) => (
-                              <em className="italic">{children}</em>
-                            ),
-                          }}
-                        >
-                          {message.content}
-                        </ReactMarkdown>
-                      </div>
+                      <MarkdownRenderer content={message.content} />
                     </div>
                     <div className="text-xs text-muted-foreground mt-1 ml-2">
                       Assistant • {message.timestamp.toLocaleTimeString()}
@@ -312,65 +243,7 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
               </div>
               <div className="flex-1 min-w-0 max-w-[85%]">
                 <div className="bg-background border rounded-2xl p-4 shadow-sm">
-                  <div className="text-sm leading-relaxed prose prose-sm max-w-none">
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      components={{
-                        // Personnaliser les composants pour s'adapter au design
-                        p: ({ children }) => (
-                          <p className="mb-2 last:mb-0">{children}</p>
-                        ),
-                        h1: ({ children }) => (
-                          <h1 className="text-lg font-bold mb-2">{children}</h1>
-                        ),
-                        h2: ({ children }) => (
-                          <h2 className="text-base font-bold mb-2">
-                            {children}
-                          </h2>
-                        ),
-                        h3: ({ children }) => (
-                          <h3 className="text-sm font-bold mb-1">{children}</h3>
-                        ),
-                        ul: ({ children }) => (
-                          <ul className="list-disc pl-4 mb-2">{children}</ul>
-                        ),
-                        ol: ({ children }) => (
-                          <ol className="list-decimal pl-4 mb-2">{children}</ol>
-                        ),
-                        li: ({ children }) => (
-                          <li className="mb-1">{children}</li>
-                        ),
-                        code: ({ children, ...props }) =>
-                          (props as any).inline ? (
-                            <code className="bg-muted px-1 py-0.5 rounded text-xs font-mono">
-                              {children}
-                            </code>
-                          ) : (
-                            <code className="block bg-muted p-2 rounded text-xs font-mono overflow-x-auto">
-                              {children}
-                            </code>
-                          ),
-                        pre: ({ children }) => (
-                          <pre className="bg-muted p-2 rounded overflow-x-auto mb-2">
-                            {children}
-                          </pre>
-                        ),
-                        blockquote: ({ children }) => (
-                          <blockquote className="border-l-4 border-primary pl-4 italic mb-2">
-                            {children}
-                          </blockquote>
-                        ),
-                        strong: ({ children }) => (
-                          <strong className="font-semibold">{children}</strong>
-                        ),
-                        em: ({ children }) => (
-                          <em className="italic">{children}</em>
-                        ),
-                      }}
-                    >
-                      {finalResponse}
-                    </ReactMarkdown>
-                  </div>
+                  <MarkdownRenderer content={finalResponse} />
                 </div>
                 <div className="text-xs text-muted-foreground mt-1 ml-2">
                   Assistant
