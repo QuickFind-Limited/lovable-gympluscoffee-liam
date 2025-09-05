@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { UserProvider } from '@/contexts/UserContext';
-import { FinancialDataProvider } from '@/contexts/FinancialDataProvider';
+import { FinancialDataProvider } from '@/contexts/FinancialDataContext';
 
 /**
  * Test utilities for message flow testing

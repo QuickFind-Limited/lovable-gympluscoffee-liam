@@ -102,7 +102,7 @@ const SearchBar = ({
 
   return (
     <form onSubmit={handleSubmit} className="relative mb-3">
-      <div className={`relative transition-all duration-300 ${isFocused ? 'transform scale-105' : ''}`}>
+      <div className={`relative transition-all duration-300`}>
         <textarea
           ref={textareaRef}
           value={searchQuery}

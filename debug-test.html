@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test - Message Flow</title>
+</head>
+<body>
+    <h1>🔍 Debug Test de Flux de Messages</h1>
+    
+    <h2>Test URL avec message:</h2>
+    <p>Utilisez cette URL pour tester le flux:</p>
+    <code>http://localhost:5173/dashboard?message=Bonjour%20ceci%20est%20mon%20premier%20message</code>
+    
+    <h2>Ce qui devrait arriver:</h2>
+    <ol>
+        <li>Dashboard détecte le paramètre message</li>
+        <li>Dashboard appelle extractMessageFromParams()</li>
+        <li>Dashboard fait setSearchQuery(initialMessage)</li>
+        <li>Dashboard affiche ChatInterface avec initialQuery={searchQuery}</li>
+        <li><strong>ChatInterface devrait afficher le message utilisateur</strong></li>
+        <li>ChatInterface génère automatiquement la réponse IA</li>
+    </ol>
+    
+    <h2>État actuel détecté:</h2>
+    <ul>
+        <li>✅ Dashboard.extractMessageFromParams() - OK</li>
+        <li>✅ Dashboard.setSearchQuery() - OK</li>
+        <li>✅ Dashboard.setShowChatInterface(true) - OK</li>
+        <li>✅ ChatInterface reçoit initialQuery prop - OK</li>
+        <li>❌ <strong>ChatInterface n'affiche PAS le message initial</strong></li>
+    </ul>
+    
+    <h2>Solution requise:</h2>
+    <p>Le useEffect dans ChatInterface doit garantir que l'initialQuery est ajouté aux messages quand messages.length === 0</p>
+</body>
+</html>

@@ -102,6 +102,8 @@ const ChatInterface = ({
   useEffect(() => {
     // Don't load history if we have an initial query to process
     if (initialQuery && initialQuery.trim()) {
+      // For initial query, start with empty messages to avoid conflicts
+      setMessages([]);
       return;
     }
     
@@ -167,7 +169,12 @@ const ChatInterface = ({
 
   // Enhanced effect to handle initial message as first conversation entry
   useEffect(() => {
+    console.log('🔍 Initial query effect triggered:', { initialQuery, messagesLength: messages.length });
+    
+    // Only process if we have an initial query and messages array is empty (after being cleared above)
     if (initialQuery && initialQuery.trim() && messages.length === 0) {
+      console.log('✅ Adding initial query as first message:', initialQuery);
+      
       // Start with a fresh conversation for the initial query
       const userMessage: ChatMessage = {
         id: Date.now().toString(),
