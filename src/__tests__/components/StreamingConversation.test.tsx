@@ -51,11 +51,11 @@ describe('StreamingConversation Component', () => {
   it('renders streaming conversation interface correctly', () => {
     render(<StreamingConversation {...defaultProps} />);
     
-    expect(screen.getByText(/conversation en streaming/i)).toBeInTheDocument();
+    expect(screen.getByText(/conversation/i)).toBeInTheDocument();
     expect(screen.getByTestId('search-bar')).toBeInTheDocument();
   });
 
-  it('displays streaming events correctly', () => {
+  it('displays simplified thinking indicator during streaming', () => {
     const events: StreamEvent[] = [
       {
         ...mockStreamEvent,
@@ -70,18 +70,21 @@ describe('StreamingConversation Component', () => {
       },
     ];
 
-    render(<StreamingConversation {...defaultProps} events={events} />);
+    render(<StreamingConversation {...defaultProps} events={events} isStreaming={true} />);
     
-    expect(screen.getByText('Connecting to assistant...')).toBeInTheDocument();
-    expect(screen.getByText('Processing your request...')).toBeInTheDocument();
+    // Should show simple thinking indicator instead of detailed events
+    expect(screen.getByText('Thinking...')).toBeInTheDocument();
+    // Should NOT show detailed event information
+    expect(screen.queryByText('Connecting to assistant...')).not.toBeInTheDocument();
+    expect(screen.queryByText('Processing your request...')).not.toBeInTheDocument();
   });
 
   it('shows streaming indicator when streaming is active', () => {
     render(<StreamingConversation {...defaultProps} isStreaming={true} />);
     
-    expect(screen.getByText(/en cours/i)).toBeInTheDocument();
+    expect(screen.getByText(/thinking/i)).toBeInTheDocument();
     // Should show animated dots
-    expect(screen.getByText(/en cours/i).closest('div')).toHaveClass('animate-pulse');
+    expect(screen.getByText(/thinking/i).closest('div')).toHaveClass('animate-pulse');
   });
 
   it('displays final response with typewriter effect', () => {
@@ -106,7 +109,7 @@ describe('StreamingConversation Component', () => {
     });
   });
 
-  it('displays different event types with appropriate icons', () => {
+  it('hides detailed events when not streaming', () => {
     const events: StreamEvent[] = [
       {
         ...mockStreamEvent,
@@ -130,30 +133,37 @@ describe('StreamingConversation Component', () => {
         id: 'event-4',
         type: 'final_response',
         display: 'Final response event',
+        full_content: 'Final response content',
+        data: { response: 'Final response content', session_id: 'test' },
       },
     ];
 
-    render(<StreamingConversation {...defaultProps} events={events} />);
+    render(<StreamingConversation {...defaultProps} events={events} isStreaming={false} />);
     
-    // All event displays should be present
-    expect(screen.getByText('Connection event')).toBeInTheDocument();
-    expect(screen.getByText('Message event')).toBeInTheDocument();
-    expect(screen.getByText('Log event')).toBeInTheDocument();
-    expect(screen.getByText('Final response event')).toBeInTheDocument();
+    // Detailed event displays should NOT be present
+    expect(screen.queryByText('Connection event')).not.toBeInTheDocument();
+    expect(screen.queryByText('Message event')).not.toBeInTheDocument();
+    expect(screen.queryByText('Log event')).not.toBeInTheDocument();
+    
+    // But final response should still be shown
+    expect(screen.getByText('Final response content')).toBeInTheDocument();
   });
 
-  it('shows event timestamps correctly', () => {
+  it('hides event timestamps during simplified streaming', () => {
     const event: StreamEvent = {
       ...mockStreamEvent,
       timestamp: new Date('2025-01-01T10:30:00Z').toISOString(),
       display: 'Timed event',
+      type: 'connection',
     };
 
-    render(<StreamingConversation {...defaultProps} events={[event]} />);
+    render(<StreamingConversation {...defaultProps} events={[event]} isStreaming={true} />);
     
-    expect(screen.getByText('Timed event')).toBeInTheDocument();
-    // Should display formatted time
-    expect(screen.getByText(/10:30/)).toBeInTheDocument();
+    // Should show thinking indicator instead of detailed events
+    expect(screen.getByText('Thinking...')).toBeInTheDocument();
+    // Detailed event and timestamp should not be visible
+    expect(screen.queryByText('Timed event')).not.toBeInTheDocument();
+    expect(screen.queryByText(/10:30/)).not.toBeInTheDocument();
   });
 
   it('handles conversation history correctly', async () => {
@@ -196,7 +206,7 @@ describe('StreamingConversation Component', () => {
     });
   });
 
-  it('filters and displays only relevant event types in processing section', () => {
+  it('shows only simple thinking indicator instead of processing section', () => {
     const events: StreamEvent[] = [
       {
         ...mockStreamEvent,
@@ -217,17 +227,18 @@ describe('StreamingConversation Component', () => {
       },
     ];
 
-    render(<StreamingConversation {...defaultProps} events={events} />);
+    render(<StreamingConversation {...defaultProps} events={events} isStreaming={true} />);
     
-    // Processing section should only show connection and message events
-    expect(screen.getByText('Connection')).toBeInTheDocument();
-    expect(screen.getByText('Message')).toBeInTheDocument();
+    // Should show simple thinking indicator
+    expect(screen.getByText('Thinking...')).toBeInTheDocument();
     
-    // Log events might be displayed differently or not in the processing section
-    expect(screen.getByText('Log entry')).toBeInTheDocument();
+    // Should NOT show detailed processing events
+    expect(screen.queryByText('Connection')).not.toBeInTheDocument();
+    expect(screen.queryByText('Message')).not.toBeInTheDocument();
+    expect(screen.queryByText('Log entry')).not.toBeInTheDocument();
   });
 
-  it('displays full content for message events', () => {
+  it('hides full content for message events during streaming', () => {
     const eventWithContent: StreamEvent = {
       ...mockStreamEvent,
       type: 'message',
@@ -236,12 +247,14 @@ describe('StreamingConversation Component', () => {
       data: { role: 'assistant' },
     };
 
-    render(<StreamingConversation {...defaultProps} events={[eventWithContent]} />);
+    render(<StreamingConversation {...defaultProps} events={[eventWithContent]} isStreaming={true} />);
     
-    expect(screen.getByText('This is the full content of the message.')).toBeInTheDocument();
+    // Should show simple thinking indicator instead of full content
+    expect(screen.getByText('Thinking...')).toBeInTheDocument();
+    expect(screen.queryByText('This is the full content of the message.')).not.toBeInTheDocument();
   });
 
-  it('does not display full content for user messages', () => {
+  it('shows simplified UI for user message events during streaming', () => {
     const userEvent: StreamEvent = {
       ...mockStreamEvent,
       type: 'message',
@@ -250,9 +263,12 @@ describe('StreamingConversation Component', () => {
       data: { role: 'user' },
     };
 
-    render(<StreamingConversation {...defaultProps} events={[userEvent]} />);
+    render(<StreamingConversation {...defaultProps} events={[userEvent]} isStreaming={true} />);
     
-    expect(screen.getByText('User message')).toBeInTheDocument();
+    // Should show simple thinking indicator
+    expect(screen.getByText('Thinking...')).toBeInTheDocument();
+    // Should not show detailed user message events
+    expect(screen.queryByText('User message')).not.toBeInTheDocument();
     expect(screen.queryByText('User content should not be shown')).not.toBeInTheDocument();
   });
 
@@ -287,16 +303,16 @@ describe('StreamingConversation Component', () => {
     it('updates streaming state when props change', () => {
       const { rerender } = render(<StreamingConversation {...defaultProps} />);
       
-      expect(screen.queryByText(/en cours/i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/thinking/i)).not.toBeInTheDocument();
       
       rerender(<StreamingConversation {...defaultProps} isStreaming={true} />);
       
-      expect(screen.getByText(/en cours/i)).toBeInTheDocument();
+      expect(screen.getByText(/thinking/i)).toBeInTheDocument();
     });
   });
 
   describe('Final Response Display', () => {
-    it('displays final response after thinking block', () => {
+    it('displays final response after simple thinking indicator', () => {
       const events: StreamEvent[] = [
         {
           ...mockStreamEvent,
@@ -321,18 +337,14 @@ describe('StreamingConversation Component', () => {
         },
       ];
 
-      render(<StreamingConversation {...defaultProps} events={events} />);
+      render(<StreamingConversation {...defaultProps} events={events} isStreaming={false} />);
       
-      // Check that thinking block appears
-      expect(screen.getByText('Connected to assistant')).toBeInTheDocument();
-      expect(screen.getByText('Thinking about your question...')).toBeInTheDocument();
+      // Should NOT show detailed thinking events
+      expect(screen.queryByText('Connected to assistant')).not.toBeInTheDocument();
+      expect(screen.queryByText('Thinking about your question...')).not.toBeInTheDocument();
       
-      // Check that final response appears after thinking block
+      // But final response should still appear
       expect(screen.getByText('6 + 6 = 12')).toBeInTheDocument();
-      
-      // Verify the final response is displayed as a separate message block
-      const finalResponseElements = screen.getAllByText('6 + 6 = 12');
-      expect(finalResponseElements.length).toBeGreaterThan(0);
     });
 
     it('displays multiple final responses if present', () => {

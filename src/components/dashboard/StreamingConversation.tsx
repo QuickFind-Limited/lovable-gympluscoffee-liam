@@ -1,8 +1,7 @@
 import MarkdownRenderer from "@/components/MarkdownRenderer";
-import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { StreamEvent } from "@/services/apiStreaming";
-import { Activity, Bot, MessageSquare, User, Zap } from "lucide-react";
+import { Activity, Bot, User } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import SearchBar from "./SearchBar";
 
@@ -70,35 +69,6 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
     }
   };
 
-  const getEventIcon = (type: StreamEvent["type"]) => {
-    switch (type) {
-      case "connection":
-        return <Zap className="h-3 w-3" />;
-      case "message":
-        return <MessageSquare className="h-3 w-3" />;
-      case "log":
-        return <Activity className="h-3 w-3" />;
-      case "final_response":
-        return <Bot className="h-3 w-3" />;
-      default:
-        return <Activity className="h-3 w-3" />;
-    }
-  };
-
-  const getEventBadgeVariant = (type: StreamEvent["type"]) => {
-    switch (type) {
-      case "connection":
-        return "default";
-      case "message":
-        return "secondary";
-      case "log":
-        return "outline";
-      case "final_response":
-        return "destructive";
-      default:
-        return "outline";
-    }
-  };
 
   return (
     <div className={`flex flex-col h-full bg-background ${className}`}>
@@ -183,77 +153,21 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
               </div>
             ))}
 
-          {/* Bloc Thinking - affiché pendant et après le streaming */}
-          {events.filter(
+          {/* Simple Thinking indicator - only shown during streaming */}
+          {isStreaming && events.filter(
             (event) => event.type === "connection" || event.type === "message"
           ).length > 0 && (
-            <div
-              className={`rounded-lg p-4 border animate-fade-in ${
-                isStreaming ? "bg-muted/20" : "bg-muted/10 opacity-75"
-              }`}
-            >
-              <div className="flex items-center gap-2 mb-3">
+            <div className="rounded-lg p-4 border animate-fade-in bg-muted/20">
+              <div className="flex items-center gap-2">
                 <Activity className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm font-medium text-muted-foreground">
-                  {isStreaming ? "Thinking..." : "Processus de réflexion"}
+                  Thinking...
                 </span>
-                {isStreaming && (
-                  <div className="flex space-x-1 ml-2">
-                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce"></div>
-                  </div>
-                )}
-              </div>
-              <div className="space-y-4">
-                {events
-                  .filter(
-                    (event) =>
-                      event.type === "connection" || event.type === "message"
-                  )
-                  .map((event, index) => (
-                    <div key={event.id} className="animate-fade-in">
-                      {event.type === "connection" ? (
-                        <div className="flex items-center gap-3">
-                          <div className="flex-shrink-0">
-                            {getEventIcon(event.type)}
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            {event.display}
-                          </div>
-                          <div className="text-xs text-muted-foreground ml-auto">
-                            {new Date(event.timestamp).toLocaleTimeString()}
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0">
-                              {getEventIcon(event.type)}
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Badge
-                                variant={getEventBadgeVariant(event.type)}
-                                className="text-xs"
-                              >
-                                {event.type}
-                              </Badge>
-                              <span className="text-xs text-muted-foreground">
-                                {new Date(event.timestamp).toLocaleTimeString()}
-                              </span>
-                            </div>
-                          </div>
-                          {event.full_content && event.data.role !== "user" && (
-                            <div className="ml-6 p-3 bg-background rounded-lg border-l-2 border-primary">
-                              <div className="text-sm whitespace-pre-wrap">
-                                {event.full_content}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                <div className="flex space-x-1 ml-2">
+                  <div className="h-2 w-2 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                  <div className="h-2 w-2 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                  <div className="h-2 w-2 bg-primary rounded-full animate-bounce"></div>
+                </div>
               </div>
             </div>
           )}
