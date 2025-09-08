@@ -1,4 +1,5 @@
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { StreamEvent } from "@/services/apiStreaming";
 import { Activity, Bot, User } from "lucide-react";
