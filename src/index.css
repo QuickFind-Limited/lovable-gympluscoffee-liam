@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 24 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 220 13% 91%;
+    --primary-foreground: 222.2 84% 4.9%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -31,7 +31,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 24 100% 50%;
+    --ring: 220 13% 91%;
 
     --radius: 0.75rem;
 
@@ -55,8 +55,8 @@
     --popover: 0 0% 19%; /* #303030 */
     --popover-foreground: 0 0% 95%;
 
-    --primary: 24 100% 50%;
-    --primary-foreground: 0 0% 9%;
+    --primary: 0 0% 25%;
+    --primary-foreground: 0 0% 95%;
 
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 95%;
@@ -72,7 +72,7 @@
 
     --border: 0 0% 15%;
     --input: 0 0% 19%; /* #303030 */
-    --ring: 24 100% 50%;
+    --ring: 220 13% 91%;
     
     --sidebar-background: 0 0% 9%; /* #171717 */
     --sidebar-foreground: 0 0% 95%;
@@ -117,7 +117,7 @@
   
   .form-input {
     @apply w-full h-12 px-4 border rounded-2xl bg-white/70 backdrop-blur-sm transition-all duration-300 
-    outline-none border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/30
+    outline-none border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/30
     text-left;
   }
   
@@ -135,12 +135,12 @@
   }
   
   .auth-tab.active {
-    @apply text-brand-500 dark:text-brand-400;
+    @apply text-primary dark:text-primary;
   }
   
   .auth-tab.active::after {
     content: "";
-    @apply absolute bottom-0 left-0 w-full h-0.5 bg-brand-500 dark:bg-brand-400 transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary dark:bg-primary transition-all duration-300;
   }
   
   .auth-tab:hover:not(.active) {
@@ -149,7 +149,7 @@
   
   .auth-button {
     @apply w-full py-3.5 px-4 flex items-center justify-center rounded-2xl font-medium transition-all duration-300 
-    bg-brand-500 text-white hover:bg-brand-600 focus:ring-4 focus:ring-brand-500/30 transform hover:-translate-y-0.5 shadow-lg;
+    bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-4 focus:ring-primary/30 transform hover:-translate-y-0.5 shadow-lg;
   }
 }
 

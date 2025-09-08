@@ -152,7 +152,7 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                 {message.role === "user" ? (
                   <div className="flex items-start gap-3 justify-end">
                     <div className="flex-1 min-w-0 max-w-[85%]">
-                      <div className="bg-primary text-primary-foreground rounded-2xl p-4 ml-auto shadow-sm">
+                      <div className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-2xl p-4 ml-auto shadow-sm">
                         <div className="text-sm leading-relaxed">
                           {message.content}
                         </div>
