@@ -16,6 +16,22 @@ export interface StreamEventData {
   error?: string;
   session_id?: string;
   response?: string;
+  // Fichiers et pièces jointes renvoyés dans l'événement "response"
+  attachments?: Array<{
+    path: string;
+    absolute_path?: string;
+    size?: number;
+    modified?: string;
+    is_new?: boolean;
+    is_updated?: boolean;
+  }>;
+  new_files?: string[];
+  updated_files?: string[];
+  file_changes_summary?: {
+    total_files?: number;
+    new_count?: number;
+    updated_count?: number;
+  };
   [key: string]: unknown;
 }
 
@@ -37,7 +53,7 @@ export interface StreamingOptions {
 
 export class APIStreamingService {
   private readonly baseUrl =
-    "https://api.gympluscoffee.source.shop/api/v1/query/stream";
+    "http://localhost:8000/api/v1/query/stream";
   private currentController: AbortController | null = null;
   private currentSessionId: string | null = null;
 
