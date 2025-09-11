@@ -9,7 +9,7 @@ export interface StreamEventData {
   status?: string;
   client_id?: string;
   type?: string;
-  details?: Record<string, unknown>;
+  details?: string | Record<string, unknown>;
   display?: string;
   full_content?: string;
   user_message?: string;
@@ -124,14 +124,52 @@ export class APIStreamingService {
 
                 const eventData = JSON.parse(dataContent);
 
+                // Ne pas afficher/propager les événements de type user_message
+                // Ces événements représentent simplement l'entrée utilisateur et ne doivent pas apparaître dans le log UI
+                if (
+                  (typeof eventData?.type === "string" && (eventData.type === "user_message" || eventData.type === "completed")) ||
+                  (typeof eventData?.user_message === "string" && eventData.user_message.length > 0)
+                ) {
+                  continue;
+                }
+
+                // Ignorer les assistant_message sans texte (details.has_text === false)
+                if (
+                  typeof eventData?.type === "string" &&
+                  eventData.type === "assistant_message"
+                ) {
+                  const d: unknown = eventData.details as unknown;
+                  if (
+                    d &&
+                    typeof d === "object" &&
+                    (d as Record<string, unknown>).hasOwnProperty("has_text") &&
+                    (d as Record<string, unknown>)["has_text"] === false
+                  ) {
+                    continue;
+                  }
+                }
+
+                // Préparer l'affichage avec normalisation éventuelle
+                let computedDisplay = eventData.display || this.formatEventDisplay(eventData);
+                // Remplacement spécifique pour les événements tool_use
+                if (
+                  typeof eventData?.type === "string" &&
+                  eventData.type === "tool_use" &&
+                  typeof computedDisplay === "string"
+                ) {
+                  computedDisplay = computedDisplay.replace(
+                    /mcp__netsuite_mcp__/g,
+                    "Request NetSuite: "
+                  );
+                }
+
                 const streamEvent: StreamEvent = {
                   id:
                     Date.now().toString() +
                     Math.random().toString(36).substr(2, 9),
                   type: this.determineEventType(eventData),
                   timestamp: new Date().toISOString(),
-                  display:
-                    eventData.display || this.formatEventDisplay(eventData),
+                  display: computedDisplay,
                   data: eventData,
                   full_content: eventData.full_content,
                 };

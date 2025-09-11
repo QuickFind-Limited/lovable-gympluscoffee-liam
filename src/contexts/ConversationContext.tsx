@@ -59,9 +59,8 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({
     };
 
     setMessages((prev) => [...prev, userMsg]);
-    // Ne pas réinitialiser les événements de streaming, juste les vider pour la nouvelle réponse
-    setStreamingEvents([]);
-    setFinalResponse("");
+    // Conserver les événements et fichiers précédents; ne pas vider
+    // Garder également la dernière finalResponse pour référence
   };
 
   const addAssistantMessage = (content: string) => {
