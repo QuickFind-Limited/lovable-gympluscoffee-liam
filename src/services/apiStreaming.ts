@@ -52,8 +52,9 @@ export interface StreamingOptions {
 }
 
 export class APIStreamingService {
-  private readonly baseUrl =
-    "http://localhost:8000/api/v1/query/stream";
+  private readonly baseUrl = `${
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1"
+  }/query/stream`;
   private currentController: AbortController | null = null;
   private currentSessionId: string | null = null;
 
