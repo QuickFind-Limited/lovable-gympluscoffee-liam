@@ -102,6 +102,9 @@ const Dashboard = ({
               prompt: initialMessage,
               model: "claude-sonnet-4-20250514",
               max_turns: 30,
+              ...(conversation.systemPrompt?.trim()
+                ? { system_prompt: conversation.systemPrompt.trim() }
+                : {}),
             },
             (event: StreamEvent) => {
               conversation.addStreamingEvent(event);

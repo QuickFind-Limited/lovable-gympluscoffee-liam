@@ -14,12 +14,14 @@ interface ConversationContextType {
   isStreaming: boolean;
   finalResponse: string;
   sessionId: string | null;
+  systemPrompt: string;
   addUserMessage: (userMessage: string) => void;
   addAssistantMessage: (content: string) => void;
   addStreamingEvent: (event: StreamEvent) => void;
   setIsStreaming: (streaming: boolean) => void;
   setFinalResponse: (response: string) => void;
   setSessionId: (sessionId: string | null) => void;
+  setSystemPrompt: (prompt: string) => void;
   clearConversation: () => void;
 }
 
@@ -49,6 +51,7 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({
   const [isStreaming, setIsStreaming] = useState(false);
   const [finalResponse, setFinalResponse] = useState("");
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [systemPrompt, setSystemPrompt] = useState<string>("");
 
   const addUserMessage = (userMessage: string) => {
     const userMsg: ConversationMessage = {
@@ -92,12 +95,14 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({
     isStreaming,
     finalResponse,
     sessionId,
+    systemPrompt,
     addUserMessage,
     addAssistantMessage,
     addStreamingEvent,
     setIsStreaming,
     setFinalResponse,
     setSessionId,
+    setSystemPrompt,
     clearConversation,
   };
 

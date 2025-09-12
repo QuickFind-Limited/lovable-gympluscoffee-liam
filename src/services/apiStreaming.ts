@@ -49,6 +49,8 @@ export interface StreamingOptions {
   model: string;
   max_turns: number;
   session_id?: string;
+  // Optional system prompt to guide the assistant behavior
+  system_prompt?: string;
 }
 
 export class APIStreamingService {
