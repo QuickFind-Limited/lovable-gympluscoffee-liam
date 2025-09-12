@@ -416,9 +416,6 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                                   {event.type === "message" &&
                                     event.full_content && (
                                       <div className="ml-6 mt-2 p-3 bg-background rounded-lg border-l-2 border-primary">
-                                        <div className="text-sm text-muted-foreground mb-1">
-                                          Content
-                                        </div>
                                         <div className="text-sm">
                                           <MarkdownRenderer
                                             content={event.full_content || ""}
@@ -927,9 +924,6 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                               )}
                             {event.type === "message" && event.full_content && (
                               <div className="ml-6 mt-2 p-3 bg-background rounded-lg border-l-2 border-primary">
-                                <div className="text-sm text-muted-foreground mb-1">
-                                  Content
-                                </div>
                                 <div className="text-sm">
                                   <MarkdownRenderer
                                     content={event.full_content || ""}

@@ -14,6 +14,44 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
         remarkPlugins={[remarkGfm]}
         components={{
           // Personnaliser les composants pour s'adapter au design
+          table: ({ children }) => (
+            <div className="my-2 w-full overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                {children}
+              </table>
+            </div>
+          ),
+          thead: ({ children }) => (
+            <thead className="bg-muted/60">
+              {children}
+            </thead>
+          ),
+          tbody: ({ children }) => (
+            <tbody className="divide-y divide-border">
+              {children}
+            </tbody>
+          ),
+          tr: ({ children }) => (
+            <tr className="hover:bg-muted/40 transition-colors">
+              {children}
+            </tr>
+          ),
+          th: ({ children, ...props }) => (
+            <th
+              style={(props as any).style}
+              className="text-left font-semibold text-foreground px-3 py-2 border-b border-border align-middle whitespace-nowrap"
+            >
+              {children}
+            </th>
+          ),
+          td: ({ children, ...props }) => (
+            <td
+              style={(props as any).style}
+              className="text-foreground px-3 py-2 align-top border-b border-border"
+            >
+              {children}
+            </td>
+          ),
           p: ({ children }) => (
             <p className="mb-2 last:mb-0 text-sm">{children}</p>
           ),

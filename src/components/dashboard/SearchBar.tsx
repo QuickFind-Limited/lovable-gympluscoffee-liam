@@ -192,24 +192,24 @@ const SearchBar: React.FC<SearchBarProps> = ({
           className="text-sm text-gray-600 dark:text-gray-300 underline decoration-dotted hover:decoration-solid"
           disabled={isProcessing}
         >
-          {isAdvancedOpen ? "Masquer les options avancées" : "Options avancées"}
+          {isAdvancedOpen ? "Hide advanced options" : "Advanced options"}
         </CollapsibleTrigger>
         <CollapsibleContent className="mt-2">
           <div className="rounded-xl border-2 border-gray-200 dark:border-gray-700 p-3 bg-white dark:bg-[#303030] shadow-sm">
             <Label htmlFor="system-prompt" className="text-gray-700 dark:text-gray-200">
-              System Prompt (optionnel)
+              System Prompt (optional)
             </Label>
             <Input
               id="system-prompt"
-              placeholder="Ajouter un system prompt pour guider l'assistant"
+              placeholder="Add a system prompt to guide the assistant"
               value={conversation.systemPrompt}
               onChange={(e) => conversation.setSystemPrompt(e.target.value)}
               disabled={isProcessing}
               className="mt-2"
             />
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-              Si laissé vide, le comportement reste inchangé. Si rempli, la clé
-              "system_prompt" est envoyée dans le corps de la requête.
+              If left empty, behavior remains unchanged. If filled, the
+              "system_prompt" key is sent in the request body.
             </p>
           </div>
         </CollapsibleContent>
