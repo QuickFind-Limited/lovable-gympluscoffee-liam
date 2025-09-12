@@ -2,7 +2,7 @@
  * API Streaming Service - Gestion des conversations en streaming
  * 
  * Ce service gère la connexion à l'API de streaming pour les conversations.
- * Il envoie les requêtes au serveur et traite les événements SSE en temps réel.
+ * Il envoie les requêtes au serveur et traite les événements SSE en temps réel..
  */
 
 export interface StreamEventData {
