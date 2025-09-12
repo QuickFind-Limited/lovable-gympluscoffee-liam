@@ -329,22 +329,10 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                       <div className="space-y-4">
                         {currentTurnEvents
                           .filter((e) => {
-                            const isAssistantNoText =
-                              e.type === "log" &&
-                              e.data?.type === "assistant_message" &&
-                              e.data?.details &&
-                              typeof e.data.details === "object" &&
-                              (e.data.details as any).has_text === false;
                             const passesBaseFilter =
-                              e.type === "connection" ||
-                              (e.type === "log" &&
-                                e.data?.type !== "user_message" &&
-                                e.data?.type !== "completed" &&
-                                !e.data?.user_message &&
-                                !isAssistantNoText) ||
-                              (e.type === "message" &&
-                                e.data?.type === "assistant_message" &&
-                                !!e.full_content);
+                              e.type === "message" &&
+                              e.data?.type === "assistant_message" &&
+                              !!e.full_content;
 
                             if (!passesBaseFilter) return false;
                             if (
@@ -821,23 +809,10 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
           {/* Étapes de progression actuelles */}
           {false &&
             events.filter((e) => {
-              const isAssistantNoText =
-                e.type === "log" &&
-                e.data?.type === "assistant_message" &&
-                e.data?.details &&
-                typeof e.data.details === "object" &&
-                (e.data.details as any).has_text === false;
-
               const passesBaseFilter =
-                e.type === "connection" ||
-                (e.type === "log" &&
-                  e.data?.type !== "user_message" &&
-                  e.data?.type !== "completed" &&
-                  !e.data?.user_message &&
-                  !isAssistantNoText) ||
-                (e.type === "message" &&
-                  e.data?.type === "assistant_message" &&
-                  !!e.full_content);
+                e.type === "message" &&
+                e.data?.type === "assistant_message" &&
+                !!e.full_content;
 
               if (!passesBaseFilter) return false;
 
@@ -869,23 +844,10 @@ const StreamingConversation: React.FC<StreamingConversationProps> = ({
                 <div className="space-y-4">
                   {events
                     .filter((event) => {
-                      const isAssistantNoText =
-                        event.type === "log" &&
-                        event.data?.type === "assistant_message" &&
-                        event.data?.details &&
-                        typeof event.data.details === "object" &&
-                        (event.data.details as any).has_text === false;
-
                       const passesBaseFilter =
-                        event.type === "connection" ||
-                        (event.type === "log" &&
-                          event.data?.type !== "user_message" &&
-                          event.data?.type !== "completed" &&
-                          !event.data?.user_message &&
-                          !isAssistantNoText) ||
-                        (event.type === "message" &&
-                          event.data?.type === "assistant_message" &&
-                          !!event.full_content);
+                        event.type === "message" &&
+                        event.data?.type === "assistant_message" &&
+                        !!event.full_content;
 
                       if (!passesBaseFilter) return false;
 
