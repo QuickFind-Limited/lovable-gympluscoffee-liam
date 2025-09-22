@@ -5,6 +5,10 @@ import type { Database } from './types';
 const SUPABASE_URL = "https://aeyjvowpsfsjugohujgi.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFleWp2b3dwc2ZzanVnb2h1amdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg1NDk5NjQsImV4cCI6MjA3NDEyNTk2NH0.T1QH20gkCCEM7MIWY_eHLH0ybflUObt14nHNxAo1Pq0";
 
+// Export constants for use in other parts of the application
+export const supabaseUrl = SUPABASE_URL;
+export const supabaseAnonKey = SUPABASE_PUBLISHABLE_KEY;
+
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 

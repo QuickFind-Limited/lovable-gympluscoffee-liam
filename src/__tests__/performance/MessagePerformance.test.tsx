@@ -405,11 +405,14 @@ describe('Message Flow Performance Tests', () => {
     it('provides performance metrics for monitoring', () => {
       const performanceObserver = vi.fn();
       
-      // Mock Performance Observer
-      global.PerformanceObserver = vi.fn().mockImplementation((callback) => ({
+      // Mock Performance Observer with proper constructor and static property
+      const MockPerformanceObserver = vi.fn().mockImplementation((callback) => ({
         observe: vi.fn(),
         disconnect: vi.fn(),
-      }));
+      })) as any;
+      
+      MockPerformanceObserver.supportedEntryTypes = ['measure', 'navigation'];
+      global.PerformanceObserver = MockPerformanceObserver;
       
       render(<ChatInterface onSubmit={vi.fn()} />);
       

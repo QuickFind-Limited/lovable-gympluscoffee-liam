@@ -45,98 +45,11 @@ const fetchProducts = async ({
   sortBy = 'name',
   pageSize = 20
 }: UseInfiniteProductsParams & { pageParam?: number }): Promise<ProductsPage> => {
-  let query = supabase
-    .from('products')
-    .select(`
-      id,
-      name,
-      vendor,
-      price_min,
-      price_max,
-      product_type,
-      body_html,
-      handle,
-      created_at,
-      image,
-      product_images (
-        src,
-        alt,
-        position
-      )
-    `, { count: 'exact' })
-    .range(pageParam * pageSize, (pageParam + 1) * pageSize - 1);
-
-  // Apply filters
-  if (searchQuery) {
-    query = query.ilike('name', `%${searchQuery}%`);
-  }
-
-  if (vendor) {
-    query = query.eq('vendor', vendor);
-  }
-
-  if (priceMin > 0) {
-    query = query.gte('price_min', priceMin);
-  }
-
-  if (priceMax < 1000000) {
-    query = query.lte('price_max', priceMax);
-  }
-
-  if (productType) {
-    query = query.eq('product_type', productType);
-  }
-
-  // Apply sorting
-  switch (sortBy) {
-    case 'name':
-      query = query.order('name', { ascending: true });
-      break;
-    case 'price':
-      query = query.order('price_min', { ascending: true, nullsFirst: false });
-      break;
-    case 'vendor':
-      query = query.order('vendor', { ascending: true });
-      break;
-    case 'created_at':
-      query = query.order('created_at', { ascending: false });
-      break;
-  }
-
-  const { data, error, count } = await query;
-
-  if (error) {
-    throw new Error(`Failed to fetch products: ${error.message}`);
-  }
-
-  // Transform the data - with the new query structure, each product already has its images array
-  const products: Product[] = (data || []).map((item: any) => ({
-    id: item.id,
-    name: item.name,
-    vendor: item.vendor,
-    price_min: item.price_min,
-    price_max: item.price_max,
-    product_type: item.product_type,
-    body_html: item.body_html,
-    handle: item.handle,
-    created_at: item.created_at,
-    image: item.image,
-    product_images: item.product_images || []
-  }));
-  
-  // Sort images by position for each product
-  products.forEach(product => {
-    if (product.product_images && product.product_images.length > 0) {
-      product.product_images.sort((a, b) => a.position - b.position);
-    }
-  });
-
-  const hasMore = (pageParam + 1) * pageSize < (count || 0);
-
+  // TODO: Enable when products table is created - returning mock data for now
   return {
-    products,
-    nextPage: hasMore ? pageParam + 1 : null,
-    totalCount: count || 0
+    products: [],
+    nextPage: null,
+    totalCount: 0
   };
 };
 

@@ -344,7 +344,7 @@ describe('Message Flow Edge Cases', () => {
       
       localStorage.setItem('chat-history', JSON.stringify(largeConversation));
       
-      const memoryBefore = performance.memory?.usedJSHeapSize || 0;
+      const memoryBefore = (performance as any).memory?.usedJSHeapSize || 0;
       
       render(<ChatInterface onSubmit={vi.fn()} />);
       
@@ -352,7 +352,7 @@ describe('Message Flow Edge Cases', () => {
         expect(screen.getByText('Large message 0')).toBeInTheDocument();
       });
       
-      const memoryAfter = performance.memory?.usedJSHeapSize || 0;
+      const memoryAfter = (performance as any).memory?.usedJSHeapSize || 0;
       const memoryIncrease = memoryAfter - memoryBefore;
       
       // Should not cause excessive memory usage (< 100MB increase)

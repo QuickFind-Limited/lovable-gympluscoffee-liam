@@ -86,4 +86,4 @@ export const mockAuthUser = {
 /**
  * Helper function to wait for async operations
  */
-export const waitFor = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
