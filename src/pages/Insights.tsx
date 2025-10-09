@@ -1,7 +1,6 @@
 import React from 'react';
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from '@/components/dashboard/AppSidebar';
-import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import OverviewTab from '@/components/dashboard/analytics/OverviewTab';
@@ -11,7 +10,9 @@ import InventoryInsightsTab from '@/components/dashboard/analytics/InventoryInsi
 import ProfitabilityAnalysisTab from '@/components/dashboard/analytics/ProfitabilityAnalysisTab';
 
 const Insights = () => {
-  const { signOut } = useAuth();
+  const signOut = async () => {
+    // Logout functionality removed
+  };
 
   // Sample data for analytics components
   const monthlySpendData = [
