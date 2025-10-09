@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ClipboardList, FileText, Database, Clock, RefreshCw, Check, Edit, Search, CreditCard, Settings, Building2, BarChart3, Package, MessageSquare, Archive } from 'lucide-react';
+import { ClipboardList, FileText, Database, Clock, RefreshCw, Check, Edit, Search, CreditCard, Settings, Building2, BarChart3, LogOut, Package, MessageSquare, Archive } from 'lucide-react';
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarGroup, SidebarGroupLabel, SidebarGroupContent, SidebarSeparator, SidebarFooter } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -9,10 +9,11 @@ import SearchDialog from './SearchDialog';
 import PaymentDialog from '../PaymentDialog';
 
 interface AppSidebarProps {
+  onLogout: () => void;
   onNewQuery?: () => void; // New callback for resetting dashboard state
 }
 
-const AppSidebar = ({ onNewQuery }: AppSidebarProps) => {
+const AppSidebar = ({ onLogout, onNewQuery }: AppSidebarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isAutoSyncing, setIsAutoSyncing] = useState(false);
@@ -315,6 +316,12 @@ const AppSidebar = ({ onNewQuery }: AppSidebarProps) => {
               <SidebarMenuButton onClick={handleSettingsClick} className="w-full justify-start text-base font-medium px-px py-0 my-0 mx-0">
                 <Settings className="h-5 w-5" />
                 <span>Settings</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton onClick={onLogout} className="w-full justify-start text-base font-medium px-px py-0 my-0 mx-0 text-red-600 hover:text-red-700">
+                <LogOut className="h-5 w-5" />
+                <span>Sign Out</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>

@@ -228,7 +228,7 @@ Best regards,
     return (
       <SidebarProvider>
         <div className="min-h-screen flex w-full bg-gray-50">
-          <AppSidebar />
+          <AppSidebar onLogout={() => {}} />
           <SidebarInset>
             <Header />
             <div className="flex h-[calc(100vh-4rem)]">
@@ -367,7 +367,7 @@ Best regards,
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-gray-50">
-        <AppSidebar />
+        <AppSidebar onLogout={() => {}} />
         <SidebarInset>
           <Header />
           <div className="flex-1 space-y-6 p-6">

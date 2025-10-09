@@ -10,6 +10,9 @@ import InventoryInsightsTab from '@/components/dashboard/analytics/InventoryInsi
 import ProfitabilityAnalysisTab from '@/components/dashboard/analytics/ProfitabilityAnalysisTab';
 
 const Insights = () => {
+  const signOut = async () => {
+    // Logout functionality removed
+  };
 
   // Sample data for analytics components
   const monthlySpendData = [
@@ -75,7 +78,7 @@ const Insights = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-background">
-        <AppSidebar />
+        <AppSidebar onLogout={signOut} />
         <main className="flex-1 p-6">
           <div className="max-w-7xl mx-auto">
             <div className="mb-6">

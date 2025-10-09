@@ -752,7 +752,7 @@ const OrderSummary = () => {
     return (
       <SidebarProvider>
         <div className="min-h-screen flex w-full bg-gray-50">
-          <AppSidebar />
+          <AppSidebar onLogout={handleLogout} />
           <SidebarInset>
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
               <div className="text-center">
@@ -778,7 +778,7 @@ const OrderSummary = () => {
     return (
       <SidebarProvider>
         <div className="min-h-screen flex w-full bg-gray-50">
-          <AppSidebar />
+          <AppSidebar onLogout={handleLogout} />
           <SidebarInset>
             <div className="min-h-screen bg-gray-50">
               <header className="sticky top-0 z-20 bg-white border-b border-gray-200">
@@ -945,7 +945,7 @@ const OrderSummary = () => {
     return (
       <SidebarProvider>
         <div className="min-h-screen flex w-full bg-gray-50">
-          <AppSidebar />
+          <AppSidebar onLogout={handleLogout} />
           <SidebarInset>
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
               <div className="text-center">
@@ -962,7 +962,7 @@ const OrderSummary = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
-        <AppSidebar />
+        <AppSidebar onLogout={handleLogout} />
         <SidebarInset>
           <div className="min-h-screen bg-gray-50 pb-20">
             <header className="sticky top-0 z-20 bg-white border-b border-gray-200">

@@ -333,7 +333,7 @@ const OrderConfirmation = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-gray-100 dark:bg-black">
-        <AppSidebar />
+        <AppSidebar onLogout={handleLogout} />
         <SidebarInset>
           {/* Custom Header */}
           <header className="flex h-16 shrink-0 items-center gap-2 border-b border-border bg-background px-4">

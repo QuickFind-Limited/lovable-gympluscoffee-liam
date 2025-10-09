@@ -211,7 +211,7 @@ const Storage = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-white">
-        <AppSidebar />
+        <AppSidebar onLogout={handleLogout} />
         <SidebarInset>
           <Header />
           
