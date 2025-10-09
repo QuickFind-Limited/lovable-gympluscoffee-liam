@@ -15,11 +15,13 @@ import {
   navigateToConversation,
   navigateToOrderSummary,
 } from "@/utils/navigationUtils";
+import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import DataSources from "./pages/DataSources";
 import Insights from "./pages/Insights";
 import Suppliers from "./pages/Suppliers";
 
+import AuthConfirm from "./pages/AuthConfirm";
 import Forecasts from "./pages/Forecasts";
 import NotFound from "./pages/NotFound";
 import OrderConfirmation from "./pages/OrderConfirmation";
@@ -29,9 +31,30 @@ import ProductDetails from "./pages/ProductDetails";
 import ProductsCatalog from "./pages/ProductsCatalog";
 import PurchaseOrderEditor from "./pages/PurchaseOrderEditor";
 import Storage from "./pages/Storage";
+import VerifyEmail from "./pages/VerifyEmail";
+
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { ConversationProvider } from "./contexts/ConversationContext";
 import { FinancialDataProvider } from "./contexts/FinancialDataContext";
 import { UserProvider } from "./contexts/UserContext";
+
+const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-2 border-black border-t-transparent"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/auth" replace />;
+  }
+
+  return children;
+};
 
 const DashboardWithNavigation = () => {
   const navigate = useNavigate();
@@ -56,28 +79,117 @@ const queryClient = new QueryClient();
 
 const RoutesWithProviders = () => {
   return (
-    <UserProvider>
-      <FinancialDataProvider>
-        <ConversationProvider>
-          <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            <Route path="/dashboard" element={<DashboardWithNavigation />} />
-            <Route path="/data-sources" element={<DataSources />} />
-            <Route path="/suppliers" element={<Suppliers />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/order-summary" element={<OrderSummary />} />
-            <Route path="/order-confirmation" element={<OrderConfirmation />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/purchase-order-editor" element={<PurchaseOrderEditor />} />
-            <Route path="/products-catalog" element={<ProductsCatalog />} />
-            <Route path="/forecasts" element={<Forecasts />} />
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/storage" element={<Storage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </ConversationProvider>
-      </FinancialDataProvider>
-    </UserProvider>
+    <AuthProvider>
+      <UserProvider>
+        <FinancialDataProvider>
+          <ConversationProvider>
+            <Routes>
+              <Route path="/" element={<Navigate to="/auth" replace />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/auth/confirm" element={<AuthConfirm />} />
+              <Route path="/verify-email" element={<VerifyEmail />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <DashboardWithNavigation />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/data-sources"
+                element={
+                  <ProtectedRoute>
+                    <DataSources />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/suppliers"
+                element={
+                  <ProtectedRoute>
+                    <Suppliers />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/product/:id"
+                element={
+                  <ProtectedRoute>
+                    <ProductDetails />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/order-summary"
+                element={
+                  <ProtectedRoute>
+                    <OrderSummary />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/order-confirmation"
+                element={
+                  <ProtectedRoute>
+                    <OrderConfirmation />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/orders"
+                element={
+                  <ProtectedRoute>
+                    <Orders />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/purchase-order-editor"
+                element={
+                  <ProtectedRoute>
+                    <PurchaseOrderEditor />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/products-catalog"
+                element={
+                  <ProtectedRoute>
+                    <ProductsCatalog />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/forecasts"
+                element={
+                  <ProtectedRoute>
+                    <Forecasts />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/insights"
+                element={
+                  <ProtectedRoute>
+                    <Insights />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/storage"
+                element={
+                  <ProtectedRoute>
+                    <Storage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </ConversationProvider>
+        </FinancialDataProvider>
+      </UserProvider>
+    </AuthProvider>
   );
 };
 

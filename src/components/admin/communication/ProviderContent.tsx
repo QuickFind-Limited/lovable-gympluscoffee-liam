@@ -5,6 +5,8 @@ import { Plus } from 'lucide-react';
 import { EmailAccount, CommunicationProvider } from './types';
 import EmailAccountList from './EmailAccountList';
 import { getProviderLogo } from './StatusIndicators';
+import GoogleOAuthFlow from '@/components/auth/GoogleOAuthFlow';
+import MicrosoftOAuthFlow from '@/components/auth/MicrosoftOAuthFlow';
 
 interface ProviderContentProps {
   provider: CommunicationProvider;
@@ -119,6 +121,22 @@ const ProviderContent: React.FC<ProviderContentProps> = ({
         </div>
       )}
 
+      {/* OAuth Flows */}
+      {provider === 'gmail' && (
+        <GoogleOAuthFlow
+          isOpen={showOAuthFlow}
+          onClose={() => setShowOAuthFlow(false)}
+          onSuccess={handleOAuthSuccess}
+        />
+      )}
+      
+      {provider === 'outlook' && (
+        <MicrosoftOAuthFlow
+          isOpen={showOAuthFlow}
+          onClose={() => setShowOAuthFlow(false)}
+          onSuccess={handleOAuthSuccess}
+        />
+      )}
     </div>
   );
 };

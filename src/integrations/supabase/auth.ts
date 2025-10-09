@@ -1,46 +1,14 @@
 import { supabase } from './client'
+import type { 
+  AuthError, 
+  AuthResponse, 
+  SignUpData, 
+  SignInData, 
+  ResetPasswordData,
+  UpdatePasswordData,
+  UserProfile 
+} from './types'
 import { Session, User } from '@supabase/supabase-js'
-
-// Auth types
-interface AuthError {
-  message: string;
-  status?: number;
-  code?: string;
-}
-
-interface AuthResponse<T = any> {
-  data?: T;
-  error?: AuthError;
-}
-
-interface SignUpData {
-  email: string;
-  password: string;
-  options?: {
-    data?: Record<string, any>;
-  };
-}
-
-interface SignInData {
-  email: string;
-  password: string;
-}
-
-interface ResetPasswordData {
-  email: string;
-}
-
-interface UpdatePasswordData {
-  password: string;
-}
-
-interface UserProfile {
-  id: string;
-  email?: string;
-  created_at?: string;
-  updated_at?: string;
-  [key: string]: any;
-}
 
 // Auth helper functions with comprehensive error handling
 
@@ -251,23 +219,24 @@ export async function getUser(): Promise<AuthResponse<User | null>> {
 
 export async function getUserProfile(userId: string): Promise<AuthResponse<UserProfile | null>> {
   try {
-    // TODO: Enable when profiles table is created
-    // const { data, error } = await supabase
-    //   .from('profiles')
-    //   .select('*')
-    //   .eq('id', userId)
-    //   .single()
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', userId)
+      .single()
 
-    // Mock response for now
-    return {
-      data: {
-        id: userId,
-        email: '',
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-      error: null
+    if (error) {
+      return {
+        data: null,
+        error: {
+          message: error.message,
+          status: error.code === 'PGRST116' ? 404 : undefined,
+          code: error.code,
+        },
+      }
     }
+
+    return { data, error: null }
   } catch (error) {
     return {
       data: null,
