@@ -79,7 +79,7 @@ const AIInsights = () => {
   }];
   return <SidebarProvider>
       <div className="min-h-screen flex w-full bg-background">
-        <AppSidebar onLogout={handleLogout} />
+        <AppSidebar />
         
         <SidebarInset className="flex-1">
           <Header />

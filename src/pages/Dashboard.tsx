@@ -157,26 +157,6 @@ const Dashboard = ({
       setShowOrderGeneration(false);
     }
   }, [conversation.messages, conversation.streamingEvents]);
-  const handleLogout = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        toast({
-          title: "Error",
-          description: "Failed to sign out",
-          variant: "destructive",
-        });
-        return;
-      }
-      navigate("/auth");
-    } catch (err) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive",
-      });
-    }
-  };
   const handleSupplierClick = () => {
     navigate("/suppliers");
   };
@@ -341,7 +321,7 @@ const Dashboard = ({
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-gray-100 dark:bg-black">
-        <AppSidebar onLogout={handleLogout} onNewQuery={handleNewQuery} />
+        <AppSidebar onNewQuery={handleNewQuery} />
         <SidebarInset>
           <Header />
 

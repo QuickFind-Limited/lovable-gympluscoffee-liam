@@ -123,7 +123,7 @@ const Suppliers = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
-        <AppSidebar onLogout={handleLogout} />
+        <AppSidebar />
         <SidebarInset className="flex-1">
           <Header />
             <div className="p-6 space-y-6">

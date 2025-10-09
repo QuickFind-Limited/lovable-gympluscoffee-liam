@@ -449,7 +449,7 @@ const Orders = () => {
   }, 0), [orders]);
   return <SidebarProvider>
       <div className="min-h-screen flex w-full bg-gray-50">
-        <AppSidebar onLogout={handleLogout} />
+        <AppSidebar />
         <SidebarInset>
           <Header />
           <div className="flex-1 space-y-6 p-6">

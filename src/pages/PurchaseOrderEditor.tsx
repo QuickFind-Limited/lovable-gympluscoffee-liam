@@ -658,7 +658,7 @@ const PurchaseOrderEditor = () => {
   }
   return <SidebarProvider>
       <div className="min-h-screen flex w-full bg-background">
-        <AppSidebar onLogout={() => navigate('/auth')} />
+        <AppSidebar />
         <SidebarInset className="flex-1">
           <Header />
           <div className="flex h-full">

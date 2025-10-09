@@ -228,7 +228,7 @@ const Forecasts = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-gray-100 dark:bg-black">
-        <AppSidebar onLogout={handleLogout} />
+        <AppSidebar />
         <SidebarInset>
           <Header />
           
